@@ -109,22 +109,25 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
           className="logo-container relative flex items-center justify-center cursor-pointer w-full h-full"
         >
           {/* Tu Logo */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img 
-              src="/assets/logos/logo-main.png" 
-              alt="Juan German Zambrano Ortega Logo"
-              className="relative z-50 w-full h-full object-contain transition-all duration-300 hover:scale-105"
-              style={{ 
-                filter: 'drop-shadow(0 0 12px rgba(255, 59, 59, 0.6))',
-                opacity: 1
-              }}
-            />
-          </div>
+          <img 
+            src="/assets/logos/logo.png" 
+            alt="Juan German Zambrano Ortega Logo"
+            className="absolute inset-2 w-auto h-auto max-w-[80%] max-h-[80%] object-contain transition-all duration-300 hover:scale-105 mx-auto my-auto"
+            style={{ 
+              filter: 'drop-shadow(0 0 12px rgba(255, 59, 59, 0.6))',
+              opacity: 1,
+              zIndex: 50,
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%)'
+            }}
+          />
           
           {/* Decorative Circuit Ring */}
           <svg
             className="absolute inset-0 opacity-40 w-full h-full"
             viewBox="0 0 120 120"
+            style={{ zIndex: 1 }}
           >
             <defs>
               <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">

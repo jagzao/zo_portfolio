@@ -73,58 +73,8 @@ export function Home() {
             </p>
           </div>
           
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button 
-              asChild 
-              size="lg" 
-              className="bg-[#E53935] hover:bg-[#FF3B3B] text-white font-medium px-8 py-4 rounded-lg transition-all duration-300"
-            >
-              <Link to="/contact" className="flex items-center gap-2">
-                <Mail className="w-5 h-5" />
-                Contactar
-              </Link>
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={handleDownloadCV}
-              className="border-2 border-[#E53935] text-[#E53935] hover:bg-[#FF3B3B]/10 font-medium px-8 py-4 rounded-lg transition-all duration-300"
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Descargar CV
-            </Button>
-          </div>
-          
         </div>
       </div>
-      
-      {/* Corner Menus */}
-      <Link to="/projects" className="fixed top-8 left-8 opacity-50 hover:opacity-100 text-white hover:text-[#FF3B3B] transition-all duration-300 z-50">
-        Proyectos destacados
-      </Link>
-      
-      <div className="fixed top-1/2 left-8 transform -translate-y-1/2 flex flex-col gap-2 z-50">
-        <a href="https://github.com/jagzaortega" target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 text-white hover:text-[#FF3B3B] transition-all duration-300">
-          GitHub
-        </a>
-        <a href="https://linkedin.com/in/juanzambrano" target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 text-white hover:text-[#FF3B3B] transition-all duration-300">
-          LinkedIn
-        </a>
-      </div>
-      
-      <Link to="/experience" className="fixed bottom-8 left-8 opacity-50 hover:opacity-100 text-white hover:text-[#FF3B3B] transition-all duration-300 z-50">
-        Experiencia
-      </Link>
-      
-      <Link to="/skills" className="fixed top-8 right-8 opacity-50 hover:opacity-100 text-white hover:text-[#FF3B3B] transition-all duration-300 z-50">
-        Skills
-      </Link>
-      
-      <Link to="/contact" className="fixed bottom-8 right-8 opacity-50 hover:opacity-100 text-white hover:text-[#FF3B3B] transition-all duration-300 z-50">
-        Contacto
-      </Link>
       
     </div>
   )

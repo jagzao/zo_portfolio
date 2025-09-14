@@ -1,0 +1,74 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+.output/
+.next/
+.nuxt/
+.vercel/
+.netlify/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Coverage reports
+coverage/
+*.lcov
+.nyc_output/
+
+# AI and sensitive data
+**/*key*
+**/*secret*
+**/*token*
+**/*password*
+**/*credential*
+**/*api-key*
+**/*openai*
+**/*claude*
+**/*anthropic*
+.env.ai
+.env.keys
+credentials.json
+secrets.json
+
+# Testing
+test-results/
+playwright-report/
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+
+# Cache directories
+.cache/
+.npm/
+.yarn/
+.pnpm-store/

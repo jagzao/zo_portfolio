@@ -39,10 +39,10 @@ export function animateCircuitTraces() {
   const reducedMotion = getReducedMotionPreference()
   if (reducedMotion) return
   
-  // Animate circuit traces (draw effect)
-  const traces = document.querySelectorAll('.trace')
+  // Animate regular circuit traces (subtle draw effect)
+  const regularTraces = document.querySelectorAll('.trace:not(.trace-glow)')
   
-  traces.forEach((trace, index) => {
+  regularTraces.forEach((trace, index) => {
     const pathLength = (trace as SVGPathElement).getTotalLength()
     
     gsap.set(trace, {
@@ -52,23 +52,54 @@ export function animateCircuitTraces() {
     
     gsap.to(trace, {
       strokeDashoffset: 0,
-      duration: 2.5 + Math.random() * 2,
-      delay: index * 0.05,
+      duration: 4 + Math.random() * 3,
+      delay: index * 0.1,
       ease: "none",
       repeat: -1,
-      repeatDelay: 3 + Math.random() * 4
+      repeatDelay: 8 + Math.random() * 6
     })
   })
   
-  // Animate circuit nodes (pulse effect)
+  // Animate glowing circuit traces (more prominent effect)
+  const glowTraces = document.querySelectorAll('.trace-glow')
+  
+  glowTraces.forEach((trace, index) => {
+    const pathLength = (trace as SVGPathElement).getTotalLength()
+    
+    gsap.set(trace, {
+      strokeDasharray: pathLength,
+      strokeDashoffset: pathLength
+    })
+    
+    gsap.to(trace, {
+      strokeDashoffset: 0,
+      duration: 2 + Math.random() * 1.5,
+      delay: index * 0.3,
+      ease: "none",
+      repeat: -1,
+      repeatDelay: 4 + Math.random() * 3
+    })
+    
+    // Add pulsing glow effect
+    gsap.to(trace, {
+      opacity: 0.4,
+      duration: 1.5 + Math.random() * 1,
+      ease: "sine.inOut",
+      repeat: -1,
+      yoyo: true,
+      delay: Math.random() * 2
+    })
+  })
+  
+  // Animate circuit nodes (subtle pulse effect)
   const nodes = document.querySelectorAll('.node')
   
   nodes.forEach((node, index) => {
     gsap.to(node, {
-      opacity: 0.2,
-      scale: 1.3,
-      duration: 1.2 + Math.random() * 0.8,
-      delay: index * 0.3,
+      opacity: 0.1,
+      scale: 1.2,
+      duration: 2 + Math.random() * 1.5,
+      delay: index * 0.5,
       ease: "sine.inOut",
       repeat: -1,
       yoyo: true

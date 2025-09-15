@@ -132,7 +132,7 @@ export function ProjectDetail() {
         
         {/* Project Image */}
         <div className="mb-12 reveal">
-          <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg flex items-center justify-center">
+          <div className="aspect-video bg-card border border-primary/20 rounded-lg flex items-center justify-center">
             <div className="text-8xl font-heading text-primary/30">
               {project.title.charAt(0)}
             </div>
@@ -201,7 +201,7 @@ export function ProjectDetail() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedProjects.map((relatedProject) => (
                 <Card key={relatedProject.id} className="project-card group">
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                  <div className="aspect-video bg-card border border-primary/20 flex items-center justify-center">
                     <div className="text-4xl font-heading text-primary/30">
                       {relatedProject.title.charAt(0)}
                     </div>

@@ -35,7 +35,15 @@ export class ElectricRayRenderer {
     this.renderer.setSize(rect.width, rect.height)
     this.renderer.setClearColor(0x000000, 0)
     
-    container.appendChild(this.renderer.domElement)
+    // Configure canvas to be behind logo
+    const canvas = this.renderer.domElement
+    canvas.style.position = 'absolute'
+    canvas.style.top = '0'
+    canvas.style.left = '0'
+    canvas.style.zIndex = '1'
+    canvas.style.pointerEvents = 'none'
+    
+    container.appendChild(canvas)
   }
   
   createLightningPath(start: THREE.Vector2, end: THREE.Vector2): THREE.Vector2[] {

@@ -3,43 +3,45 @@ import { Github, Linkedin, Mail, Phone } from 'lucide-react'
 import { menuHover } from '@/lib/gsap'
 import { getRayRenderer } from '@/lib/three'
 import { cn } from '@/lib/utils'
+import { useTranslation } from '@/hooks/useI18n'
 
 const menuItems = [
-  { id: 'projects', label: 'Proyectos', path: '/projects', position: 'corner-tl' },
-  { id: 'skills', label: 'Skills', path: '/skills', position: 'corner-tr' },
-  { id: 'experience', label: 'Experiencia', path: '/experience', position: 'corner-bl' },
-  { id: 'contact', label: 'Contacto', path: '/contact', position: 'corner-br' }
+  { id: 'projects', key: 'nav.projects', path: '/projects', position: 'corner-tl' },
+  { id: 'skills', key: 'nav.skills', path: '/skills', position: 'corner-tr' },
+  { id: 'experience', key: 'nav.experience', path: '/experience', position: 'corner-bl' },
+  { id: 'contact', key: 'nav.contact', path: '/contact', position: 'corner-br' }
 ]
 
 const socialLinks = [
   { 
     id: 'github', 
-    label: 'GitHub', 
+    key: 'social.github', 
     href: 'https://github.com/jagzao', 
     icon: Github 
   },
   { 
     id: 'linkedin', 
-    label: 'LinkedIn', 
-    href: 'https://linkedin.com/in/jagzao', 
+    key: 'social.linkedin', 
+    href: 'https://www.linkedin.com/in/jagzao/', 
     icon: Linkedin 
   },
   { 
     id: 'whatsapp', 
-    label: 'WhatsApp', 
-    href: 'https://wa.me/525549264189', 
+    key: 'social.phone', 
+    href: 'https://wa.me/5255492641895', 
     icon: Phone 
   },
   { 
     id: 'email', 
-    label: 'Email', 
-    href: 'mailto:juan@zambrano.dev', 
+    key: 'social.email', 
+    href: 'mailto:jagzao@gmail.com', 
     icon: Mail 
   }
 ]
 
 export function Navigation() {
   const location = useLocation()
+  const { t } = useTranslation()
   
   const handleMenuHover = (element: HTMLElement, isEntering: boolean, targetPosition?: string) => {
     menuHover(element, isEntering)
@@ -75,7 +77,7 @@ export function Navigation() {
           onBlur={(e) => handleMenuHover(e.currentTarget, false)}
         >
           <span className="relative">
-            {item.label}
+            {t(item.key)}
             <span className="menu-underline absolute bottom-0 left-0 h-0.5 w-full bg-primary scale-x-0 transition-transform" />
           </span>
         </Link>
@@ -91,10 +93,10 @@ export function Navigation() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-border/30 backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-primary/10"
+              className="p-2 rounded-lg border border-[#E53935] text-[#E53935] backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-[#FF3B3B]/10 hover:shadow-[0_0_12px_rgba(255,59,59,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0D]"
               onMouseEnter={(e) => handleMenuHover(e.currentTarget, true)}
               onMouseLeave={(e) => handleMenuHover(e.currentTarget, false)}
-              aria-label={social.label}
+              aria-label={t(social.key)}
             >
               <Icon className="w-5 h-5" />
             </a>

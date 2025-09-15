@@ -19,28 +19,38 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
   const { data: circuitSvg = '' } = useCircuitSvg()
   
   useLayoutEffect(() => {
+    console.log('🔧 BG useLayoutEffect - SVG Ref:', !!svgRef.current, 'ReducedMotion:', reducedMotion, 'CircuitSvg Length:', circuitSvg.length)
+    
     // Add circuit animation classes and trigger GSAP animations
     if (svgRef.current && !reducedMotion && circuitSvg) {
       const ctx = gsap.context(() => {
         // Add classes to SVG paths for GSAP targeting
         const paths = svgRef.current!.querySelectorAll('path')
+        console.log('🎯 Found paths for animation:', paths.length)
         paths.forEach((path, index) => {
           path.classList.add('trace')
           path.setAttribute('data-trace-id', index.toString())
           
-          // Add nodes at path endpoints (every 20th path to avoid overcrowding)
-          if (index % 20 === 0) {
+          // Only 5-10% of paths get the bright glow animation
+          const shouldGlow = Math.random() < 0.08 // 8% chance
+          if (shouldGlow) {
+            path.classList.add('trace-glow')
+            path.style.stroke = '#FF3B3B'
+            path.style.filter = 'drop-shadow(0 0 3px rgba(255, 59, 59, 0.6))'
+          }
+          
+          // Add nodes at path endpoints (every 30th path to avoid overcrowding)
+          if (index % 30 === 0) {
             const pathLength = path.getTotalLength()
             const endPoint = path.getPointAtLength(pathLength)
             
-            // Create node element with red glow
+            // Create node element with subtle red accent
             const node = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
             node.setAttribute('cx', endPoint.x.toString())
             node.setAttribute('cy', endPoint.y.toString())
-            node.setAttribute('r', '2')
-            node.setAttribute('fill', '#FF3B3B')
-            node.setAttribute('opacity', '0.4')
-            node.setAttribute('filter', 'drop-shadow(0 0 4px rgba(255, 59, 59, 0.6))')
+            node.setAttribute('r', '1.5')
+            node.setAttribute('fill', '#7A1D1D')
+            node.setAttribute('opacity', '0.3')
             node.classList.add('node')
             node.setAttribute('data-node-id', index.toString())
             
@@ -69,7 +79,9 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
       className="fixed inset-0 pointer-events-none overflow-hidden"
       style={{ 
         background: '#0B0B0D',
-        zIndex: -10
+        zIndex: 1,
+        width: '100vw',
+        height: '100vh'
       }}
     >
       {/* Single Background Layer */}
@@ -97,16 +109,24 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
       <div 
         className="absolute inset-0 w-full h-full"
         style={{
-          opacity: 0.3
+          opacity: 0.25,
+          minHeight: '100vh',
+          minWidth: '100vw',
+          mixBlendMode: 'screen'
         }}
       >
         <svg
           ref={svgRef}
-          className="w-full h-full object-cover"
+          className="w-full h-full"
           viewBox="0 0 1472 704"
-          preserveAspectRatio="xMidYMid slice"
+          preserveAspectRatio="none"
           style={{
-            filter: reducedMotion ? 'none' : 'drop-shadow(0 0 3px rgba(255, 59, 59, 0.4))'
+            filter: reducedMotion ? 'none' : 'drop-shadow(0 0 5px rgba(255, 59, 59, 0.6))',
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0
           }}
         >
           {/* Circuit paths with exact styling */}
@@ -114,9 +134,9 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
             className="circuit-traces"
             style={{
               stroke: '#7A1D1D',
-              strokeWidth: 1,
+              strokeWidth: 0.8,
               fill: 'none',
-              opacity: 0.4
+              opacity: 1
             }}
             dangerouslySetInnerHTML={{ __html: circuitSvg }}
           />
@@ -130,6 +150,16 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
           background: `
             radial-gradient(circle at 20% 30%, rgba(122, 29, 29, 0.03) 0%, transparent 40%),
             radial-gradient(circle at 80% 70%, rgba(122, 29, 29, 0.02) 0%, transparent 30%)
+          `
+        }}
+      />
+      
+      {/* Subtle vignette */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(ellipse at center, transparent 30%, rgba(11, 11, 13, 0.1) 70%, rgba(11, 11, 13, 0.3) 100%)
           `
         }}
       />

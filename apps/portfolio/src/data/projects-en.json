@@ -1,0 +1,93 @@
+[
+  {
+    "id": "project-1",
+    "slug": "ecommerce-platform",
+    "title": "E-commerce Platform",
+    "description": "Complete e-commerce platform with admin panel, payment gateway, and inventory management system.",
+    "cover": "/images/projects/ecommerce-cover.jpg",
+    "category": "Full Stack",
+    "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL", "Stripe", "Docker"],
+    "year": "2024",
+    "duration": "6 months",
+    "status": "Completed",
+    "kpis": {
+      "performance": "+40% speed",
+      "users": "10k+ users",
+      "conversion": "15% conversion"
+    },
+    "context": "Development of a modern and scalable e-commerce platform for a retail company that needed to digitize their business and improve user experience.",
+    "solution": "I implemented a microservices architecture with React/TypeScript on the frontend and Node.js on the backend, integrating secure payment gateways and a real-time inventory management system.",
+    "results": "The platform achieved a 250% increase in online sales, reduced loading time by 40%, and processes over 10,000 monthly transactions with 99.9% uptime.",
+    "role": "Lead Full Stack Developer - Architecture, frontend/backend development, API integration and deployment.",
+    "gallery": [
+      "/images/projects/ecommerce-1.jpg",
+      "/images/projects/ecommerce-2.jpg",
+      "/images/projects/ecommerce-3.jpg"
+    ],
+    "links": {
+      "live": "https://ecommerce-demo.com",
+      "github": "https://github.com/user/ecommerce",
+      "case_study": "https://case-study-url.com"
+    }
+  },
+  {
+    "id": "project-2",
+    "slug": "dashboard-analytics",
+    "title": "Analytics Dashboard",
+    "description": "Real-time data analysis system with interactive visualizations and automated reports.",
+    "cover": "/images/projects/dashboard-cover.jpg",
+    "category": "Frontend",
+    "technologies": ["Vue.js", "D3.js", "Python", "FastAPI", "Redis", "WebSocket"],
+    "year": "2023",
+    "duration": "4 months",
+    "status": "Completed",
+    "kpis": {
+      "data_processing": "1M+ points/sec",
+      "visualizations": "50+ charts",
+      "real_time": "<100ms latency"
+    },
+    "context": "Creation of a data analysis dashboard for a fintech startup that needed to visualize business metrics and KPIs in real-time for strategic decision making.",
+    "solution": "I developed a SPA with Vue.js and D3.js for advanced visualizations, connected to a Python/FastAPI backend that processes real-time data using WebSockets and Redis as cache.",
+    "results": "The dashboard processes over 1 million data points per second, reduces report generation time by 80%, and improves executive decision-making.",
+    "role": "Frontend Lead - UX/UI design, component development, performance optimization and API integration.",
+    "gallery": [
+      "/images/projects/dashboard-1.jpg",
+      "/images/projects/dashboard-2.jpg"
+    ],
+    "links": {
+      "live": "https://dashboard-demo.com",
+      "github": "https://github.com/user/dashboard"
+    }
+  },
+  {
+    "id": "project-3", 
+    "slug": "mobile-app",
+    "title": "Mobile Banking App",
+    "description": "Digital banking mobile application with biometric authentication and instant transfers.",
+    "cover": "/images/projects/mobile-cover.jpg",
+    "category": "Mobile",
+    "technologies": ["React Native", "TypeScript", "Firebase", "Plaid API", "Face ID", "Push Notifications"],
+    "year": "2023",
+    "duration": "8 months",
+    "status": "Completed",
+    "kpis": {
+      "downloads": "50k+ downloads",
+      "rating": "4.8/5 stars",
+      "transactions": "$2M+ processed"
+    },
+    "context": "Development of a mobile banking application for a digital bank seeking to offer modern and secure financial services to millennials and Gen Z users.",
+    "solution": "I built a cross-platform native app with React Native, implementing biometric authentication, banking API integration, push notifications, and a security-focused UX design.",
+    "results": "The app reached 50,000+ downloads in the first 6 months, maintains a 4.8/5 star rating, and has processed over $2M in transactions with 0 security incidents.",
+    "role": "Mobile Developer - Full-stack development, financial API integration, security implementation and testing.",
+    "gallery": [
+      "/images/projects/mobile-1.jpg",
+      "/images/projects/mobile-2.jpg",
+      "/images/projects/mobile-3.jpg"
+    ],
+    "links": {
+      "app_store": "https://apps.apple.com/app",
+      "play_store": "https://play.google.com/store/apps",
+      "github": "https://github.com/user/mobile-app"
+    }
+  }
+]

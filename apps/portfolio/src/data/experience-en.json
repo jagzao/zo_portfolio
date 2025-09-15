@@ -1,0 +1,62 @@
+[
+  {
+    "id": "exp-1",
+    "company": "TechCorp Solutions",
+    "logo": "/images/companies/techcorp.svg",
+    "position": "Senior Full Stack Developer",
+    "startDate": "2023-01-01",
+    "endDate": null,
+    "duration": "2 years current",
+    "location": "Remote",
+    "type": "Full-time",
+    "description": "Lead development of scalable web applications using React, TypeScript and Node.js. Responsible for microservices architecture and junior team mentorship.",
+    "achievements": [
+      "Reduced application load times by 60% through bundle optimization and lazy loading",
+      "Implemented CI/CD system that reduced deployment time from 2h to 15min",
+      "Led migration from monolith to microservices increasing scalability by 300%",
+      "Mentored 5 junior developers improving team productivity by 40%"
+    ],
+    "technologies": ["React", "TypeScript", "Node.js", "AWS", "Docker", "PostgreSQL", "Redis"],
+    "projects": ["ecommerce-platform", "dashboard-analytics"]
+  },
+  {
+    "id": "exp-2", 
+    "company": "FinTech Innovations",
+    "logo": "/images/companies/fintech.svg",
+    "position": "Frontend Developer",
+    "startDate": "2021-06-01", 
+    "endDate": "2022-12-31",
+    "duration": "1.5 years",
+    "location": "Mexico City",
+    "type": "Full-time",
+    "description": "Developed user interfaces for fintech applications using Vue.js and D3.js. Specialized in financial data visualization and interactive dashboards.",
+    "achievements": [
+      "Created 20+ reusable components that reduced development time by 50%",
+      "Implemented complex data visualizations with D3.js for 100k+ users",
+      "Improved critical dashboard performance by 80% through optimizations",
+      "Collaborated on UX redesign that increased user retention by 25%"
+    ],
+    "technologies": ["Vue.js", "D3.js", "JavaScript", "SASS", "Webpack", "Jest"],
+    "projects": ["mobile-app"]
+  },
+  {
+    "id": "exp-3",
+    "company": "StartupLab",
+    "logo": "/images/companies/startuplab.svg", 
+    "position": "Junior Full Stack Developer",
+    "startDate": "2020-01-01",
+    "endDate": "2021-05-31",
+    "duration": "1.4 years",
+    "location": "Guadalajara",
+    "type": "Full-time",
+    "description": "Development of MVPs and prototypes for tech startups. Working with modern technologies in an agile and fast-growing environment.",
+    "achievements": [
+      "Developed 8 successful MVPs that raised $500k+ in seed investment",
+      "Implemented serverless architecture that reduced infrastructure costs by 70%",
+      "Collaborated on tech stack that scales from 0 to 10k users without refactoring",
+      "Participated in 3 startup accelerators as technical lead"
+    ],
+    "technologies": ["React", "Node.js", "MongoDB", "AWS Lambda", "GraphQL", "Firebase"],
+    "projects": []
+  }
+]

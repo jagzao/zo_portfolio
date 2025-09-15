@@ -5,8 +5,8 @@ describe('AnimatedLogo', () => {
   it('renders the logo with default size', () => {
     render(<AnimatedLogo />)
     
-    const logoContainer = document.querySelector('.logo-container')
-    expect(logoContainer).toBeInTheDocument()
+    const logoImage = screen.getByAltText('Juan German Zambrano Ortega Logo')
+    expect(logoImage).toBeInTheDocument()
   })
   
   it('renders with custom size', () => {
@@ -14,8 +14,8 @@ describe('AnimatedLogo', () => {
     render(<AnimatedLogo size={customSize} />)
     
     // The logo should be rendered with correct dimensions
-    const logoContainer = document.querySelector('.logo-container')
-    expect(logoContainer).toBeInTheDocument()
+    const logoImage = screen.getByAltText('Juan German Zambrano Ortega Logo')
+    expect(logoImage).toBeInTheDocument()
   })
   
   it('shows photo when showPhoto is true', () => {

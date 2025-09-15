@@ -1,0 +1,62 @@
+[
+  {
+    "id": "exp-1",
+    "company": "TechCorp Solutions",
+    "logo": "/images/companies/techcorp.svg",
+    "position": "Senior Full Stack Developer",
+    "startDate": "2023-01-01",
+    "endDate": null,
+    "duration": "2 años actuales",
+    "location": "Remoto",
+    "type": "Tiempo completo",
+    "description": "Lidero el desarrollo de aplicaciones web escalables utilizando React, TypeScript y Node.js. Responsable de la arquitectura de microservicios y mentorización del equipo junior.",
+    "achievements": [
+      "Reduje el tiempo de carga de aplicaciones en 60% mediante optimización de bundle y lazy loading",
+      "Implementé sistema de CI/CD que redujo deployment time de 2h a 15min",
+      "Lideré migración de monolito a microservicios aumentando escalabilidad 300%",
+      "Mentoricé a 5 developers junior mejorando productividad del equipo 40%"
+    ],
+    "technologies": ["React", "TypeScript", "Node.js", "AWS", "Docker", "PostgreSQL", "Redis"],
+    "projects": ["ecommerce-platform", "dashboard-analytics"]
+  },
+  {
+    "id": "exp-2", 
+    "company": "FinTech Innovations",
+    "logo": "/images/companies/fintech.svg",
+    "position": "Frontend Developer",
+    "startDate": "2021-06-01", 
+    "endDate": "2022-12-31",
+    "duration": "1.5 años",
+    "location": "Ciudad de México",
+    "type": "Tiempo completo",
+    "description": "Desarrollé interfaces de usuario para aplicaciones fintech utilizando Vue.js y D3.js. Especializado en visualización de datos financieros y dashboards interactivos.",
+    "achievements": [
+      "Creé 20+ componentes reutilizables que redujeron tiempo de desarrollo 50%",
+      "Implementé visualizaciones de datos complejas con D3.js para 100k+ usuarios",
+      "Mejoré performance de dashboards críticos en 80% mediante optimizaciones",
+      "Colaboré en rediseño de UX que aumentó retención de usuarios 25%"
+    ],
+    "technologies": ["Vue.js", "D3.js", "JavaScript", "SASS", "Webpack", "Jest"],
+    "projects": ["mobile-app"]
+  },
+  {
+    "id": "exp-3",
+    "company": "StartupLab",
+    "logo": "/images/companies/startuplab.svg", 
+    "position": "Junior Full Stack Developer",
+    "startDate": "2020-01-01",
+    "endDate": "2021-05-31",
+    "duration": "1.4 años",
+    "location": "Guadalajara",
+    "type": "Tiempo completo",
+    "description": "Desarrollo de MVPs y prototipos para startups tecnológicas. Trabajo con tecnologías modernas en un ambiente ágil y de rápido crecimiento.",
+    "achievements": [
+      "Desarrollé 8 MVPs exitosos que captaron $500k+ en inversión seed",
+      "Implementé arquitectura serverless que redujo costos de infraestructura 70%",
+      "Colaboré en stack técnico que escala de 0 a 10k usuarios sin refactoring",
+      "Participé en 3 aceleradoras de startups como technical lead"
+    ],
+    "technologies": ["React", "Node.js", "MongoDB", "AWS Lambda", "GraphQL", "Firebase"],
+    "projects": []
+  }
+]

@@ -1,0 +1,109 @@
+{
+  "categories": {
+    "core": {
+      "title": "Core Technologies",
+      "description": "Technologies I master and use daily",
+      "skills": [
+        { "name": "React", "level": 95, "years": 4, "icon": "react" },
+        { "name": "TypeScript", "level": 90, "years": 3, "icon": "typescript" },
+        { "name": "Node.js", "level": 85, "years": 3, "icon": "nodejs" },
+        { "name": "JavaScript", "level": 95, "years": 5, "icon": "javascript" },
+        { "name": "HTML5", "level": 98, "years": 9, "icon": "html5" },
+        { "name": "CSS3", "level": 90, "years": 6, "icon": "css3" },
+        { "name": "Tailwind CSS", "level": 85, "years": 2, "icon": "tailwind" },
+        { "name": "Git", "level": 90, "years": 4, "icon": "git" }
+      ]
+    },
+    "frontend": {
+      "title": "Frontend Stack",
+      "description": "Frameworks and tools for frontend development",
+      "skills": [
+        { "name": "Next.js", "level": 80, "years": 4, "icon": "nextjs" },
+        { "name": "Vue.js", "level": 75, "years": 6, "icon": "vuejs" },
+        { "name": "React Native", "level": 70, "years": 1, "icon": "react" },
+        { "name": "SASS/SCSS", "level": 85, "years": 4, "icon": "sass" },
+        { "name": "Webpack", "level": 70, "years": 2, "icon": "webpack" },
+        { "name": "Vite", "level": 80, "years": 1, "icon": "vite" }
+      ]
+    },
+    "backend": {
+      "title": "Backend & Database",
+      "description": "Server-side technologies and databases",
+      "skills": [
+        { "name": "Express.js", "level": 85, "years": 3, "icon": "express" },
+        { "name": "PostgreSQL", "level": 80, "years": 2, "icon": "postgresql" },
+        { "name": "MongoDB", "level": 75, "years": 2, "icon": "mongodb" },
+        { "name": "Redis", "level": 70, "years": 1, "icon": "redis" },
+        { "name": "GraphQL", "level": 65, "years": 1, "icon": "graphql" },
+        { "name": "REST APIs", "level": 90, "years": 4, "icon": "api" }
+      ]
+    },
+    "cloud": {
+      "title": "Cloud & DevOps",
+      "description": "Deployment and infrastructure tools",
+      "skills": [
+        { "name": "AWS", "level": 75, "years": 2, "icon": "aws" },
+        { "name": "Docker", "level": 70, "years": 2, "icon": "docker" },
+        { "name": "Vercel", "level": 85, "years": 2, "icon": "vercel" },
+        { "name": "Firebase", "level": 75, "years": 2, "icon": "firebase" },
+        { "name": "CI/CD", "level": 70, "years": 2, "icon": "cicd" }
+      ]
+    },
+    "tools": {
+      "title": "Development Tools",
+      "description": "Tools and development methodologies",
+      "skills": [
+        { "name": "VS Code", "level": 95, "years": 5, "icon": "vscode" },
+        { "name": "Figma", "level": 80, "years": 3, "icon": "figma" },
+        { "name": "Jest", "level": 75, "years": 2, "icon": "jest" },
+        { "name": "Cypress", "level": 70, "years": 1, "icon": "cypress" },
+        { "name": "Scrum", "level": 85, "years": 3, "icon": "scrum" },
+        { "name": "Jira", "level": 80, "years": 3, "icon": "jira" }
+      ]
+    }
+  },
+  "workflow": {
+    "title": "How I Work",
+    "subtitle": "My methodology for delivering successful projects",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery & Planning",
+        "description": "Requirements analysis, scope definition and architecture planning. I identify technical risks and establish success metrics.",
+        "tools": ["Figma", "Miro", "Notion"]
+      },
+      {
+        "number": "02", 
+        "title": "Design & Prototyping",
+        "description": "Wireframe design, interactive prototypes and design system definition. I validate UX with stakeholders before development.",
+        "tools": ["Figma", "Storybook", "Framer"]
+      },
+      {
+        "number": "03",
+        "title": "Development & Testing",
+        "description": "Development with TDD, continuous code reviews and automated testing. I implement CI/CD from the first commit.",
+        "tools": ["VS Code", "Jest", "Cypress", "GitHub Actions"]
+      },
+      {
+        "number": "04",
+        "title": "Deploy & Monitoring", 
+        "description": "Gradual deployment with feature flags, performance monitoring and feedback loops. Continuous optimization based on real metrics.",
+        "tools": ["Vercel", "Sentry", "Analytics", "Lighthouse"]
+      }
+    ]
+  },
+  "certifications": [
+    {
+      "name": "AWS Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "date": "2023",
+      "credential": "https://aws.amazon.com/verification"
+    },
+    {
+      "name": "Meta Front-End Developer",
+      "issuer": "Meta",
+      "date": "2022", 
+      "credential": "https://coursera.org/verify"
+    }
+  ]
+}

@@ -6,14 +6,19 @@ import { Textarea } from '@/components/ui/textarea'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { toast } from 'sonner'
 import { z } from 'zod'
+import { useTranslation } from '@/hooks/useI18n'
 
-const contactSchema = z.object({
-  name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
-  email: z.string().email('Ingresa un email válido'),
-  message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres')
+const createContactSchema = (t: (key: string) => string) => z.object({
+  name: z.string().min(2, t('contact.validation.name.min')),
+  email: z.string().email(t('contact.validation.email.invalid')),
+  message: z.string().min(10, t('contact.validation.message.min'))
 })
 
-type ContactForm = z.infer<typeof contactSchema>
+type ContactForm = {
+  name: string
+  email: string
+  message: string
+}
 
 const contactInfo = [
   {
@@ -55,6 +60,9 @@ const socialLinks = [
 ]
 
 export function Contact() {
+  const { t } = useTranslation()
+  const contactSchema = createContactSchema(t)
+  
   const [form, setForm] = useState<ContactForm>({
     name: '',
     email: '',
@@ -75,8 +83,8 @@ export function Contact() {
       // Simulate form submission
       await new Promise(resolve => setTimeout(resolve, 1000))
       
-      toast.success('¡Mensaje enviado!', {
-        description: 'Te contactaré pronto. Gracias por tu interés.'
+      toast.success(t('contact.success'), {
+        description: t('contact.successDescription')
       })
       
       // Reset form
@@ -91,9 +99,9 @@ export function Contact() {
           }
         })
         setErrors(fieldErrors)
-        toast.error('Por favor corrige los errores del formulario')
+        toast.error(t('contact.error'))
       } else {
-        toast.error('Error al enviar el mensaje. Intenta de nuevo.')
+        toast.error(t('contact.submitError'))
       }
     } finally {
       setIsSubmitting(false)
@@ -114,11 +122,10 @@ export function Contact() {
         {/* Header */}
         <div className="mb-16 text-center reveal">
           <h1 className="text-5xl font-heading font-bold mb-6">
-            Trabajemos <span className="text-primary">Juntos</span>
+            {t('contact.workTogether').split(' ').slice(0, -1).join(' ')} <span className="text-primary">{t('contact.workTogether').split(' ').slice(-1)}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            ¿Tienes un proyecto en mente o una oportunidad interesante? 
-            Me encantaría escuchar sobre tu idea y ver cómo puedo ayudarte.
+            {t('contact.subtitle')}
           </p>
         </div>
         
@@ -127,19 +134,19 @@ export function Contact() {
           <div className="reveal">
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl font-heading">Envía un mensaje</CardTitle>
+                <CardTitle className="text-2xl font-heading">{t('contact.sendMessage')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Field */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Nombre *
+                      {t('contact.name')} *
                     </label>
                     <Input
                       id="name"
                       type="text"
-                      placeholder="Tu nombre completo"
+                      placeholder={t('contact.namePlaceholder')}
                       value={form.name}
                       onChange={(e) => handleChange('name', e.target.value)}
                       className={errors.name ? 'border-red-500' : ''}
@@ -156,12 +163,12 @@ export function Contact() {
                   {/* Email Field */}
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email *
+                      {t('contact.email')} *
                     </label>
                     <Input
                       id="email"
                       type="email"
-                      placeholder="tu.email@ejemplo.com"
+                      placeholder={t('contact.emailPlaceholder')}
                       value={form.email}
                       onChange={(e) => handleChange('email', e.target.value)}
                       className={errors.email ? 'border-red-500' : ''}
@@ -178,12 +185,12 @@ export function Contact() {
                   {/* Message Field */}
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Mensaje *
+                      {t('contact.message')} *
                     </label>
                     <Textarea
                       id="message"
                       rows={6}
-                      placeholder="Cuéntame sobre tu proyecto, idea o oportunidad..."
+                      placeholder={t('contact.messagePlaceholder')}
                       value={form.message}
                       onChange={(e) => handleChange('message', e.target.value)}
                       className={errors.message ? 'border-red-500' : ''}
@@ -207,12 +214,12 @@ export function Contact() {
                     {isSubmitting ? (
                       <>
                         <div className="animate-spin w-5 h-5 mr-3 border-2 border-current border-t-transparent rounded-full" />
-                        Enviando...
+                        {t('contact.sending')}
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5 mr-3" />
-                        Enviar Mensaje
+                        {t('contact.send')}
                       </>
                     )}
                   </Button>
@@ -226,7 +233,7 @@ export function Contact() {
             {/* Contact Methods */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl font-heading">Información de contacto</CardTitle>
+                <CardTitle className="text-2xl font-heading">{t('contact.info')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 {contactInfo.map((info) => {
@@ -267,7 +274,7 @@ export function Contact() {
             {/* Social Links */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl font-heading">Sígueme</CardTitle>
+                <CardTitle className="text-2xl font-heading">{t('contact.followMe')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {socialLinks.map((social) => {
@@ -296,26 +303,25 @@ export function Contact() {
             </Card>
             
             {/* Quick Actions */}
-            <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20">
+            <Card className="bg-primary/10 border-primary/20">
               <CardContent className="p-6">
-                <h3 className="text-lg font-heading font-bold mb-4">Respuesta rápida</h3>
+                <h3 className="text-lg font-heading font-bold mb-4">{t('contact.quickResponse')}</h3>
                 <p className="text-muted-foreground mb-6">
-                  Típicamente respondo dentro de 24 horas. Para consultas urgentes, 
-                  contáctame directamente por WhatsApp.
+                  {t('contact.responseTime')}
                 </p>
                 
                 <div className="flex flex-col gap-3">
                   <Button asChild className="w-full">
                     <a href="https://wa.me/521234567890" target="_blank" rel="noopener noreferrer">
                       <Phone className="w-4 h-4 mr-2" />
-                      WhatsApp Directo
+                      {t('contact.whatsappDirect')}
                     </a>
                   </Button>
                   
                   <Button variant="outline" asChild className="w-full">
                     <a href="mailto:juan@zambrano.dev">
                       <Mail className="w-4 h-4 mr-2" />
-                      Enviar Email
+                      {t('contact.sendEmail')}
                     </a>
                   </Button>
                 </div>
@@ -328,41 +334,35 @@ export function Contact() {
         <div className="mt-16 reveal">
           <Card>
             <CardHeader>
-              <CardTitle className="text-2xl font-heading text-center">Preguntas Frecuentes</CardTitle>
+              <CardTitle className="text-2xl font-heading text-center">{t('contact.faq')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-2">¿Trabajas en proyectos remotos?</h4>
+                  <h4 className="font-semibold mb-2">{t('contact.faq.remote.q')}</h4>
                   <p className="text-muted-foreground text-sm">
-                    Sí, trabajo principalmente de forma remota y tengo experiencia 
-                    colaborando con equipos distribuidos globalmente.
+                    {t('contact.faq.remote.a')}
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold mb-2">¿Cuál es tu disponibilidad?</h4>
+                  <h4 className="font-semibold mb-2">{t('contact.faq.availability.q')}</h4>
                   <p className="text-muted-foreground text-sm">
-                    Actualmente estoy disponible para proyectos freelance y 
-                    oportunidades full-time. Mi horario flexible permite adaptarme 
-                    a diferentes zonas horarias.
+                    {t('contact.faq.availability.a')}
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold mb-2">¿Qué tipo de proyectos prefieres?</h4>
+                  <h4 className="font-semibold mb-2">{t('contact.faq.projects.q')}</h4>
                   <p className="text-muted-foreground text-sm">
-                    Me especializo en aplicaciones web full-stack, especialmente 
-                    con React/TypeScript y Node.js. También trabajo en proyectos 
-                    de arquitectura y optimización.
+                    {t('contact.faq.projects.a')}
                   </p>
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold mb-2">¿Ofreces consultoría técnica?</h4>
+                  <h4 className="font-semibold mb-2">{t('contact.faq.consulting.q')}</h4>
                   <p className="text-muted-foreground text-sm">
-                    Sí, ofrezco servicios de consultoría para arquitectura de software, 
-                    code reviews, y optimización de performance en aplicaciones existentes.
+                    {t('contact.faq.consulting.a')}
                   </p>
                 </div>
               </div>

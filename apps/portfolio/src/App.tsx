@@ -9,6 +9,7 @@ import { Skills } from '@/pages/Skills'
 import { Contact } from '@/pages/Contact'
 import { NotFound } from '@/pages/NotFound'
 import { Navigation } from '@/components/Navigation'
+import { LanguageSwitch } from '@/components/LanguageSwitch'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,6 +25,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen bg-background text-foreground">
         <Navigation />
+        <LanguageSwitch />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

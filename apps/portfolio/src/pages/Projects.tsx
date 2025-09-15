@@ -5,13 +5,24 @@ import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import projectsData from '@/data/projects.json'
-
-const categories = ['Todos', 'Full Stack', 'Frontend', 'Mobile', 'Backend']
+import { useTranslation } from '@/hooks/useI18n'
+import projectsDataEn from '@/data/projects-en.json'
+import projectsDataEs from '@/data/projects-es.json'
 
 export function Projects() {
+  const { t, language } = useTranslation()
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('Todos')
+  const [selectedCategory, setSelectedCategory] = useState('all')
+  
+  const categories = [
+    { key: 'all', label: t('projects.categories.all') },
+    { key: 'fullstack', label: t('projects.categories.fullstack') },
+    { key: 'frontend', label: t('projects.categories.frontend') },
+    { key: 'mobile', label: t('projects.categories.mobile') },
+    { key: 'backend', label: t('projects.categories.backend') }
+  ]
+  
+  const projectsData = language === 'es' ? projectsDataEs : projectsDataEn
   
   const filteredProjects = useMemo(() => {
     return projectsData.filter(project => {
@@ -19,11 +30,11 @@ export function Projects() {
                            project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()))
       
-      const matchesCategory = selectedCategory === 'Todos' || project.category === selectedCategory
+      const matchesCategory = selectedCategory === 'all' || project.category.toLowerCase() === selectedCategory
       
       return matchesSearch && matchesCategory
     })
-  }, [searchTerm, selectedCategory])
+  }, [searchTerm, selectedCategory, projectsData])
   
   return (
     <div className="min-h-screen py-20 px-8">
@@ -31,11 +42,10 @@ export function Projects() {
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-5xl font-heading font-bold mb-6 reveal">
-            Mis <span className="text-primary">Proyectos</span>
+            {t('projects.title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto reveal">
-            Una selección de proyectos que demuestran mi experiencia en desarrollo full-stack, 
-            desde aplicaciones web hasta soluciones móviles.
+            {t('projects.description')}
           </p>
         </div>
         
@@ -46,7 +56,7 @@ export function Projects() {
             <div className="relative w-full lg:w-96">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
-                placeholder="Buscar proyectos, tecnologías..."
+                placeholder={t('projects.search')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
@@ -58,13 +68,13 @@ export function Projects() {
               <Filter className="w-4 h-4 text-muted-foreground mr-2" />
               {categories.map((category) => (
                 <Button
-                  key={category}
+                  key={category.key}
                   size="sm"
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  onClick={() => setSelectedCategory(category)}
+                  variant={selectedCategory === category.key ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(category.key)}
                   className="text-sm"
                 >
-                  {category}
+                  {category.label}
                 </Button>
               ))}
             </div>
@@ -76,14 +86,14 @@ export function Projects() {
           {filteredProjects.map((project, index) => (
             <Card key={project.id} className="project-card stagger-item group h-full">
               {/* Project Image */}
-              <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center relative overflow-hidden">
+              <div className="aspect-video bg-card border border-primary/20 flex items-center justify-center relative overflow-hidden">
                 <div className="text-6xl font-heading text-primary/30">
                   {project.title.charAt(0)}
                 </div>
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                   <Button size="sm" asChild className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     <Link to={`/projects/${project.slug}`}>
-                      Ver Detalles
+                      {t('project.viewDetails')}
                     </Link>
                   </Button>
                   {project.links?.live && (
@@ -143,7 +153,7 @@ export function Projects() {
                 <div className="flex gap-2">
                   <Button asChild size="sm" className="flex-1">
                     <Link to={`/projects/${project.slug}`}>
-                      Ver Proyecto
+                      {t('project.viewProject')}
                     </Link>
                   </Button>
                   {project.links?.github && (
@@ -163,9 +173,9 @@ export function Projects() {
         {filteredProjects.length === 0 && (
           <div className="text-center py-12 reveal">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-heading mb-2">No se encontraron proyectos</h3>
+            <h3 className="text-xl font-heading mb-2">{t('projects.noResults')}</h3>
             <p className="text-muted-foreground">
-              Intenta con otros términos de búsqueda o cambia la categoría.
+              {t('projects.noResultsDesc')}
             </p>
           </div>
         )}

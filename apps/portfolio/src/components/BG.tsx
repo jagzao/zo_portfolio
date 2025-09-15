@@ -26,36 +26,12 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
       const ctx = gsap.context(() => {
         // Add classes to SVG paths for GSAP targeting
         const paths = svgRef.current!.querySelectorAll('path')
-        console.log('🎯 Found paths for animation:', paths.length)
+        console.log('🎯 Found paths for smooth draw animation:', paths.length)
+        
+        // Simply add trace class to all paths - the new animation system handles the rest
         paths.forEach((path, index) => {
           path.classList.add('trace')
           path.setAttribute('data-trace-id', index.toString())
-          
-          // Only 5-10% of paths get the bright glow animation
-          const shouldGlow = Math.random() < 0.08 // 8% chance
-          if (shouldGlow) {
-            path.classList.add('trace-glow')
-            path.style.stroke = '#FF3B3B'
-            path.style.filter = 'drop-shadow(0 0 3px rgba(255, 59, 59, 0.6))'
-          }
-          
-          // Add nodes at path endpoints (every 30th path to avoid overcrowding)
-          if (index % 30 === 0) {
-            const pathLength = path.getTotalLength()
-            const endPoint = path.getPointAtLength(pathLength)
-            
-            // Create node element with subtle red accent
-            const node = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
-            node.setAttribute('cx', endPoint.x.toString())
-            node.setAttribute('cy', endPoint.y.toString())
-            node.setAttribute('r', '1.5')
-            node.setAttribute('fill', '#7A1D1D')
-            node.setAttribute('opacity', '0.3')
-            node.classList.add('node')
-            node.setAttribute('data-node-id', index.toString())
-            
-            svgRef.current?.appendChild(node)
-          }
         })
         
         // Trigger GSAP animations
@@ -63,11 +39,6 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
       }, svgRef)
       
       return () => {
-        // Cleanup: remove added nodes
-        if (svgRef.current) {
-          const nodes = svgRef.current.querySelectorAll('.node')
-          nodes.forEach(node => node.remove())
-        }
         ctx.revert()
       }
     }
@@ -109,7 +80,7 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
       <div 
         className="absolute inset-0 w-full h-full"
         style={{
-          opacity: 0.25,
+          opacity: 0.85,
           minHeight: '100vh',
           minWidth: '100vw',
           mixBlendMode: 'screen'
@@ -136,7 +107,9 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
               stroke: '#7A1D1D',
               strokeWidth: 0.8,
               fill: 'none',
-              opacity: 1
+              opacity: 1,
+              willChange: 'opacity',
+              pointerEvents: 'none'
             }}
             dangerouslySetInnerHTML={{ __html: circuitSvg }}
           />

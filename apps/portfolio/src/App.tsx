@@ -10,6 +10,7 @@ import { Contact } from '@/pages/Contact'
 import { NotFound } from '@/pages/NotFound'
 import { Navigation } from '@/components/Navigation'
 import { LanguageSwitch } from '@/components/LanguageSwitch'
+import { PageTransition } from '@/components/PageTransition'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,13 +29,41 @@ function App() {
         <LanguageSwitch />
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:slug" element={<ProjectDetail />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={
+              <PageTransition>
+                <Home />
+              </PageTransition>
+            } />
+            <Route path="/projects" element={
+              <PageTransition>
+                <Projects />
+              </PageTransition>
+            } />
+            <Route path="/projects/:slug" element={
+              <PageTransition>
+                <ProjectDetail />
+              </PageTransition>
+            } />
+            <Route path="/experience" element={
+              <PageTransition>
+                <Experience />
+              </PageTransition>
+            } />
+            <Route path="/skills" element={
+              <PageTransition>
+                <Skills />
+              </PageTransition>
+            } />
+            <Route path="/contact" element={
+              <PageTransition>
+                <Contact />
+              </PageTransition>
+            } />
+            <Route path="*" element={
+              <PageTransition>
+                <NotFound />
+              </PageTransition>
+            } />
           </Routes>
         </main>
         <Toaster 

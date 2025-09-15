@@ -16,6 +16,7 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
   const [isHovered, setIsHovered] = useState(false)
   const [flipAnimation, setFlipAnimation] = useState<gsap.core.Tween | null>(null)
   const [hoverTimeline, setHoverTimeline] = useState<gsap.core.Timeline | null>(null)
+  const autoFlipTimerRef = useRef<NodeJS.Timeout | null>(null)
   
   useLayoutEffect(() => {
     if (!containerRef.current || !flipCardRef.current) return
@@ -54,12 +55,36 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
     setFlipAnimation(flipTween)
     setHoverTimeline(tl)
     
+    // Auto flip every 20 seconds (doubled from 10)
+    const startAutoFlip = () => {
+      if (autoFlipTimerRef.current) {
+        clearInterval(autoFlipTimerRef.current)
+      }
+      
+      autoFlipTimerRef.current = setInterval(() => {
+        if (!getReducedMotionPreference()) {
+          console.log('🔄 Auto flip triggered')
+          // Quick flip and back
+          flipTween.play().then(() => {
+            setTimeout(() => {
+              flipTween.reverse()
+            }, 4000) // Show photo for 4 seconds (doubled)
+          })
+        }
+      }, 20000) // Every 20 seconds (doubled)
+    }
+    
+    startAutoFlip()
+    
     // Handle resize
     const handleResize = () => rayRenderer.resize()
     window.addEventListener('resize', handleResize)
     
     return () => {
       window.removeEventListener('resize', handleResize)
+      if (autoFlipTimerRef.current) {
+        clearInterval(autoFlipTimerRef.current)
+      }
       cleanupRayRenderer()
       flipTween.kill()
       tl.kill()

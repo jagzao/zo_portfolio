@@ -197,6 +197,38 @@
     @apply absolute -left-1.5 top-2 w-3 h-3 bg-primary rounded-full;
   }
   
+  /* Technology Icons Styles */
+  .tech-icon {
+    color: #fff !important;
+    transition: all 0.3s ease;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .tech-icon:hover {
+    color: #ff3b3b !important;
+    filter: drop-shadow(0 0 6px #ff3b3b);
+    transform: translateY(-2px);
+  }
+  
+  .devicon-react-original,
+  .devicon-vuejs-plain,
+  .devicon-dotnetcore-plain,
+  .devicon-postgresql-plain {
+    color: #fff !important;
+    transition: all 0.3s ease;
+    font-size: 2rem;
+  }
+  
+  .devicon-react-original:hover,
+  .devicon-vuejs-plain:hover,
+  .devicon-dotnetcore-plain:hover,
+  .devicon-postgresql-plain:hover {
+    color: #ff3b3b !important;
+    filter: drop-shadow(0 0 6px #ff3b3b);
+    transform: translateY(-2px);
+  }
+  
   .timeline-item:last-child {
     @apply border-l-transparent;
   }

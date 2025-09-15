@@ -34,77 +34,173 @@ export function initializeGSAP() {
 }
 
 
-// Circuit traces animation for BG component
+// Circuit traces animation for BG component with smooth organic draw
 export function animateCircuitTraces() {
   const reducedMotion = getReducedMotionPreference()
-  if (reducedMotion) return
+  if (reducedMotion) {
+    // For reduced motion, show circuits already drawn with low opacity
+    const traces = document.querySelectorAll('.trace')
+    traces.forEach((trace) => {
+      gsap.set(trace, { opacity: 0.18 })
+    })
+    return
+  }
+
+  // Performance and stability settings
+  gsap.ticker.lagSmoothing(500, 33)
   
-  // Animate regular circuit traces (subtle draw effect)
-  const regularTraces = document.querySelectorAll('.trace:not(.trace-glow)')
+  // Get logo center for radial ordering
+  const logoCenter = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
   
-  regularTraces.forEach((trace, index) => {
-    const pathLength = (trace as SVGPathElement).getTotalLength()
+  // Select and prepare paths (limit to 600 for performance)
+  const allPaths = Array.from(document.querySelectorAll('.trace')) as SVGPathElement[]
+  const limitedPaths = allPaths.slice(0, Math.min(600, allPaths.length))
+  
+  // Prepare and calculate path data
+  interface PathData {
+    element: SVGPathElement
+    length: number
+    center: { x: number, y: number }
+    distance: number
+    angle: number
+  }
+  
+  const pathsData: PathData[] = limitedPaths.map(path => {
+    const length = path.getTotalLength()
+    const midPoint = path.getPointAtLength(length / 2)
+    const distance = Math.sqrt(
+      Math.pow(midPoint.x - logoCenter.x, 2) + 
+      Math.pow(midPoint.y - logoCenter.y, 2)
+    )
+    const angle = Math.atan2(midPoint.y - logoCenter.y, midPoint.x - logoCenter.x)
     
-    gsap.set(trace, {
-      strokeDasharray: pathLength,
-      strokeDashoffset: pathLength
+    // Set initial path attributes
+    path.setAttribute('vector-effect', 'non-scaling-stroke')
+    path.setAttribute('stroke-linecap', 'round')
+    path.setAttribute('stroke', '#7A1D1D')
+    path.setAttribute('data-len', length.toString())
+    
+    // Initial draw state (hidden but ready)
+    gsap.set(path, {
+      strokeDasharray: length,
+      strokeDashoffset: length,
+      opacity: 0
     })
     
-    gsap.to(trace, {
-      strokeDashoffset: 0,
-      duration: 4 + Math.random() * 3,
-      delay: index * 0.1,
-      ease: "none",
-      repeat: -1,
-      repeatDelay: 8 + Math.random() * 6
-    })
+    return {
+      element: path,
+      length,
+      center: midPoint,
+      distance,
+      angle
+    }
   })
   
-  // Animate glowing circuit traces (more prominent effect)
-  const glowTraces = document.querySelectorAll('.trace-glow')
+  // Sort by distance (center to outside) and group by quadrants
+  pathsData.sort((a, b) => a.distance - b.distance)
   
-  glowTraces.forEach((trace, index) => {
-    const pathLength = (trace as SVGPathElement).getTotalLength()
-    
-    gsap.set(trace, {
-      strokeDasharray: pathLength,
-      strokeDashoffset: pathLength
-    })
-    
-    gsap.to(trace, {
-      strokeDashoffset: 0,
-      duration: 2 + Math.random() * 1.5,
-      delay: index * 0.3,
-      ease: "none",
-      repeat: -1,
-      repeatDelay: 4 + Math.random() * 3
-    })
-    
-    // Add pulsing glow effect
-    gsap.to(trace, {
-      opacity: 0.4,
-      duration: 1.5 + Math.random() * 1,
-      ease: "sine.inOut",
-      repeat: -1,
-      yoyo: true,
-      delay: Math.random() * 2
-    })
+  // Create waves of 50-80 paths each
+  const waveSize = 65
+  const waves: PathData[][] = []
+  for (let i = 0; i < pathsData.length; i += waveSize) {
+    waves.push(pathsData.slice(i, i + waveSize))
+  }
+  
+  // Main GSAP timeline for smooth drawing
+  const tl = gsap.timeline({ 
+    defaults: { ease: "power2.out" },
+    onComplete: () => {
+      // After drawing is complete, start subtle micro-pulses
+      startMicroPulses()
+    }
   })
   
-  // Animate circuit nodes (subtle pulse effect)
-  const nodes = document.querySelectorAll('.node')
-  
-  nodes.forEach((node, index) => {
-    gsap.to(node, {
-      opacity: 0.1,
-      scale: 1.2,
-      duration: 2 + Math.random() * 1.5,
-      delay: index * 0.5,
-      ease: "sine.inOut",
-      repeat: -1,
-      yoyo: true
+  // Draw each wave with organic timing
+  waves.forEach((wave, waveIndex) => {
+    wave.forEach((pathData, pathIndex) => {
+      const path = pathData.element
+      const length = pathData.length
+      
+      // Dynamic duration based on path length
+      const baseDuration = 0.45 + length / 1200
+      const duration = Math.max(0.6, Math.min(1.2, baseDuration))
+      
+      // Add small random variance to break uniformity
+      const staggerDelay = pathIndex * 0.02 + (Math.random() - 0.5) * 0.01
+      const waveDelay = waveIndex * 0.1
+      
+      // Draw animation
+      tl.to(path, {
+        strokeDashoffset: 0,
+        duration: duration,
+        ease: "power2.out"
+      }, waveDelay + staggerDelay)
+      
+      // Parallel fade-in
+      tl.to(path, {
+        opacity: 0.22,
+        duration: duration * 0.8,
+        ease: "power2.out"
+      }, waveDelay + staggerDelay + duration * 0.1)
     })
+    
+    // Organic pause between waves  
+    if (waveIndex < waves.length - 1) {
+      tl.set({}, {}, "+=0.08") // Add pause using empty set
+    }
   })
+  
+  // Micro-glow system for select paths
+  function startMicroPulses() {
+    // Apply single filter to the group for performance
+    const circuitGroup = document.querySelector('.circuit-traces')
+    if (circuitGroup) {
+      (circuitGroup as SVGElement).style.filter = 'drop-shadow(0 0 2px rgba(229,57,53,0.25))'
+    }
+    
+    // Select 5-10% of paths for occasional micro-pulses
+    const selectedPaths = pathsData
+      .filter(() => Math.random() < 0.08)
+      .slice(0, Math.max(1, Math.floor(pathsData.length * 0.08)))
+    
+    selectedPaths.forEach((pathData, index) => {
+      const path = pathData.element
+      
+      // Create subtle pulse function
+      function createPulse() {
+        const pulseDelay = Math.random() * 4000 + 2000 // 2-6s random delay
+        
+        setTimeout(() => {
+          gsap.to(path, {
+            opacity: "+=0.1",
+            stroke: "#FF3B3B",
+            duration: 0.25,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: 1,
+            onComplete: () => {
+              // Return to original state
+              gsap.set(path, { stroke: "#7A1D1D" })
+              // Schedule next pulse
+              createPulse()
+            }
+          })
+        }, pulseDelay)
+      }
+      
+      // Start pulse cycle with random initial delay
+      setTimeout(() => createPulse(), Math.random() * 3000)
+    })
+  }
+  
+  // Mobile optimization
+  const isMobile = window.innerWidth < 768
+  if (isMobile) {
+    // Reduce animation count and speed up for mobile
+    tl.timeScale(1.5)
+    const mobileWaves = waves.slice(0, Math.ceil(waves.length * 0.5))
+    // Apply optimization logic here if needed
+  }
 }
 
 // Logo intro animation

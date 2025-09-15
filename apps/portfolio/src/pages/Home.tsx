@@ -50,8 +50,8 @@ export function Home() {
       <BG opacity={0.3} speed={0.5} />
       
       
-      {/* Hero Content - Single centered column */}
-      <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Hero Content - Single centered column, moved slightly down */}
+      <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10" style={{ paddingTop: '10vh' }}>
         <div className="max-w-4xl w-full text-center space-y-8">
           
           {/* Logo - Top center */}
@@ -61,8 +61,8 @@ export function Home() {
             </div>
           </div>
           
-          {/* H1 */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-normal" style={{ fontFamily: 'Fira Code, monospace' }}>
+          {/* H1 - Reduced size */}
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-normal" style={{ fontFamily: 'Fira Code, monospace' }}>
             {t('hero.title')}
           </h1>
           
@@ -75,6 +75,17 @@ export function Home() {
           <p className="text-xl text-[#B0B0B5] max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'Inter, sans-serif', maxWidth: '720px' }}>
             {t('hero.description')}
           </p>
+          
+          {/* Technology Icons */}
+          <div className="flex gap-6 justify-center mt-6 text-4xl tech-icons">
+            <i className="devicon-dotnetcore-plain colored tech-icon" title=".NET" aria-hidden="true"></i>
+            <i className="devicon-react-original colored tech-icon" title="React" aria-hidden="true"></i>
+            <i className="devicon-vuejs-plain colored tech-icon" title="Vue" aria-hidden="true"></i>
+            <i className="devicon-postgresql-plain colored tech-icon" title="PostgreSQL" aria-hidden="true"></i>
+          </div>
+          
+          {/* Screen reader text */}
+          <span className="sr-only">.NET, React, Vue, PostgreSQL</span>
           
           {/* CTAs - Visible and centered */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">

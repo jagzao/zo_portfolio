@@ -28,7 +28,7 @@ interface Translations {
 const translations: Translations = {
   en: {
     'hero.title': 'Juan German Zambrano Ortega',
-    'hero.subtitle': 'FULLSTACK DEVELOPMENT & SOFTWARE ENGINEERING',
+    'hero.subtitle': 'SOFTWARE ENGINEERING',
     'hero.description': 'Experienced software engineer with 10+ years in scalable, secure fullstack development using .NET, React/Vue, and SQL. Available for freelance or contractor roles.',
     'nav.projects': 'Projects',
     'nav.skills': 'Skills',

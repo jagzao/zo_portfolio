@@ -9,6 +9,7 @@ import { Skills } from '@/pages/Skills'
 import { Contact } from '@/pages/Contact'
 import { NotFound } from '@/pages/NotFound'
 import { Navigation } from '@/components/Navigation'
+import { MobileNav } from '@/components/MobileNav'
 import { LanguageSwitch } from '@/components/LanguageSwitch'
 import { PageTransition } from '@/components/PageTransition'
 
@@ -25,7 +26,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen bg-background text-foreground">
-        <Navigation />
+        <Navigation className="hidden sm:block" />
+        <MobileNav />
         <LanguageSwitch />
         <main>
           <Routes>

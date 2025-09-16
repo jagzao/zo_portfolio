@@ -111,6 +111,10 @@
   .hidden-sm { @apply sm:hidden; }
   .show-md { @apply hidden sm:flex; }
 
+  /* Mobile navigation z-index layers */
+  .z-nav { z-index: 60; }       /* Mobile nav button and drawer */
+  .z-overlay { z-index: 55; }   /* Backdrop overlay */
+
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     *,

@@ -18,19 +18,11 @@ Professional portfolio showcasing 10+ years of experience in scalable, secure ap
 - **Lucide React** for icons
 - **Devicon** for technology icons
 
-### Backend & Architecture
-- **.NET Core/8** - Primary backend technology
-- **Node.js** - JavaScript runtime
-- **Clean Architecture** - Architectural pattern
-- **CQRS** - Command Query Responsibility Segregation
-- **MediatR** - Mediator pattern implementation
-- **FluentValidation** - Validation library
-
-### Database & Cloud
-- **PostgreSQL** - Primary database
-- **SQL Server** - Enterprise database
-- **Azure Functions** - Serverless computing
-- **Docker** - Containerization
+### UI & Components
+- **shadcn/ui** - Component library
+- **Radix UI** - Accessible primitives
+- **Sonner** - Toast notifications
+- **Zod** - Type validation
 
 ### Development Tools
 - **Visual Studio / VS Code**

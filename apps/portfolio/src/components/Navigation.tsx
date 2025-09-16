@@ -41,7 +41,11 @@ const socialLinks = [
   }
 ]
 
-export function Navigation() {
+interface NavigationProps {
+  className?: string
+}
+
+export function Navigation({ className }: NavigationProps = {}) {
   const location = useLocation()
   const { t } = useTranslation()
   const timelineRefs = useRef<Map<string, gsap.core.Timeline>>(new Map())
@@ -171,7 +175,7 @@ export function Navigation() {
   const isHomePage = location.pathname === '/'
 
   return (
-    <>
+    <div className={className}>
       {/* Main Navigation Menu */}
       {isHomePage ? (
         // Corner layout for home - each menu item positioned individually
@@ -325,6 +329,6 @@ export function Navigation() {
           )
         })}
       </div>
-    </>
+    </div>
   )
 }

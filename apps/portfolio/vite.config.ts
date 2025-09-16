@@ -10,13 +10,17 @@ export default defineConfig({
     },
   },
   build: {
-    sourcemap: true,
+    sourcemap: false, // Disable sourcemaps in production to reduce bundle size
+    minify: 'esbuild',
+    chunkSizeWarningLimit: 1000, // Increase warning limit to 1MB
     rollupOptions: {
       output: {
         manualChunks: {
-          'three': ['three', '@react-three/fiber', '@react-three/drei'],
+          'three': ['three'],
           'gsap': ['gsap'],
-          'vendor': ['react', 'react-dom', 'react-router-dom']
+          'vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui': ['lucide-react', '@radix-ui/react-slot', 'class-variance-authority'],
+          'utils': ['clsx', 'tailwind-merge', 'sonner', 'zod']
         }
       }
     }

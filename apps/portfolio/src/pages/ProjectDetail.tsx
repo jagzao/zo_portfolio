@@ -4,10 +4,14 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import projectsData from '@/data/projects.json'
+import { useTranslation } from '@/hooks/useI18n'
+import projectsDataEn from '@/data/projects-en.json'
+import projectsDataEs from '@/data/projects-es.json'
 
 export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
+  const { t, language } = useTranslation()
+  const projectsData = language === 'es' ? projectsDataEs : projectsDataEn
   const project = projectsData.find(p => p.slug === slug)
   
   if (!project) {

@@ -1,0 +1,14 @@
+# Project Images
+
+Place project images here with the following naming convention:
+- portfolio-cover.jpg (for Zo Portfolio project)
+- ecommerce-cover.jpg
+- dashboard-cover.jpg
+- mobile-cover.jpg
+
+Optimized sizes:
+- Cover images: 800x600px (4:3 ratio)
+- Gallery images: 1200x900px
+- Thumbnails: 400x300px
+
+Formats supported: .jpg, .png, .webp (recommended)

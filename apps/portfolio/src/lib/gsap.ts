@@ -52,9 +52,9 @@ export function animateCircuitTraces() {
   // Get logo center for radial ordering
   const logoCenter = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
   
-  // Select and prepare paths (limit to 600 for performance)
+  // Select and prepare paths (limit to 300 for better performance)
   const allPaths = Array.from(document.querySelectorAll('.trace')) as SVGPathElement[]
-  const limitedPaths = allPaths.slice(0, Math.min(600, allPaths.length))
+  const limitedPaths = allPaths.slice(0, Math.min(300, allPaths.length))
   
   // Prepare and calculate path data
   interface PathData {
@@ -158,10 +158,10 @@ export function animateCircuitTraces() {
       (circuitGroup as SVGElement).style.filter = 'drop-shadow(0 0 2px rgba(229,57,53,0.25))'
     }
     
-    // Select 5-10% of paths for occasional micro-pulses
+    // Select 3-5% of paths for occasional micro-pulses (reduced for performance)
     const selectedPaths = pathsData
-      .filter(() => Math.random() < 0.08)
-      .slice(0, Math.max(1, Math.floor(pathsData.length * 0.08)))
+      .filter(() => Math.random() < 0.05)
+      .slice(0, Math.max(1, Math.floor(pathsData.length * 0.05)))
     
     selectedPaths.forEach((pathData, index) => {
       const path = pathData.element
@@ -197,9 +197,11 @@ export function animateCircuitTraces() {
   const isMobile = window.innerWidth < 768
   if (isMobile) {
     // Reduce animation count and speed up for mobile
-    tl.timeScale(1.5)
-    const mobileWaves = waves.slice(0, Math.ceil(waves.length * 0.5))
-    // Apply optimization logic here if needed
+    tl.timeScale(2.0) // Faster animations on mobile
+    // Reduce number of paths for mobile performance
+    const mobileWaves = waves.slice(0, Math.ceil(waves.length * 0.3)) // Only 30% of paths
+    waves.length = 0 // Clear original waves
+    waves.push(...mobileWaves) // Replace with mobile-optimized waves
   }
 }
 
@@ -207,63 +209,95 @@ export function animateCircuitTraces() {
 export function createIntroTimeline() {
   if (!tlIntro || getReducedMotionPreference()) return
   
-  tlIntro
-    .from('.logo-hexagon', {
+  // Only animate elements that exist
+  const logoHexagon = document.querySelector('.logo-hexagon')
+  const cornerMenus = document.querySelectorAll('.corner-menu')
+  const heroText = document.querySelector('.hero-text')
+  const heroCta = document.querySelector('.hero-cta')
+  
+  if (logoHexagon) {
+    tlIntro.from(logoHexagon, {
       scale: 0,
       rotation: 180,
       opacity: 0,
       duration: 0.6,
       ease: "back.out(1.7)"
     })
-    .from('.corner-menu', {
+  }
+  
+  if (cornerMenus.length > 0) {
+    tlIntro.from(cornerMenus, {
       opacity: 0,
       y: 20,
       duration: 0.4,
       stagger: 0.1,
       ease: "power2.out"
     }, "-=0.2")
-    .from('.hero-text', {
+  }
+  
+  if (heroText) {
+    tlIntro.from(heroText, {
       y: 50,
       opacity: 0,
       duration: 0.5,
       ease: "power2.out"
     }, "-=0.2")
-    .from('.hero-cta', {
+  }
+  
+  if (heroCta) {
+    tlIntro.from(heroCta, {
       y: 30,
       opacity: 0,
       duration: 0.4,
       stagger: 0.1,
       ease: "back.out(1.7)"
     }, "-=0.2")
+  }
 }
 
 // Logo hover animation
 export function createLogoHoverTimeline() {
   if (!tlLogoHover || getReducedMotionPreference()) return
   
-  tlLogoHover
-    .to('.logo-hexagon', {
+  // Only animate elements that exist
+  const logoHexagon = document.querySelector('.logo-hexagon')
+  const logoPhoto = document.querySelector('.logo-photo')
+  const circuitBranches = document.querySelector('.circuit-branches')
+  const logoGlow = document.querySelector('.logo-glow')
+  
+  if (logoHexagon) {
+    tlLogoHover.to(logoHexagon, {
       scale: 1.1,
       duration: 0.2,
       ease: "power2.out"
     })
-    .to('.logo-photo', {
+  }
+  
+  if (logoPhoto) {
+    tlLogoHover.to(logoPhoto, {
       opacity: 1,
       duration: 0.3,
       ease: "power2.out"
     }, "-=0.1")
-    .to('.circuit-branches', {
+  }
+  
+  if (circuitBranches) {
+    tlLogoHover.to(circuitBranches, {
       opacity: 1,
       scale: 1,
       duration: 0.4,
       ease: "power2.out"
     }, "-=0.2")
-    .to('.logo-glow', {
+  }
+  
+  if (logoGlow) {
+    tlLogoHover.to(logoGlow, {
       opacity: 1,
       scale: 1.2,
       duration: 0.2,
       ease: "power2.out"
     }, "-=0.3")
+  }
 }
 
 // Menu hover animation

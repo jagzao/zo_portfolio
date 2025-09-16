@@ -136,13 +136,15 @@
   
   /* Menu corner positioning */
   .corner-menu {
-    @apply fixed z-50 opacity-60 hover:opacity-100 transition-all duration-300;
+    @apply fixed opacity-80 hover:opacity-100 transition-all duration-300;
+    z-index: 9999;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
     color: #ffffff;
     background: transparent;
     padding: 1.25rem;
+    pointer-events: auto;
   }
   
   .corner-menu:hover {

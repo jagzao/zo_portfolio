@@ -19,14 +19,11 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
   const { data: circuitSvg = '' } = useCircuitSvg()
   
   useLayoutEffect(() => {
-    console.log('🔧 BG useLayoutEffect - SVG Ref:', !!svgRef.current, 'ReducedMotion:', reducedMotion, 'CircuitSvg Length:', circuitSvg.length)
-    
     // Add circuit animation classes and trigger GSAP animations
     if (svgRef.current && !reducedMotion && circuitSvg) {
       const ctx = gsap.context(() => {
         // Add classes to SVG paths for GSAP targeting
         const paths = svgRef.current!.querySelectorAll('path')
-        console.log('🎯 Found paths for smooth draw animation:', paths.length)
         
         // Simply add trace class to all paths - the new animation system handles the rest
         paths.forEach((path, index) => {

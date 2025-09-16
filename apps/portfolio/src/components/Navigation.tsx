@@ -183,12 +183,15 @@ export function Navigation() {
               to={item.path}
               data-menu-id={item.id}
               className={cn(
-                'corner-menu premium-menu fixed font-heading text-base font-medium transition-all duration-700 ease-out pointer-events-auto z-30',
+                'corner-menu premium-menu fixed font-heading text-base font-medium transition-all duration-700 ease-out pointer-events-auto',
                 item.position, // Use corner positions
                 'px-4 py-3 min-h-[44px] rounded-xl border-0',
-                isActive ? 'opacity-100 text-white' : 'opacity-70 text-white hover:opacity-100'
+                isActive ? 'opacity-100 text-white' : 'opacity-80 text-white hover:opacity-100'
               )}
-              style={{ fontFamily: 'Fira Code, monospace' }}
+              style={{ 
+                fontFamily: 'Fira Code, monospace',
+                zIndex: 9999
+              }}
               onMouseEnter={(e) => createMenuHoverAnimation(e.currentTarget, true, item.position)}
               onMouseLeave={(e) => createMenuHoverAnimation(e.currentTarget, false)}
               onFocus={(e) => createMenuHoverAnimation(e.currentTarget, true, item.position)}
@@ -237,7 +240,7 @@ export function Navigation() {
         })
       ) : (
         // Vertical list for other pages
-        <div className="fixed top-8 right-8 z-30 pointer-events-auto">
+        <div className="fixed top-8 right-8 pointer-events-auto" style={{ zIndex: 9999 }}>
           {menuItems.map((item, index) => {
             const isActive = location.pathname === item.path
             return (
@@ -303,7 +306,7 @@ export function Navigation() {
       )}
       
       {/* Social Links - Middle Left */}
-      <div className="corner-menu corner-ml flex flex-col gap-4">
+      <div className="corner-menu corner-ml flex flex-col gap-4" style={{ zIndex: 9999 }}>
         {socialLinks.map((social) => {
           const Icon = social.icon
           return (

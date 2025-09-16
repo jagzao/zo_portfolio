@@ -63,7 +63,6 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
       
       autoFlipTimerRef.current = setInterval(() => {
         if (!getReducedMotionPreference()) {
-          console.log('🔄 Auto flip triggered')
           // Quick flip and back
           flipTween.play().then(() => {
             setTimeout(() => {
@@ -92,19 +91,16 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
   }, [])
   
   const handleMouseEnter = () => {
-    console.log('🎮 Logo hover ENTER - Timeline:', !!hoverTimeline, 'FlipAnimation:', !!flipAnimation)
     setIsHovered(true)
     if (getReducedMotionPreference()) return
     
     // Play hover animations
     if (hoverTimeline) {
-      console.log('▶️ Playing hover timeline')
       hoverTimeline.play()
     }
     
     // Start flip animation
     if (flipAnimation) {
-      console.log('🔄 Playing flip animation')
       flipAnimation.play()
     }
   }
@@ -263,8 +259,8 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
                 onLoad={() => {
                   // Logo loaded successfully
                 }}
-                onError={(e) => {
-                  console.error('❌ Logo failed to load:', e);
+                onError={() => {
+                  // Logo failed to load
                 }}
               />
             </div>
@@ -297,7 +293,7 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
                     if (fallback) fallback.style.display = 'none';
                   }}
                   onError={() => {
-                    console.warn('Personal photo not found, showing initials fallback');
+                    // Personal photo not found, showing initials fallback
                   }}
                 />
                 {/* Fallback initials */}

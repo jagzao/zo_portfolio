@@ -83,7 +83,7 @@ export function Experience() {
       <BG opacity={0.25} speed={0.4} />
       
       {/* Main Content */}
-      <div className="relative z-10 py-20" style={{ padding: 'clamp(16px, 4vw, 32px)' }}>
+      <div className="relative z-10 pt-[calc(80px+env(safe-area-inset-top))] pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
           
           {/* Header */}
@@ -111,11 +111,11 @@ export function Experience() {
           </div>
           
           {/* Timeline */}
-          <div ref={timelineRef} className="relative max-w-4xl mx-auto">
+          <div ref={timelineRef} className="relative max-w-4xl mx-auto space-y-6">
             {experienceData.map((exp, index) => (
-              <div 
-                key={exp.id} 
-                className={`experience-card relative pl-8 pb-8 ${index === experienceData.length - 1 ? 'pb-0' : 'border-l border-[#2A2222]'}`}
+              <div
+                key={exp.id}
+                className={`experience-card relative pl-8 ${index !== experienceData.length - 1 ? 'border-l border-[#2A2222] pb-6' : ''}`}
               >
                 {/* Timeline dot */}
                 <div className="absolute -left-1.5 top-2 w-3 h-3 bg-[#E53935] rounded-full" />

@@ -1,8 +1,48 @@
 [
   {
     "id": "exp-1",
-    "company": "TechCorp Solutions",
-    "logo": "/images/companies/techcorp.svg",
+    "company": "ITPS / CONTPAQi",
+    "logo": "/images/companies/itps.svg",
+    "position": "Freelance Full Stack Developer",
+    "startDate": "2025-01-01",
+    "endDate": "2025-08-31",
+    "duration": "8 meses",
+    "location": "Remoto",
+    "type": "Freelance",
+    "description": "Módulo RBAC granular (roles/permisos multinivel) y orquestación de webhooks Banorte (alta/confirmación pagos) con colas y firma HMAC.",
+    "achievements": [
+      "Implementé sistema RBAC con permisos granulares multinivel",
+      "Desarrollé orquestación de webhooks Banorte para pagos",
+      "Configuré colas de mensajes con RabbitMQ para alta disponibilidad",
+      "Integré firma HMAC para seguridad en transacciones bancarias"
+    ],
+    "technologies": ["Node.js", "NestJS", "Express", "RabbitMQ", "PostgreSQL", "Banorte Webhooks"],
+    "projects": []
+  },
+  {
+    "id": "exp-2",
+    "company": "PEMEX",
+    "logo": "/images/companies/pemex.svg",
+    "position": "Freelance Full Stack Developer",
+    "startDate": "2024-07-01",
+    "endDate": "2025-01-31",
+    "duration": "7 meses",
+    "location": "Remoto",
+    "type": "Freelance",
+    "description": "Portal para actualización de documentos personales y solicitud de vacaciones; front en Vue 3 + Vite, API .NET Core, autenticación corporativa, despliegue on-prem.",
+    "achievements": [
+      "Desarrollé portal corporativo para gestión de documentos y vacaciones",
+      "Implementé frontend con Vue 3 + Vite para óptima performance",
+      "Integré API .NET Core con autenticación corporativa Keycloak/SSO",
+      "Configuré despliegue on-premises con alta seguridad"
+    ],
+    "technologies": ["Vue 3", "Vite", ".NET Core", "SQL Server", "Keycloak", "SSO"],
+    "projects": []
+  },
+  {
+    "id": "exp-3",
+    "company": "Zo Systems",
+    "logo": "/images/companies/zo-systems.svg",
     "position": "Senior Full Stack Developer",
     "startDate": "2023-01-01",
     "endDate": null,

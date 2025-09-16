@@ -183,7 +183,7 @@ export function Navigation() {
               to={item.path}
               data-menu-id={item.id}
               className={cn(
-                'corner-menu premium-menu fixed font-heading text-base font-medium transition-all duration-700 ease-out pointer-events-auto',
+                'corner-menu premium-menu fixed font-heading text-base font-medium transition-all duration-700 ease-out pointer-events-auto hidden sm:block',
                 item.position, // Use corner positions
                 'px-4 py-3 min-h-[44px] rounded-xl border-0',
                 isActive ? 'opacity-100 text-white' : 'opacity-80 text-white hover:opacity-100'
@@ -240,7 +240,7 @@ export function Navigation() {
         })
       ) : (
         // Vertical list for other pages
-        <div className="fixed top-8 right-8 pointer-events-auto" style={{ zIndex: 9999 }}>
+        <div className="fixed top-8 right-8 pointer-events-auto hidden sm:block" style={{ zIndex: 9999 }}>
           {menuItems.map((item, index) => {
             const isActive = location.pathname === item.path
             return (
@@ -306,7 +306,7 @@ export function Navigation() {
       )}
       
       {/* Social Links - Middle Left */}
-      <div className="corner-menu corner-ml flex flex-col gap-4" style={{ zIndex: 9999 }}>
+      <div className="corner-menu corner-ml hidden sm:flex flex-col gap-4" style={{ zIndex: 9999 }}>
         {socialLinks.map((social) => {
           const Icon = social.icon
           return (
@@ -315,7 +315,7 @@ export function Navigation() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-[#E53935] text-[#E53935] backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-[#FF3B3B]/10 hover:shadow-[0_0_12px_rgba(255,59,59,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0D]"
+              className="p-2 rounded-lg border border-[#E53935] text-[#E53935] bg-[#313235] backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-[#FF3B3B]/10 hover:shadow-[0_0_12px_rgba(255,59,59,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0D]"
               onMouseEnter={(e) => createMenuHoverAnimation(e.currentTarget, true)}
               onMouseLeave={(e) => createMenuHoverAnimation(e.currentTarget, false)}
               aria-label={t(social.key)}

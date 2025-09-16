@@ -1,5 +1,35 @@
 [
   {
+    "id": "zo-portfolio",
+    "slug": "zo-portfolio",
+    "title": "Zo Systems — Personal Portfolio",
+    "description": "Portfolio técnico con hero animado (GSAP), circuitos SVG, i18n ES/EN, transiciones entre rutas, y arquitectura RAG local (.NET/Python) para búsqueda de contenido.",
+    "cover": "/images/projects/portfolio-cover.jpg",
+    "category": "Full Stack",
+    "technologies": ["React", "TypeScript", "Node.js", "Vue", ".NET", "GSAP", "Tailwind", "RAG"],
+    "year": "2025",
+    "duration": "3 meses",
+    "status": "Completado",
+    "kpis": {
+      "performance": "95% LCP <2s",
+      "accessibility": "A11y AA",
+      "commits": "100+ commits"
+    },
+    "context": "Desarrollo de un portfolio personal técnico que demuestre habilidades avanzadas en desarrollo full-stack, animaciones web y arquitecturas modernas, diseñado para destacar en el mercado tecnológico.",
+    "solution": "Implementé un sitio web con React/TypeScript, animaciones GSAP, circuitos SVG interactivos, sistema de internacionalización, y una arquitectura RAG local usando .NET y Python para búsqueda inteligente de contenido.",
+    "results": "Portfolio optimizado con LCP <2s, cumplimiento AA de accesibilidad, transiciones fluidas entre rutas, y más de 100 commits que demuestran un proceso de desarrollo iterativo y profesional.",
+    "role": "Full Stack Developer - Diseño, arquitectura, desarrollo frontend/backend, animaciones, optimización de performance y deployment.",
+    "gallery": [
+      "/images/projects/portfolio-1.jpg",
+      "/images/projects/portfolio-2.jpg",
+      "/images/projects/portfolio-3.jpg"
+    ],
+    "links": {
+      "live": "https://zo-portfolio.pages.dev/",
+      "github": "https://github.com/jagzao/zo-portfolio"
+    }
+  },
+  {
     "id": "project-1",
     "slug": "ecommerce-platform",
     "title": "E-commerce Platform",

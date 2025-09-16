@@ -191,8 +191,8 @@ export function Contact() {
       <BG opacity={0.25} speed={0.4} />
       
       {/* Main Content */}
-      <div className="relative z-10 py-20" style={{ padding: 'clamp(16px, 4vw, 32px)' }}>
-        <div className="max-w-[1280px] mx-auto">
+      <div className="relative z-10 pt-[calc(80px+env(safe-area-inset-top))] pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
           
           {/* Header */}
           <div ref={headerRef} className="mb-16 text-center">
@@ -218,9 +218,7 @@ export function Contact() {
             </p>
           </div>
           
-          <div className="grid gap-12" style={{
-            gridTemplateColumns: window.innerWidth >= 1024 ? 'repeat(2, 1fr)' : '1fr'
-          }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Contact Form */}
             <div ref={formRef}>
               <article 
@@ -253,12 +251,12 @@ export function Contact() {
                       placeholder={t('contact.namePlaceholder')}
                       value={form.name}
                       onChange={(e) => handleChange('name', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg bg-[#0B0B0D] border text-white placeholder-[#B0B0B5] transition-all duration-300 ${
-                        errors.name 
-                          ? 'border-red-500 focus:border-red-500' 
-                          : 'border-[#2A2222] focus:border-[#FF3B3B] focus:shadow-[0_0_10px_rgba(255,59,59,0.25)]'
+                      className={`w-full px-4 py-3 rounded-md bg-[#0B0B0D] border text-white placeholder-[#8B8B90] transition-all duration-300 min-h-[48px] ${
+                        errors.name
+                          ? 'border-red-500 focus:border-red-500'
+                          : 'border-[#2A2222] focus:border-[#FF3B3B] focus:ring-2 focus:ring-[#FF3B3B] focus:ring-opacity-25'
                       }`}
-                      style={{ 
+                      style={{
                         fontFamily: 'Inter, sans-serif',
                         outline: 'none'
                       }}
@@ -287,12 +285,12 @@ export function Contact() {
                       placeholder={t('contact.emailPlaceholder')}
                       value={form.email}
                       onChange={(e) => handleChange('email', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg bg-[#0B0B0D] border text-white placeholder-[#B0B0B5] transition-all duration-300 ${
-                        errors.email 
-                          ? 'border-red-500 focus:border-red-500' 
-                          : 'border-[#2A2222] focus:border-[#FF3B3B] focus:shadow-[0_0_10px_rgba(255,59,59,0.25)]'
+                      className={`w-full px-4 py-3 rounded-md bg-[#0B0B0D] border text-white placeholder-[#8B8B90] transition-all duration-300 min-h-[48px] ${
+                        errors.email
+                          ? 'border-red-500 focus:border-red-500'
+                          : 'border-[#2A2222] focus:border-[#FF3B3B] focus:ring-2 focus:ring-[#FF3B3B] focus:ring-opacity-25'
                       }`}
-                      style={{ 
+                      style={{
                         fontFamily: 'Inter, sans-serif',
                         outline: 'none'
                       }}
@@ -321,12 +319,12 @@ export function Contact() {
                       placeholder={t('contact.messagePlaceholder')}
                       value={form.message}
                       onChange={(e) => handleChange('message', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg bg-[#0B0B0D] border text-white placeholder-[#B0B0B5] transition-all duration-300 resize-none ${
-                        errors.message 
-                          ? 'border-red-500 focus:border-red-500' 
-                          : 'border-[#2A2222] focus:border-[#FF3B3B] focus:shadow-[0_0_10px_rgba(255,59,59,0.25)]'
+                      className={`w-full px-4 py-3 rounded-md bg-[#0B0B0D] border text-white placeholder-[#8B8B90] transition-all duration-300 resize-none ${
+                        errors.message
+                          ? 'border-red-500 focus:border-red-500'
+                          : 'border-[#2A2222] focus:border-[#FF3B3B] focus:ring-2 focus:ring-[#FF3B3B] focus:ring-opacity-25'
                       }`}
-                      style={{ 
+                      style={{
                         fontFamily: 'Inter, sans-serif',
                         outline: 'none'
                       }}
@@ -344,8 +342,8 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#E53935] hover:bg-[#FF3B3B] disabled:bg-[#666] text-white px-6 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 disabled:hover:scale-100 flex items-center justify-center gap-3"
-                    style={{ 
+                    className="w-full md:w-auto bg-[#E53935] hover:bg-[#FF3B3B] disabled:bg-[#666] text-white px-6 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 disabled:hover:scale-100 flex items-center justify-center gap-3 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-[#FF3B3B] focus:ring-offset-2 focus:ring-offset-[#1A1717]"
+                    style={{
                       fontFamily: 'Inter, sans-serif',
                       fontSize: '16px'
                     }}
@@ -527,9 +525,7 @@ export function Contact() {
                 {t('contact.faq')}
               </h2>
               
-              <div className="grid gap-6" style={{
-                gridTemplateColumns: window.innerWidth >= 768 ? 'repeat(2, 1fr)' : '1fr'
-              }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="text-white font-semibold mb-2" style={{ fontFamily: 'Fira Code, monospace' }}>
                     {t('contact.faq.remote.q')}

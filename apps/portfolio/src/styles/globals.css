@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 11 11 13; /* #0B0B0D */
+    --background: 32 33 36; /* #202124 */
     --foreground: 255 255 255; /* #FFFFFF */
     --card: 17 18 21; /* #111215 */
     --card-foreground: 255 255 255;
@@ -26,6 +26,13 @@
     --input: 17 18 21;
     --ring: 255 59 59;
     --radius: 0.5rem;
+    --brand-red: 229 57 53; /* #E53935 */
+    --brand-red2: 255 59 59; /* #FF3B3B */
+    --bg-1: 11 11 13; /* #0B0B0D */
+    --bg-2: 26 23 23; /* #1A1717 */
+    --line: 42 34 34; /* #2A2222 */
+    --text-2: 176 176 181; /* #B0B0B5 */
+    --social-bg: 49 50 53; /* #313235 */
   }
 }
 
@@ -98,6 +105,10 @@
 }
 
 @layer components {
+  /* Mobile responsive utilities */
+  .hidden-sm { @apply sm:hidden; }
+  .show-md { @apply hidden sm:flex; }
+
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     *,

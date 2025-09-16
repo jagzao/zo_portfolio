@@ -100,7 +100,7 @@ export function Projects() {
       <BG opacity={0.25} speed={0.4} />
       
       {/* Main Content */}
-      <div className="relative z-10 py-20" style={{ padding: 'clamp(16px, 4vw, 32px)' }}>
+      <div className="relative z-10 pt-[calc(80px+env(safe-area-inset-top))] pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
           
           {/* Header */}
@@ -144,13 +144,13 @@ export function Projects() {
                 />
               </div>
               
-              {/* Category Chips */}
-              <div className="flex flex-wrap gap-2">
+              {/* Category Chips - Horizontal scroll on mobile */}
+              <div className="flex gap-2 overflow-x-auto snap-x snap-mandatory">
                 {categories.map((category) => (
                   <button
                     key={category.key}
                     onClick={() => setSelectedCategory(category.key)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 border ${
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 border whitespace-nowrap snap-start ${
                       selectedCategory === category.key
                         ? 'bg-[rgba(255,59,59,0.12)] border-[#E53935] text-white shadow-[0_2px_8px_rgba(229,57,53,0.3)]'
                         : 'bg-transparent border-[rgba(229,57,53,0.25)] text-[#D6D6D6] hover:bg-[rgba(255,59,59,0.08)] hover:border-[#E53935]'
@@ -168,14 +168,9 @@ export function Projects() {
           </div>
           
           {/* Projects Grid */}
-          <div 
+          <div
             ref={cardsRef}
-            className="grid gap-8"
-            style={{
-              gridTemplateColumns: window.innerWidth >= 1280 ? 'repeat(3, 1fr)' : 
-                                  window.innerWidth >= 1024 ? 'repeat(2, 1fr)' : 
-                                  '1fr'
-            }}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
           >
             {filteredProjects.map((project) => (
               <article 

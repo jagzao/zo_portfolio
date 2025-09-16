@@ -122,7 +122,7 @@ export function Skills() {
       <BG opacity={0.25} speed={0.4} />
       
       {/* Main Content */}
-      <div className="relative z-10 py-20" style={{ padding: 'clamp(16px, 4vw, 32px)' }}>
+      <div className="relative z-10 pt-[calc(80px+env(safe-area-inset-top))] pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
           
           {/* Header */}
@@ -171,16 +171,11 @@ export function Skills() {
                   </p>
                 </div>
                 
-                <div className="grid gap-6" style={{
-                  gridTemplateColumns: window.innerWidth >= 1280 ? 'repeat(4, 1fr)' : 
-                                      window.innerWidth >= 1024 ? 'repeat(3, 1fr)' : 
-                                      window.innerWidth >= 768 ? 'repeat(2, 1fr)' : 
-                                      '1fr'
-                }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {category.skills.map((skill) => (
-                    <article 
-                      key={skill.name} 
-                      className="skill-card group bg-[#1A1717] border border-[#2A2222] rounded-[14px] p-6 transition-all duration-300 hover:border-[rgba(255,59,59,0.40)] hover:-translate-y-0.5 hover:shadow-[0_0_12px_rgba(255,59,59,0.2)]"
+                    <article
+                      key={skill.name}
+                      className="skill-card group bg-[#1A1717] border border-[#2A2222] rounded-[14px] p-6 h-full flex flex-col transition-all duration-300 hover:border-[rgba(255,59,59,0.40)] hover:-translate-y-1 hover:shadow-[0_0_12px_rgba(255,59,59,0.15)]"
                       style={{ backdropFilter: 'blur(2px)' }}
                     >
                       {/* Skill Header */}
@@ -199,7 +194,7 @@ export function Skills() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="text-white font-semibold mb-1" style={{ fontFamily: 'Fira Code, monospace' }}>
-                            {skill.name} — {skill.level}% ({skill.years} {skill.years === 1 ? t('skills.experience.single') : t('skills.experience')})
+                            {skill.name} — {skill.level}% ({skill.years} years)
                           </div>
                         </div>
                       </div>
@@ -270,9 +265,7 @@ export function Skills() {
               </p>
             </div>
             
-            <div className="grid gap-8" style={{
-              gridTemplateColumns: window.innerWidth >= 768 ? 'repeat(2, 1fr)' : '1fr'
-            }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {skillsData.workflow.steps.map((step) => (
                 <article 
                   key={step.number} 
@@ -323,9 +316,7 @@ export function Skills() {
                 {t('skills.certifications')}
               </h2>
               
-              <div className="grid gap-6" style={{
-                gridTemplateColumns: window.innerWidth >= 768 ? 'repeat(2, 1fr)' : '1fr'
-              }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {skillsData.certifications.map((cert) => (
                   <article 
                     key={cert.name} 

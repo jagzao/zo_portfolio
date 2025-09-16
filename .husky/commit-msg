@@ -11,6 +11,17 @@ if echo "$commit_msg" | grep -q -i "jagzao and claude\|jagzao & claude"; then
     exit 1
 fi
 
+# Block Co-Authored-By lines that create additional contributors in GitHub
+if echo "$commit_msg" | grep -q -i "Co-Authored-By:"; then
+    echo "❌ Error: Co-Authored-By creates additional contributors in GitHub"
+    echo "   Only 'jagzao' should appear as contributor"
+    echo "   Remove Co-Authored-By lines from commit message"
+    echo ""
+    echo "Current message:"
+    echo "$commit_msg"
+    exit 1
+fi
+
 # Check if commit author line contains both names together
 if echo "$commit_msg" | grep -q -i "Author:.*jagzao.*claude\|Author:.*claude.*jagzao"; then
     echo "❌ Error: Author should only be 'jagzao'"

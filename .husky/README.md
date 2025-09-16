@@ -32,17 +32,16 @@ feat: Add new feature
 Description of the change.
 
 🤖 Generated with [Claude Code](https://claude.ai/code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 ### Errores Comunes Bloqueados
 
 ❌ **Incorrecto:**
 - `jagzao and claude` en commits
-- Co-Authored-By con ambos nombres
+- Co-Authored-By (crea contributors adicionales)
 - Author name diferente a "jagzao"
 
 ✅ **Correcto:**
-- Solo "jagzao" como author
-- Co-Authored-By: Claude <noreply@anthropic.com>
+- Solo "jagzao" como author y contributor
+- Sin Co-Authored-By lines
+- Solo Claude Code credit en footer

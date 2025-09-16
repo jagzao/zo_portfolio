@@ -167,4 +167,4 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 **Available for freelance projects and full-time opportunities**  
-*Focused on impact and delivery quality*
+*Focused on impact and quality delivery*

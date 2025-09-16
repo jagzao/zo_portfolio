@@ -45,8 +45,8 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
     <div 
       ref={circuitRef}
       className="fixed inset-0 pointer-events-none overflow-hidden"
-      style={{ 
-        background: '#0B0B0D',
+      style={{
+        background: '#202124',
         zIndex: 1,
         width: '100vw',
         height: '100vh'
@@ -58,7 +58,7 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
           <div 
             className="absolute inset-0"
             style={{
-              background: 'radial-gradient(circle at 50% 50%, rgba(17, 18, 21, 0.3) 0%, rgba(11, 11, 13, 0.9) 100%)'
+              background: 'radial-gradient(circle at 50% 50%, rgba(32, 33, 36, 0.3) 0%, rgba(32, 33, 36, 0.9) 100%)'
             }}
           />
         }>
@@ -68,7 +68,7 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
         <div 
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(circle at 50% 50%, rgba(17, 18, 21, 0.2) 0%, rgba(11, 11, 13, 0.8) 100%)'
+            background: 'radial-gradient(circle at 50% 50%, rgba(32, 33, 36, 0.2) 0%, rgba(32, 33, 36, 0.8) 100%)'
           }}
         />
       )}
@@ -129,7 +129,7 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
         className="absolute inset-0 pointer-events-none"
         style={{
           background: `
-            radial-gradient(ellipse at center, transparent 30%, rgba(11, 11, 13, 0.1) 70%, rgba(11, 11, 13, 0.3) 100%)
+            radial-gradient(ellipse at center, transparent 30%, rgba(32, 33, 36, 0.1) 70%, rgba(32, 33, 36, 0.3) 100%)
           `
         }}
       />

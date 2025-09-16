@@ -42,7 +42,8 @@
   }
   
   body {
-    @apply bg-background text-foreground;
+    background-color: #202124;
+    color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
@@ -90,17 +91,18 @@
   ::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   ::-webkit-scrollbar-track {
-    @apply bg-muted;
+    background: #2A2222;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    @apply bg-muted-foreground rounded-full;
+    background: #E53935;
+    border-radius: 4px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary;
+    background: #FF3B3B;
   }
 }
 

@@ -28,8 +28,8 @@ interface Translations {
 const translations: Translations = {
   en: {
     'hero.title': 'Juan German Zambrano Ortega',
-    'hero.subtitle': 'SOFTWARE ENGINEERING',
-    'hero.description': 'Experienced software engineer with 10+ years in scalable, secure fullstack development using .NET, React/Vue, and SQL. Available for freelance or contractor roles.',
+    'hero.subtitle': 'FULL-STACK SOFTWARE ENGINEER',
+    'hero.description': 'Full-Stack Software Engineer with 10+ years developing scalable and secure applications in .NET Core, Node.js, React, Vue, SQL. Passionate about Clean Architecture, SOLID, CQRS, API integrations, and automation with n8n/Python. Available for freelance or contractor roles focused on impact and delivery quality.',
     'nav.projects': 'Projects',
     'nav.skills': 'Skills',
     'nav.experience': 'Experience',
@@ -132,8 +132,8 @@ const translations: Translations = {
   },
   es: {
     'hero.title': 'Juan German Zambrano Ortega',
-    'hero.subtitle': 'DESARROLLADOR FULL-STACK & INGENIERÍA DE SOFTWARE',
-    'hero.description': 'Ingeniero de software con más de 10 años de experiencia creando aplicaciones escalables y seguras usando .NET, React/Vue y SQL. Disponible para proyectos freelance.',
+    'hero.subtitle': 'INGENIERO DE SOFTWARE FULL-STACK',
+    'hero.description': 'Ingeniero de software con 10+ años de experiencia desarrollando aplicaciones escalables y seguras en .NET Core, Node.js, React y Vue. Apasionado por arquitecturas limpias (Clean Architecture, SOLID, CQRS), integración de APIs, automatización con n8n/Python, y despliegue en Azure/Docker. Disponible para roles freelance o contractor, con foco en impacto y calidad de entrega.',
     'nav.projects': 'Proyectos',
     'nav.skills': 'Habilidades',
     'nav.experience': 'Experiencia',

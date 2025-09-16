@@ -1,64 +1,83 @@
 {
   "categories": {
-    "core": {
-      "title": "Core Technologies",
-      "description": "Las tecnologías que domino y uso diariamente",
-      "skills": [
-        { "name": "React", "level": 95, "years": 4, "icon": "react" },
-        { "name": "TypeScript", "level": 90, "years": 3, "icon": "typescript" },
-        { "name": "Node.js", "level": 85, "years": 3, "icon": "nodejs" },
-        { "name": "JavaScript", "level": 95, "years": 5, "icon": "javascript" },
-        { "name": "HTML5", "level": 98, "years": 9, "icon": "html5" },
-        { "name": "CSS3", "level": 90, "years": 6, "icon": "css3" },
-        { "name": "Tailwind CSS", "level": 85, "years": 2, "icon": "tailwind" },
-        { "name": "Git", "level": 90, "years": 4, "icon": "git" }
-      ]
-    },
     "frontend": {
-      "title": "Frontend Stack",
-      "description": "Frameworks y herramientas para desarrollo frontend",
+      "title": "Frontend",
+      "description": "Interfaces web modernas y experiencias de usuario",
       "skills": [
-        { "name": "Next.js", "level": 80, "years": 4, "icon": "nextjs" },
-        { "name": "Vue.js", "level": 75, "years": 6, "icon": "vuejs" },
-        { "name": "React Native", "level": 70, "years": 1, "icon": "react" },
-        { "name": "SASS/SCSS", "level": 85, "years": 4, "icon": "sass" },
-        { "name": "Webpack", "level": 70, "years": 2, "icon": "webpack" },
-        { "name": "Vite", "level": 80, "years": 1, "icon": "vite" }
+        { "name": "React", "level": 95, "years": 8, "icon": "react" },
+        { "name": "Vue.js", "level": 90, "years": 7, "icon": "vuejs" },
+        { "name": "Next.js", "level": 85, "years": 4, "icon": "nextjs" },
+        { "name": "React Native", "level": 80, "years": 3, "icon": "react" },
+        { "name": "TypeScript", "level": 95, "years": 6, "icon": "typescript" },
+        { "name": "Tailwind CSS", "level": 90, "years": 4, "icon": "tailwind" },
+        { "name": "Vite", "level": 85, "years": 3, "icon": "vite" },
+        { "name": "Webpack", "level": 80, "years": 5, "icon": "webpack" }
       ]
     },
     "backend": {
-      "title": "Backend & Database",
-      "description": "Tecnologías server-side y bases de datos",
+      "title": "Backend",
+      "description": "Desarrollo server-side y arquitectura",
       "skills": [
-        { "name": "Express.js", "level": 85, "years": 3, "icon": "express" },
-        { "name": "PostgreSQL", "level": 80, "years": 2, "icon": "postgresql" },
-        { "name": "MongoDB", "level": 75, "years": 2, "icon": "mongodb" },
-        { "name": "Redis", "level": 70, "years": 1, "icon": "redis" },
-        { "name": "GraphQL", "level": 65, "years": 1, "icon": "graphql" },
-        { "name": "REST APIs", "level": 90, "years": 4, "icon": "api" }
+        { "name": ".NET Core", "level": 95, "years": 10, "icon": "dotnetcore" },
+        { "name": "Node.js", "level": 90, "years": 8, "icon": "nodejs" },
+        { "name": "Python", "level": 80, "years": 5, "icon": "python" },
+        { "name": "FastAPI", "level": 75, "years": 2, "icon": "fastapi" },
+        { "name": "ASP.NET", "level": 95, "years": 10, "icon": "dotnet" },
+        { "name": "Express.js", "level": 85, "years": 6, "icon": "express" },
+        { "name": "REST APIs", "level": 95, "years": 10, "icon": "api" },
+        { "name": "GraphQL", "level": 70, "years": 3, "icon": "graphql" }
       ]
     },
-    "cloud": {
-      "title": "Cloud & DevOps",
-      "description": "Herramientas de despliegue y infraestructura",
+    "database": {
+      "title": "Base de Datos",
+      "description": "Gestión de datos y soluciones de almacenamiento",
       "skills": [
-        { "name": "AWS", "level": 75, "years": 2, "icon": "aws" },
-        { "name": "Docker", "level": 70, "years": 2, "icon": "docker" },
-        { "name": "Vercel", "level": 85, "years": 2, "icon": "vercel" },
-        { "name": "Firebase", "level": 75, "years": 2, "icon": "firebase" },
-        { "name": "CI/CD", "level": 70, "years": 2, "icon": "cicd" }
+        { "name": "PostgreSQL", "level": 90, "years": 8, "icon": "postgresql" },
+        { "name": "SQL Server", "level": 95, "years": 10, "icon": "microsoftsqlserver" },
+        { "name": "MongoDB", "level": 80, "years": 6, "icon": "mongodb" },
+        { "name": "Oracle Cloud", "level": 75, "years": 4, "icon": "oracle" },
+        { "name": "Redis", "level": 70, "years": 3, "icon": "redis" },
+        { "name": "Entity Framework", "level": 90, "years": 8, "icon": "dotnet" }
+      ]
+    },
+    "devops": {
+      "title": "DevOps & Cloud",
+      "description": "Infraestructura, despliegue y automatización",
+      "skills": [
+        { "name": "Azure Functions", "level": 85, "years": 4, "icon": "azure" },
+        { "name": "Docker", "level": 85, "years": 5, "icon": "docker" },
+        { "name": "GitHub Actions", "level": 80, "years": 4, "icon": "githubactions" },
+        { "name": "n8n", "level": 85, "years": 4, "icon": "automation" },
+        { "name": "Azure Storage", "level": 80, "years": 4, "icon": "azure" },
+        { "name": "CI/CD", "level": 85, "years": 6, "icon": "cicd" }
+      ]
+    },
+    "architecture": {
+      "title": "Arquitectura y Patrones",
+      "description": "Principios de diseño de software y patrones",
+      "skills": [
+        { "name": "Clean Architecture", "level": 95, "years": 8, "icon": "architecture" },
+        { "name": "CQRS", "level": 90, "years": 6, "icon": "pattern" },
+        { "name": "SOLID", "level": 95, "years": 10, "icon": "solid" },
+        { "name": "DDD", "level": 85, "years": 6, "icon": "ddd" },
+        { "name": "Microservicios", "level": 85, "years": 6, "icon": "microservices" },
+        { "name": "MediatR", "level": 90, "years": 5, "icon": "mediator" },
+        { "name": "FluentValidation", "level": 85, "years": 4, "icon": "validation" },
+        { "name": "Command Pattern", "level": 90, "years": 8, "icon": "command" }
       ]
     },
     "tools": {
-      "title": "Development Tools",
-      "description": "Herramientas y metodologías de desarrollo",
+      "title": "Herramientas y Otros",
+      "description": "Herramientas de desarrollo y tecnologías adicionales",
       "skills": [
-        { "name": "VS Code", "level": 95, "years": 5, "icon": "vscode" },
-        { "name": "Figma", "level": 80, "years": 3, "icon": "figma" },
-        { "name": "Jest", "level": 75, "years": 2, "icon": "jest" },
-        { "name": "Cypress", "level": 70, "years": 1, "icon": "cypress" },
-        { "name": "Scrum", "level": 85, "years": 3, "icon": "scrum" },
-        { "name": "Jira", "level": 80, "years": 3, "icon": "jira" }
+        { "name": "Git", "level": 95, "years": 10, "icon": "git" },
+        { "name": "xUnit", "level": 85, "years": 6, "icon": "xunit" },
+        { "name": "Moq", "level": 80, "years": 5, "icon": "mock" },
+        { "name": "OAuth2", "level": 85, "years": 5, "icon": "oauth" },
+        { "name": "DacPac", "level": 80, "years": 4, "icon": "database" },
+        { "name": "Syncfy", "level": 75, "years": 2, "icon": "sync" },
+        { "name": "VS Code", "level": 95, "years": 8, "icon": "vscode" },
+        { "name": "Visual Studio", "level": 90, "years": 10, "icon": "visualstudio" }
       ]
     }
   },
@@ -68,42 +87,42 @@
     "steps": [
       {
         "number": "01",
-        "title": "Discovery & Planning",
-        "description": "Análisis de requisitos, definición de alcance y planificación de arquitectura. Identifico riesgos técnicos y establezco métricas de éxito.",
-        "tools": ["Figma", "Miro", "Notion"]
+        "title": "Arquitectura y Planificación",
+        "description": "Diseño de Clean Architecture con principios SOLID. Defino contextos delimitados, establezco patrones CQRS, y planifico para escalabilidad desde el día uno.",
+        "tools": ["Clean Architecture", "DDD", "CQRS"]
       },
       {
         "number": "02", 
-        "title": "Design & Prototyping",
-        "description": "Diseño de wireframes, prototipos interactivos y definición del design system. Valido la UX con stakeholders antes del desarrollo.",
-        "tools": ["Figma", "Storybook", "Framer"]
+        "title": "Implementación y Patrones",
+        "description": "TDD con xUnit, implementación de patrones Command/Query con MediatR, y validación robusta con FluentValidation.",
+        "tools": ["xUnit", "MediatR", "FluentValidation"]
       },
       {
         "number": "03",
-        "title": "Development & Testing",
-        "description": "Desarrollo con TDD, code reviews continuos y testing automatizado. Implemento CI/CD desde el primer commit.",
-        "tools": ["VS Code", "Jest", "Cypress", "GitHub Actions"]
+        "title": "Integración y Testing",
+        "description": "Integraciones de APIs, gestión de base de datos con DacPac, implementación de seguridad OAuth2, y testing unitario integral con Moq.",
+        "tools": ["OAuth2", "DacPac", "Moq"]
       },
       {
         "number": "04",
-        "title": "Deploy & Monitoring", 
-        "description": "Despliegue gradual con feature flags, monitoreo de performance y feedback loops. Optimización continua basada en métricas reales.",
-        "tools": ["Vercel", "Sentry", "Analytics", "Lighthouse"]
+        "title": "Despliegue y Automatización", 
+        "description": "Despliegue en Azure Functions, automatización de procesos con n8n/Python, CI/CD con GitHub Actions, y monitoreo de performance.",
+        "tools": ["Azure Functions", "n8n", "GitHub Actions"]
       }
     ]
   },
   "certifications": [
     {
-      "name": "AWS Solutions Architect",
-      "issuer": "Amazon Web Services",
+      "name": "Curso definitivo de HTML y CSS",
+      "issuer": "Platzi",
       "date": "2023",
-      "credential": "https://aws.amazon.com/verification"
+      "credential": "https://platzi.com/verify"
     },
     {
-      "name": "Meta Front-End Developer",
-      "issuer": "Meta",
-      "date": "2022", 
-      "credential": "https://coursera.org/verify"
+      "name": "Curso de Diseño para Developers",
+      "issuer": "Platzi",
+      "date": "2023", 
+      "credential": "https://platzi.com/verify"
     }
   ]
 }

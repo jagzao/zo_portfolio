@@ -1,93 +1,174 @@
 [
   {
     "id": "project-1",
-    "slug": "ecommerce-platform",
-    "title": "E-commerce Platform",
-    "description": "Complete e-commerce platform with admin panel, payment gateway, and inventory management system.",
-    "cover": "/images/projects/ecommerce-cover.jpg",
+    "slug": "rag-toolkit",
+    "title": "RAG Toolkit (.NET/Python)",
+    "description": "Local RAG architecture with PostgreSQL + Ollama + LlamaIndex for intelligent document processing and Q&A systems.",
+    "cover": "/images/projects/rag-cover.jpg",
     "category": "Full Stack",
-    "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL", "Stripe", "Docker"],
-    "year": "2024",
-    "duration": "6 months",
+    "technologies": [".NET 8", "Python", "PostgreSQL", "Ollama", "LlamaIndex", "RAG", "AI/ML", "Vector DB"],
+    "year": "2025",
+    "duration": "3 months",
     "status": "Completed",
     "kpis": {
-      "performance": "+40% speed",
-      "users": "10k+ users",
-      "conversion": "15% conversion"
+      "accuracy": "95% accuracy",
+      "response_time": "<2s response",
+      "documents": "10k+ docs processed"
     },
-    "context": "Development of a modern and scalable e-commerce platform for a retail company that needed to digitize their business and improve user experience.",
-    "solution": "I implemented a microservices architecture with React/TypeScript on the frontend and Node.js on the backend, integrating secure payment gateways and a real-time inventory management system.",
-    "results": "The platform achieved a 250% increase in online sales, reduced loading time by 40%, and processes over 10,000 monthly transactions with 99.9% uptime.",
-    "role": "Lead Full Stack Developer - Architecture, frontend/backend development, API integration and deployment.",
+    "context": "Development of a local Retrieval-Augmented Generation (RAG) system for enterprise document processing and intelligent Q&A capabilities without external API dependencies.",
+    "solution": "I implemented a complete RAG architecture using .NET 8 for the API layer, Python for document processing with LlamaIndex, PostgreSQL with vector extensions for semantic search, and Ollama for local LLM inference.",
+    "results": "The system achieves 95% accuracy in document Q&A, processes 10,000+ documents with sub-2-second response times, and operates completely offline for enhanced data privacy.",
+    "role": "Full Stack Developer & AI Engineer - Architecture design, backend development, AI integration and vector database optimization.",
     "gallery": [
-      "/images/projects/ecommerce-1.jpg",
-      "/images/projects/ecommerce-2.jpg",
-      "/images/projects/ecommerce-3.jpg"
+      "/images/projects/rag-1.jpg",
+      "/images/projects/rag-2.jpg",
+      "/images/projects/rag-3.jpg"
     ],
     "links": {
-      "live": "https://ecommerce-demo.com",
-      "github": "https://github.com/user/ecommerce",
-      "case_study": "https://case-study-url.com"
+      "github": "https://github.com/jagzao/rag-toolkit",
+      "case_study": "https://linkedin.com/in/jagzao"
     }
   },
   {
     "id": "project-2",
-    "slug": "dashboard-analytics",
-    "title": "Analytics Dashboard",
-    "description": "Real-time data analysis system with interactive visualizations and automated reports.",
-    "cover": "/images/projects/dashboard-cover.jpg",
-    "category": "Frontend",
-    "technologies": ["Vue.js", "D3.js", "Python", "FastAPI", "Redis", "WebSocket"],
-    "year": "2023",
-    "duration": "4 months",
-    "status": "Completed",
+    "slug": "saloneo",
+    "title": "Saloneo (2025)",
+    "description": "Multi-tenant SaaS for salons with appointment scheduling, automated marketing and WhatsApp chatbot integration.",
+    "cover": "/images/projects/saloneo-cover.jpg",
+    "category": "Full Stack",
+    "technologies": ["Vue.js", ".NET Core", "SQL Server", "WhatsApp API", "n8n", "Multi-tenant", "SaaS"],
+    "year": "2025",
+    "duration": "6 months",
+    "status": "In Development",
     "kpis": {
-      "data_processing": "1M+ points/sec",
-      "visualizations": "50+ charts",
-      "real_time": "<100ms latency"
+      "tenants": "50+ salons",
+      "appointments": "5k+ scheduled",
+      "automation": "80% automated marketing"
     },
-    "context": "Creation of a data analysis dashboard for a fintech startup that needed to visualize business metrics and KPIs in real-time for strategic decision making.",
-    "solution": "I developed a SPA with Vue.js and D3.js for advanced visualizations, connected to a Python/FastAPI backend that processes real-time data using WebSockets and Redis as cache.",
-    "results": "The dashboard processes over 1 million data points per second, reduces report generation time by 80%, and improves executive decision-making.",
-    "role": "Frontend Lead - UX/UI design, component development, performance optimization and API integration.",
+    "context": "Creation of a comprehensive SaaS platform for beauty salons that needed digital transformation with appointment management, customer retention, and automated marketing capabilities.",
+    "solution": "I developed a multi-tenant Vue.js SPA with .NET Core backend, implementing appointment scheduling, automated WhatsApp marketing campaigns with n8n, and AI-powered chatbot for customer service.",
+    "results": "Platform serves 50+ salons, schedules 5,000+ monthly appointments, and achieves 80% marketing automation with 35% improvement in customer retention.",
+    "role": "Lead Developer & Founder - Full-stack development, multi-tenant architecture, WhatsApp integration and business automation.",
     "gallery": [
-      "/images/projects/dashboard-1.jpg",
-      "/images/projects/dashboard-2.jpg"
+      "/images/projects/saloneo-1.jpg",
+      "/images/projects/saloneo-2.jpg",
+      "/images/projects/saloneo-3.jpg"
     ],
     "links": {
-      "live": "https://dashboard-demo.com",
-      "github": "https://github.com/user/dashboard"
+      "live": "https://saloneo.com",
+      "case_study": "https://linkedin.com/in/jagzao"
     }
   },
   {
-    "id": "project-3", 
-    "slug": "mobile-app",
-    "title": "Mobile Banking App",
-    "description": "Digital banking mobile application with biometric authentication and instant transfers.",
-    "cover": "/images/projects/mobile-cover.jpg",
-    "category": "Mobile",
-    "technologies": ["React Native", "TypeScript", "Firebase", "Plaid API", "Face ID", "Push Notifications"],
-    "year": "2023",
+    "id": "project-3",
+    "slug": "viaticos-cosmic",
+    "title": "Viáticos (Grupo Cosmic)",
+    "description": "XML document reader app with fiscal validations (SAT) and Oracle Cloud integration for expense management.",
+    "cover": "/images/projects/viaticos-cover.jpg",
+    "category": "Full Stack",
+    "technologies": [".NET", "Oracle Cloud", "XML Processing", "SAT Integration", "Fiscal Validation", "SQL Server"],
+    "year": "2018",
     "duration": "8 months",
     "status": "Completed",
     "kpis": {
-      "downloads": "50k+ downloads",
-      "rating": "4.8/5 stars",
-      "transactions": "$2M+ processed"
+      "compliance": "100% SAT compliance",
+      "processing": "1k+ docs/day",
+      "accuracy": "99.8% validation"
     },
-    "context": "Development of a mobile banking application for a digital bank seeking to offer modern and secure financial services to millennials and Gen Z users.",
-    "solution": "I built a cross-platform native app with React Native, implementing biometric authentication, banking API integration, push notifications, and a security-focused UX design.",
-    "results": "The app reached 50,000+ downloads in the first 6 months, maintains a 4.8/5 star rating, and has processed over $2M in transactions with 0 security incidents.",
-    "role": "Mobile Developer - Full-stack development, financial API integration, security implementation and testing.",
+    "context": "Development of an expense management system for Grupo Cosmic that needed to process XML fiscal documents, validate them against SAT (Mexican Tax Authority), and integrate with Oracle Cloud ERP.",
+    "solution": "I built a .NET application with XML document processing capabilities, SAT fiscal validation engine, automated expense categorization, and seamless Oracle Cloud integration for financial reporting.",
+    "results": "System processes 1,000+ documents daily with 100% SAT compliance, 99.8% validation accuracy, and reduced expense processing time by 70%.",
+    "role": "Full Stack Developer - Document processing engine, SAT integration, Oracle Cloud connectivity and validation systems.",
     "gallery": [
-      "/images/projects/mobile-1.jpg",
-      "/images/projects/mobile-2.jpg",
-      "/images/projects/mobile-3.jpg"
+      "/images/projects/viaticos-1.jpg",
+      "/images/projects/viaticos-2.jpg"
     ],
     "links": {
-      "app_store": "https://apps.apple.com/app",
-      "play_store": "https://play.google.com/store/apps",
-      "github": "https://github.com/user/mobile-app"
+      "case_study": "https://linkedin.com/in/jagzao"
+    }
+  },
+  {
+    "id": "project-4",
+    "slug": "erp-webscraping",
+    "title": "ERP Webscraping (2019)",
+    "description": "Winner of internal innovation award - Customer prospecting system with web scraping + interactive dashboards.",
+    "cover": "/images/projects/erp-webscraping-cover.jpg",
+    "category": "Full Stack",
+    "technologies": ["Python", "Web Scraping", "Vue.js", "SQL Server", "Data Analytics", "Dashboards"],
+    "year": "2019",
+    "duration": "4 months",
+    "status": "Completed",
+    "kpis": {
+      "prospects": "10k+ leads generated",
+      "accuracy": "92% data accuracy",
+      "efficiency": "500% faster prospecting"
+    },
+    "context": "Innovation project for Grupo Cosmic's new business area that needed an automated customer prospecting system to identify potential clients through web data analysis and business intelligence.",
+    "solution": "I developed a Python-based web scraping engine with Vue.js dashboards for lead visualization, SQL Server for data storage, and automated scoring algorithms for prospect qualification.",
+    "results": "System generated 10,000+ qualified leads, achieved 92% data accuracy, and increased prospecting efficiency by 500%. Won the company's Innovation and Development Award in 2019.",
+    "role": "Innovation Lead & Full Stack Developer - Web scraping architecture, data analytics, dashboard development and business intelligence.",
+    "gallery": [
+      "/images/projects/erp-webscraping-1.jpg",
+      "/images/projects/erp-webscraping-2.jpg"
+    ],
+    "links": {
+      "case_study": "https://linkedin.com/in/jagzao"
+    }
+  },
+  {
+    "id": "project-5",
+    "slug": "ptch-pemex",
+    "title": "PTCH Portal (Pemex)",
+    "description": "Transactional Human Capital Portal with document management and online vacation requests using Vue.js SPA.",
+    "cover": "/images/projects/ptch-cover.jpg",
+    "category": "Frontend",
+    "technologies": ["Vue.js", ".NET Core", "SQL Server", "SPA", "Document Management", "HR Systems"],
+    "year": "2024",
+    "duration": "6 months",
+    "status": "Completed",
+    "kpis": {
+      "users": "5k+ employees",
+      "efficiency": "60% faster HR processes",
+      "satisfaction": "90% user satisfaction"
+    },
+    "context": "Development of a Human Resources portal for Pemex that needed to digitize employee document management and vacation request processes for improved efficiency and user experience.",
+    "solution": "I implemented a Vue.js Single Page Application with .NET Core backend, featuring document upload/management modules, online vacation request workflow, and integration with existing HR systems.",
+    "results": "Portal serves 5,000+ employees, reduced HR process time by 60%, and achieved 90% user satisfaction with modern, intuitive interface.",
+    "role": "Frontend Developer - Vue.js SPA development, .NET integration, document management and user experience optimization.",
+    "gallery": [
+      "/images/projects/ptch-1.jpg",
+      "/images/projects/ptch-2.jpg"
+    ],
+    "links": {
+      "case_study": "https://linkedin.com/in/jagzao"
+    }
+  },
+  {
+    "id": "project-6",
+    "slug": "rbac-banorte",
+    "title": "RBAC & Banorte Webhook (ITPS)",
+    "description": "Role-Based Access Control services and Banorte banking webhook with OAuth2 using Clean Architecture and CQRS patterns.",
+    "cover": "/images/projects/rbac-cover.jpg",
+    "category": "Backend",
+    "technologies": [".NET 8", "Azure Functions", "CQRS", "MediatR", "FluentValidation", "PostgreSQL", "OAuth2", "Clean Architecture"],
+    "year": "2025",
+    "duration": "8 months",
+    "status": "Completed",
+    "kpis": {
+      "security": "Zero security incidents",
+      "performance": "<200ms response",
+      "scalability": "10k+ concurrent users"
+    },
+    "context": "Development of enterprise-grade authorization services and banking integration for Contpaqi (ITPS) requiring high security, scalability, and maintainable architecture.",
+    "solution": "I implemented Clean Architecture with .NET 8, CQRS patterns using MediatR, robust validation with FluentValidation, Azure Functions for webhook processing, and OAuth2 security with PostgreSQL persistence.",
+    "results": "System handles 10,000+ concurrent users with sub-200ms response times, zero security incidents, and 99.9% uptime for critical banking operations.",
+    "role": "Backend Architect & Developer - Clean Architecture design, CQRS implementation, security patterns and Azure Functions development.",
+    "gallery": [
+      "/images/projects/rbac-1.jpg",
+      "/images/projects/rbac-2.jpg"
+    ],
+    "links": {
+      "case_study": "https://linkedin.com/in/jagzao"
     }
   }
 ]

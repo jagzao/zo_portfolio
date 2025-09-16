@@ -1,62 +1,139 @@
 [
   {
     "id": "exp-1",
-    "company": "TechCorp Solutions",
-    "logo": "/images/companies/techcorp.svg",
-    "position": "Senior Full Stack Developer",
-    "startDate": "2023-01-01",
+    "company": "Hexaware Technologies",
+    "logo": "/images/companies/hexaware.svg",
+    "position": "Full-Stack Programmer",
+    "startDate": "2025-04-01",
     "endDate": null,
-    "duration": "2 years current",
-    "location": "Remote",
+    "duration": "Apr 2025 – Present",
+    "location": "Remote, Mexico",
     "type": "Full-time",
-    "description": "Lead development of scalable web applications using React, TypeScript and Node.js. Responsible for microservices architecture and junior team mentorship.",
+    "description": "Implementation of full-stack features prioritizing maintainability and testing. Code review and adoption of best practices. Support for integrations and performance improvements in critical endpoints.",
     "achievements": [
-      "Reduced application load times by 60% through bundle optimization and lazy loading",
-      "Implemented CI/CD system that reduced deployment time from 2h to 15min",
-      "Led migration from monolith to microservices increasing scalability by 300%",
-      "Mentored 5 junior developers improving team productivity by 40%"
+      "Implementation of full-stack features prioritizing maintainability and testing",
+      "Code review and adoption of best practices",
+      "Support for integrations and performance improvements in critical endpoints"
     ],
-    "technologies": ["React", "TypeScript", "Node.js", "AWS", "Docker", "PostgreSQL", "Redis"],
-    "projects": ["ecommerce-platform", "dashboard-analytics"]
+    "technologies": ["C#", ".NET Core", "ASP.NET", "React", "Vue", "SQL"],
+    "projects": []
   },
   {
-    "id": "exp-2", 
-    "company": "FinTech Innovations",
-    "logo": "/images/companies/fintech.svg",
-    "position": "Frontend Developer",
-    "startDate": "2021-06-01", 
-    "endDate": "2022-12-31",
-    "duration": "1.5 years",
-    "location": "Mexico City",
-    "type": "Full-time",
-    "description": "Developed user interfaces for fintech applications using Vue.js and D3.js. Specialized in financial data visualization and interactive dashboards.",
+    "id": "exp-2",
+    "company": "ITPS (freelance)",
+    "logo": "/images/companies/itps.svg",
+    "position": "Full-Stack Developer for Contpaqi",
+    "startDate": "2025-01-01",
+    "endDate": "2025-08-31",
+    "duration": "Jan 2025 – Aug 2025",
+    "location": "Remote, Mexico",
+    "type": "Freelance",
+    "description": "RBAC and Banorte Webhook project using clean architecture with .NET 8, Azure Functions, CQRS, MediatR, FluentValidation, and elastic PostgreSQL.",
     "achievements": [
-      "Created 20+ reusable components that reduced development time by 50%",
-      "Implemented complex data visualizations with D3.js for 100k+ users",
-      "Improved critical dashboard performance by 80% through optimizations",
-      "Collaborated on UX redesign that increased user retention by 25%"
+      "Design and implementation of RBAC authorization services in clean architecture",
+      "Development of Banorte webhook with OAuth2 in Azure Functions",
+      "Use of Command, Factory, Template Method patterns",
+      "Database management with DacPac and unit testing with xUnit + Moq",
+      "Integrations with Syncfy and Azure Storage"
     ],
-    "technologies": ["Vue.js", "D3.js", "JavaScript", "SASS", "Webpack", "Jest"],
-    "projects": ["mobile-app"]
+    "technologies": [".NET 8", "Azure Functions", "CQRS", "MediatR", "FluentValidation", "PostgreSQL", "OAuth2", "xUnit", "Moq"],
+    "projects": []
   },
   {
     "id": "exp-3",
-    "company": "StartupLab",
-    "logo": "/images/companies/startuplab.svg", 
-    "position": "Junior Full Stack Developer",
-    "startDate": "2020-01-01",
-    "endDate": "2021-05-31",
-    "duration": "1.4 years",
-    "location": "Guadalajara",
-    "type": "Full-time",
-    "description": "Development of MVPs and prototypes for tech startups. Working with modern technologies in an agile and fast-growing environment.",
+    "company": "Pemex (freelance)",
+    "logo": "/images/companies/pemex.svg",
+    "position": "Full-Stack Developer (PTCH)",
+    "startDate": "2024-07-01",
+    "endDate": "2025-01-31",
+    "duration": "Jul 2024 – Jan 2025",
+    "location": "Remote, Mexico",
+    "type": "Freelance",
+    "description": "Development of the Transactional Human Capital Portal (PTCH) using Vue.js SPA and .NET Core backend with SQL Server.",
     "achievements": [
-      "Developed 8 successful MVPs that raised $500k+ in seed investment",
-      "Implemented serverless architecture that reduced infrastructure costs by 70%",
-      "Collaborated on tech stack that scales from 0 to 10k users without refactoring",
-      "Participated in 3 startup accelerators as technical lead"
+      "Development of personal document update module",
+      "Implementation of online vacation request flow",
+      "Integration with .NET backend and Vue component optimization"
     ],
-    "technologies": ["React", "Node.js", "MongoDB", "AWS Lambda", "GraphQL", "Firebase"],
+    "technologies": ["Vue.js", ".NET Core", "SQL Server", "SPA"],
     "projects": []
+  },
+  {
+    "id": "exp-4",
+    "company": "Apex Systems",
+    "logo": "/images/companies/apex.svg",
+    "position": "Full-Stack Programmer",
+    "startDate": "2024-01-01",
+    "endDate": "2025-04-30",
+    "duration": "Jan 2024 – Apr 2025 · 1 year 4 months",
+    "location": "Remote, Mexico",
+    "type": "Full-time",
+    "description": "Delivery of frontend (React/Vue) and backend (Node/.NET) modules. Refactor of Node services to reduce technical debt. Automation with n8n and participation in code reviews.",
+    "achievements": [
+      "Delivery of frontend (React/Vue) and backend (Node/.NET) modules",
+      "Refactor of Node services to reduce technical debt",
+      "Automation with n8n (notifications, data synchronization)",
+      "Participation in code reviews and definition of standards"
+    ],
+    "technologies": ["React", "Vue", "Node.js", ".NET Core", "PostgreSQL", "SQL Server", "n8n"],
+    "projects": []
+  },
+  {
+    "id": "exp-5",
+    "company": "DaCodes",
+    "logo": "/images/companies/dacodes.svg",
+    "position": "Software Developer",
+    "startDate": "2022-01-01",
+    "endDate": "2024-01-31",
+    "duration": "Jan 2022 – Jan 2024 · 2 years 1 month",
+    "location": "Texcoco, Mexico",
+    "type": "Full-time",
+    "description": "Development of responsive web applications and REST APIs using Vue/React, Node.js/.NET, Tailwind, and PostgreSQL. Integrations with third parties and mentoring junior profiles.",
+    "achievements": [
+      "Development of responsive web applications and REST APIs",
+      "Integrations with third parties (external APIs)",
+      "Occasional mentoring of junior profiles"
+    ],
+    "technologies": ["Vue", "React", "Node.js", ".NET", "Tailwind", "PostgreSQL"],
+    "projects": []
+  },
+  {
+    "id": "exp-6",
+    "company": "Triger",
+    "logo": "/images/companies/triger.svg",
+    "position": "Freelance Software Engineer",
+    "startDate": "2020-09-01",
+    "endDate": "2022-01-31",
+    "duration": "Sep 2020 – Jan 2022 · 1 year 5 months",
+    "location": "Mexico City (remote)",
+    "type": "Freelance",
+    "description": "End-to-end projects (requirements gathering, architecture, deployment). Process automation with Python/n8n and lightweight technical documentation.",
+    "achievements": [
+      "End-to-end projects (requirements gathering, architecture, deployment)",
+      "Process automation with Python/n8n",
+      "Lightweight technical documentation and tracking boards"
+    ],
+    "technologies": ["React", "Vue", "Node.js", ".NET", "PostgreSQL", "Python", "n8n"],
+    "projects": []
+  },
+  {
+    "id": "exp-7",
+    "company": "Grupo Cosmic",
+    "logo": "/images/companies/cosmic.svg",
+    "position": "Full-Stack Developer",
+    "startDate": "2017-07-01",
+    "endDate": "2020-09-30",
+    "duration": "Jul 2017 – Sep 2020 · 3 years 3 months",
+    "location": "Mexico",
+    "type": "Full-time",
+    "description": "Development of mobile assistance apps, geolocation, dashboards, intranet. Centralization and automation of internal systems. Recognition for Innovation in 2019.",
+    "achievements": [
+      "Development of mobile assistance apps, geolocation, dashboards, intranet",
+      "Centralization and automation of internal systems",
+      "Innovation Recognition 2019 (see Awards section)",
+      "Design of initial architecture for scalability and security"
+    ],
+    "technologies": [".NET", "Node.js", "SQL Server", "Vue", "React", "Microservices"],
+    "projects": ["viaticos", "erp-webscraping"]
   }
 ]

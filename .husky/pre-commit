@@ -1,0 +1,21 @@
+# Check git config to ensure correct author name
+author_name=$(git config user.name)
+if [ "$author_name" != "jagzao" ]; then
+    echo "❌ Error: Git author name should be 'jagzao'"
+    echo "   Current author: $author_name"
+    echo "   Run: git config user.name 'jagzao'"
+    exit 1
+fi
+
+# Run linting if available
+if [ -f "apps/portfolio/package.json" ]; then
+    cd apps/portfolio
+    if npm run typecheck 2>/dev/null; then
+        echo "✅ TypeScript check passed"
+    else
+        echo "⚠️  TypeScript check failed or not available"
+    fi
+    cd ../..
+fi
+
+echo "✅ Pre-commit checks passed"

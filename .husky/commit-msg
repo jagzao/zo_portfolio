@@ -1,0 +1,23 @@
+# Get commit message
+commit_msg=$(cat $1)
+
+# Check for specific pattern "jagzao and claude" (but allow separate instances)
+if echo "$commit_msg" | grep -q -i "jagzao and claude\|jagzao & claude"; then
+    echo "❌ Error: Commit message should not contain 'jagzao and claude'"
+    echo "   Only use 'jagzao' as author name"
+    echo ""
+    echo "Current message:"
+    echo "$commit_msg"
+    exit 1
+fi
+
+# Check if commit author line contains both names together
+if echo "$commit_msg" | grep -q -i "Author:.*jagzao.*claude\|Author:.*claude.*jagzao"; then
+    echo "❌ Error: Author should only be 'jagzao'"
+    echo ""
+    echo "Current message:"
+    echo "$commit_msg"
+    exit 1
+fi
+
+echo "✅ Commit message format is valid"

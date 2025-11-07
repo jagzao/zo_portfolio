@@ -163,7 +163,7 @@ export function animateCircuitTraces() {
       .filter(() => Math.random() < 0.05)
       .slice(0, Math.max(1, Math.floor(pathsData.length * 0.05)))
     
-    selectedPaths.forEach((pathData, index) => {
+    selectedPaths.forEach((pathData) => {
       const path = pathData.element
       
       // Create subtle pulse function

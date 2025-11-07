@@ -95,7 +95,7 @@ function NeuroNoiseShader({ opacity = 0.3, speed = 0.5 }: NeuroNoiseProps) {
     u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
   }
   
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!getReducedMotionPreference() && meshRef.current) {
       timeRef.current += delta * speed
       const material = meshRef.current.material as THREE.ShaderMaterial

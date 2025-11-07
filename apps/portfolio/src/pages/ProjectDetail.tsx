@@ -10,7 +10,7 @@ import projectsDataEs from '@/data/projects-es.json'
 
 export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
-  const { t, language } = useTranslation()
+  const { language } = useTranslation()
   const projectsData = language === 'es' ? projectsDataEs : projectsDataEn
   const project = projectsData.find(p => p.slug === slug)
   

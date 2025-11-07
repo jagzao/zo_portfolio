@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { useTranslation } from '@/hooks/useI18n'
 import { gsap } from 'gsap'
 import { getReducedMotionPreference } from '@/lib/utils'
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 
 const menuItems = [
   { id: 'projects', key: 'nav.projects', path: '/projects', position: 'corner-tl' },
@@ -179,7 +179,7 @@ export function Navigation({ className }: NavigationProps = {}) {
       {/* Main Navigation Menu */}
       {isHomePage ? (
         // Corner layout for home - each menu item positioned individually
-        menuItems.map((item, index) => {
+        menuItems.map((item) => {
           const isActive = location.pathname === item.path
           return (
             <Link
@@ -245,7 +245,7 @@ export function Navigation({ className }: NavigationProps = {}) {
       ) : (
         // Vertical list for other pages
         <div className="fixed top-8 right-8 pointer-events-auto hidden sm:block" style={{ zIndex: 9999 }}>
-          {menuItems.map((item, index) => {
+          {menuItems.map((item) => {
             const isActive = location.pathname === item.path
             return (
               <Link

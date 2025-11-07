@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom'
-import { Home, ArrowLeft, Search } from 'lucide-react'
+import { Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { useTranslation } from '@/hooks/useI18n'
 
 export function NotFound() {
   const { t } = useTranslation()
-  const handleGoBack = () => {
-    window.history.back()
-  }
   
   return (
     <div className="min-h-screen flex items-center justify-center px-8">

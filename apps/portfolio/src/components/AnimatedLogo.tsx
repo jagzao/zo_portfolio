@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { initializeRayRenderer, cleanupRayRenderer, getRayRenderer } from '@/lib/three'
+import { initializeRayRenderer, cleanupRayRenderer } from '@/lib/three'
 import { getReducedMotionPreference } from '@/lib/utils'
 
 interface AnimatedLogoProps {
@@ -8,15 +8,15 @@ interface AnimatedLogoProps {
   showPhoto?: boolean
 }
 
-export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps) {
+export function AnimatedLogo({ showPhoto = true }: AnimatedLogoProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const flipCardRef = useRef<HTMLDivElement>(null)
   const circuitBranchesRef = useRef<SVGSVGElement>(null)
   const logoContainerRef = useRef<HTMLDivElement>(null)
-  const [isHovered, setIsHovered] = useState(false)
+  const [, setIsHovered] = useState(false)
   const [flipAnimation, setFlipAnimation] = useState<gsap.core.Tween | null>(null)
   const [hoverTimeline, setHoverTimeline] = useState<gsap.core.Timeline | null>(null)
-  const autoFlipTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const autoFlipTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   
   useLayoutEffect(() => {
     if (!containerRef.current || !flipCardRef.current) return

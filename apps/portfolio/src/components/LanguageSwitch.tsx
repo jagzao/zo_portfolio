@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { useI18n, type Language } from '@/hooks/useI18n'
+import { useI18n } from '@/hooks/useI18n'
 
 export function LanguageSwitch() {
   const { language, setLanguage } = useI18n()

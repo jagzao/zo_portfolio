@@ -12,6 +12,7 @@ import { Navigation } from '@/components/Navigation'
 import { MobileNav } from '@/components/MobileNav'
 import { LanguageSwitch } from '@/components/LanguageSwitch'
 import { PageTransition } from '@/components/PageTransition'
+import { Analytics } from '@/components/Analytics'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -68,8 +69,8 @@ function App() {
             } />
           </Routes>
         </main>
-        <Toaster 
-          position="top-right" 
+        <Toaster
+          position="top-right"
           theme="dark"
           toastOptions={{
             style: {
@@ -79,6 +80,7 @@ function App() {
             },
           }}
         />
+        <Analytics />
       </div>
     </QueryClientProvider>
   )

@@ -1,6 +1,5 @@
 import { MapPin, Calendar, ExternalLink, Download, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { Button } from '@/components/ui/button'
 import { useTranslation } from '@/hooks/useI18n'
 import { BG } from '@/components/BG'
 import { gsap } from 'gsap'

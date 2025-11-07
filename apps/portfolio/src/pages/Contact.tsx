@@ -144,21 +144,39 @@ export function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     setErrors({})
-    
+
     try {
       // Validate form
       contactSchema.parse(form)
-      
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
+      // Submit to Formspree (free tier: 50 submissions/month)
+      // Get your form ID from https://formspree.io/
+      const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID || 'YOUR_FORM_ID'
+
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `Portfolio Contact: ${form.name}`,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
       toast.success(t('contact.success'), {
         description: t('contact.successDescription')
       })
-      
+
       // Reset form
       setForm({ name: '', email: '', message: '' })
-      
+
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors: Partial<ContactForm> = {}

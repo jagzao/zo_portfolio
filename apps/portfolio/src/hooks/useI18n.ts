@@ -30,10 +30,13 @@ const translations: Translations = {
     'hero.title': 'Juan German Zambrano Ortega',
     'hero.subtitle': 'FULL-STACK SOFTWARE ENGINEER',
     'hero.description': 'Full-Stack Software Engineer with 10+ years developing scalable and secure applications in .NET Core, Node.js, React, Vue, SQL. Passionate about Clean Architecture, SOLID, CQRS, API integrations, and automation with n8n/Python. Available for freelance or contractor roles focused on impact and delivery quality.',
+    'nav.home': 'Home',
     'nav.projects': 'Projects',
     'nav.skills': 'Skills',
     'nav.experience': 'Experience',
     'nav.contact': 'Contact',
+    // Accessibility
+    'a11y.skipToContent': 'Skip to main content',
     'cta.contact': 'Contact',
     'cta.download': 'Download CV',
     'social.github': 'GitHub',
@@ -129,15 +132,19 @@ const translations: Translations = {
     'common.loading': 'Loading...',
     'common.error': 'Error',
     'common.tryAgain': 'Try Again',
+    'common.back': 'Back to Home',
   },
   es: {
     'hero.title': 'Juan German Zambrano Ortega',
     'hero.subtitle': 'INGENIERO DE SOFTWARE FULL-STACK',
     'hero.description': 'Ingeniero de software con 10+ años de experiencia desarrollando aplicaciones escalables y seguras en .NET Core, Node.js, React y Vue. Apasionado por arquitecturas limpias (Clean Architecture, SOLID, CQRS), integración de APIs, automatización con n8n/Python, y despliegue en Azure/Docker. Disponible para roles freelance o contractor, con foco en impacto y calidad de entrega.',
+    'nav.home': 'Inicio',
     'nav.projects': 'Proyectos',
     'nav.skills': 'Habilidades',
     'nav.experience': 'Experiencia',
     'nav.contact': 'Contacto',
+    // Accessibility
+    'a11y.skipToContent': 'Saltar al contenido principal',
     'cta.contact': 'Contactar',
     'cta.download': 'Descargar CV',
     'social.github': 'GitHub',
@@ -233,6 +240,7 @@ const translations: Translations = {
     'common.loading': 'Cargando...',
     'common.error': 'Error',
     'common.tryAgain': 'Intentar Nuevamente',
+    'common.back': 'Volver al Inicio',
   },
 }
 

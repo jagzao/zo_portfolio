@@ -5,79 +5,104 @@
       "description": "Modern web interfaces and user experiences",
       "skills": [
         { "name": "React", "level": 95, "years": 8, "icon": "react" },
+        { "name": "Angular", "level": 85, "years": 6, "icon": "angularjs" },
         { "name": "Vue.js", "level": 90, "years": 7, "icon": "vuejs" },
-        { "name": "Next.js", "level": 85, "years": 4, "icon": "nextjs" },
-        { "name": "React Native", "level": 80, "years": 3, "icon": "react" },
         { "name": "TypeScript", "level": 95, "years": 6, "icon": "typescript" },
-        { "name": "Tailwind CSS", "level": 90, "years": 4, "icon": "tailwind" },
-        { "name": "Vite", "level": 85, "years": 3, "icon": "vite" },
-        { "name": "Webpack", "level": 80, "years": 5, "icon": "webpack" }
+        { "name": "JavaScript", "level": 95, "years": 10, "icon": "javascript" },
+        { "name": "Redux", "level": 85, "years": 5, "icon": "redux" },
+        { "name": "Next.js", "level": 85, "years": 4, "icon": "nextjs" },
+        { "name": "Responsive Design", "level": 95, "years": 10, "icon": "html5" }
       ]
     },
     "backend": {
       "title": "Backend",
       "description": "Server-side development and architecture",
       "skills": [
-        { "name": ".NET Core", "level": 95, "years": 10, "icon": "dotnetcore" },
-        { "name": "Node.js", "level": 90, "years": 8, "icon": "nodejs" },
-        { "name": "Python", "level": 80, "years": 5, "icon": "python" },
-        { "name": "FastAPI", "level": 75, "years": 2, "icon": "fastapi" },
-        { "name": "ASP.NET", "level": 95, "years": 10, "icon": "dotnet" },
-        { "name": "Express.js", "level": 85, "years": 6, "icon": "express" },
-        { "name": "REST APIs", "level": 95, "years": 10, "icon": "api" },
-        { "name": "GraphQL", "level": 70, "years": 3, "icon": "graphql" }
+        { "name": "C#", "level": 95, "years": 10, "icon": "csharp" },
+        { "name": "Python", "level": 70, "years": 3, "icon": "python" },
+        { "name": "ASP.NET Core", "level": 95, "years": 10, "icon": "dotnetcore" },
+        { "name": ".NET 6/7/8", "level": 95, "years": 5, "icon": "dotnetcore" },
+        { "name": "Web APIs", "level": 95, "years": 10, "icon": "dotnetcore" },
+        { "name": "Microservices", "level": 85, "years": 6, "icon": "dotnetcore" },
+        { "name": "Azure Functions", "level": 85, "years": 4, "icon": "azure" },
+        { "name": "SignalR", "level": 80, "years": 4, "icon": "dotnetcore" }
       ]
     },
     "database": {
       "title": "Database",
       "description": "Data management and storage solutions",
       "skills": [
-        { "name": "PostgreSQL", "level": 90, "years": 8, "icon": "postgresql" },
         { "name": "SQL Server", "level": 95, "years": 10, "icon": "microsoftsqlserver" },
-        { "name": "MongoDB", "level": 80, "years": 6, "icon": "mongodb" },
-        { "name": "Oracle Cloud", "level": 75, "years": 4, "icon": "oracle" },
-        { "name": "Redis", "level": 70, "years": 3, "icon": "redis" },
-        { "name": "Entity Framework", "level": 90, "years": 8, "icon": "dotnet" }
+        { "name": "PostgreSQL", "level": 90, "years": 8, "icon": "postgresql" },
+        { "name": "SQLite", "level": 85, "years": 6, "icon": "sqlite" },
+        { "name": "Entity Framework", "level": 90, "years": 8, "icon": "dotnetcore" },
+        { "name": "EF Core", "level": 90, "years": 6, "icon": "dotnetcore" },
+        { "name": "Dapper", "level": 85, "years": 5, "icon": "dotnetcore" }
       ]
     },
     "devops": {
       "title": "DevOps & Cloud",
       "description": "Infrastructure, deployment, and automation",
       "skills": [
-        { "name": "Azure Functions", "level": 85, "years": 4, "icon": "azure" },
-        { "name": "Docker", "level": 85, "years": 5, "icon": "docker" },
-        { "name": "GitHub Actions", "level": 80, "years": 4, "icon": "githubactions" },
-        { "name": "n8n", "level": 85, "years": 4, "icon": "automation" },
+        { "name": "Azure DevOps", "level": 85, "years": 6, "icon": "azure" },
+        { "name": "Git", "level": 95, "years": 10, "icon": "git" },
+        { "name": "CI/CD", "level": 85, "years": 6, "icon": "githubactions" },
         { "name": "Azure Storage", "level": 80, "years": 4, "icon": "azure" },
-        { "name": "CI/CD", "level": 85, "years": 6, "icon": "cicd" }
+        { "name": "Key Vault", "level": 75, "years": 3, "icon": "azure" }
+      ]
+    },
+    "security": {
+      "title": "Security & Authentication",
+      "description": "Security protocols and authentication systems",
+      "skills": [
+        { "name": "OAuth2", "level": 85, "years": 5, "icon": "oauth2" },
+        { "name": "OpenID Connect", "level": 80, "years": 4, "icon": "openid" },
+        { "name": "JWT", "level": 90, "years": 6, "icon": "jwt" },
+        { "name": "Active Directory", "level": 75, "years": 5, "icon": "microsoft" }
+      ]
+    },
+    "testing": {
+      "title": "Testing & Code Quality",
+      "description": "Testing frameworks and quality assurance",
+      "skills": [
+        { "name": "xUnit", "level": 85, "years": 6, "icon": "dotnetcore" },
+        { "name": "NUnit", "level": 80, "years": 5, "icon": "dotnetcore" },
+        { "name": "Moq", "level": 80, "years": 5, "icon": "dotnetcore" },
+        { "name": "Jest", "level": 75, "years": 4, "icon": "jest" },
+        { "name": "Selenium", "level": 70, "years": 3, "icon": "selenium" }
       ]
     },
     "architecture": {
-      "title": "Architecture & Patterns",
+      "title": "Architectural Patterns",
       "description": "Software design principles and patterns",
       "skills": [
-        { "name": "Clean Architecture", "level": 95, "years": 8, "icon": "architecture" },
-        { "name": "CQRS", "level": 90, "years": 6, "icon": "pattern" },
-        { "name": "SOLID", "level": 95, "years": 10, "icon": "solid" },
-        { "name": "DDD", "level": 85, "years": 6, "icon": "ddd" },
-        { "name": "Microservices", "level": 85, "years": 6, "icon": "microservices" },
-        { "name": "MediatR", "level": 90, "years": 5, "icon": "mediator" },
-        { "name": "FluentValidation", "level": 85, "years": 4, "icon": "validation" },
-        { "name": "Command Pattern", "level": 90, "years": 8, "icon": "command" }
+        { "name": "CQRS", "level": 90, "years": 6, "icon": "dotnetcore" },
+        { "name": "SOLID", "level": 95, "years": 10, "icon": "dotnetcore" },
+        { "name": "Dependency Injection", "level": 95, "years": 8, "icon": "dotnetcore" },
+        { "name": "Event-Driven", "level": 85, "years": 5, "icon": "dotnetcore" }
       ]
     },
-    "tools": {
-      "title": "Tools & Others",
-      "description": "Development tools and additional technologies",
+    "patterns": {
+      "title": "Design Patterns",
+      "description": "Software design patterns",
       "skills": [
-        { "name": "Git", "level": 95, "years": 10, "icon": "git" },
-        { "name": "xUnit", "level": 85, "years": 6, "icon": "xunit" },
-        { "name": "Moq", "level": 80, "years": 5, "icon": "mock" },
-        { "name": "OAuth2", "level": 85, "years": 5, "icon": "oauth" },
-        { "name": "DacPac", "level": 80, "years": 4, "icon": "database" },
-        { "name": "Syncfy", "level": 75, "years": 2, "icon": "sync" },
-        { "name": "VS Code", "level": 95, "years": 8, "icon": "vscode" },
-        { "name": "Visual Studio", "level": 90, "years": 10, "icon": "visualstudio" }
+        { "name": "MVC", "level": 95, "years": 10, "icon": "dotnetcore" },
+        { "name": "MVVM", "level": 85, "years": 6, "icon": "dotnetcore" },
+        { "name": "Factory", "level": 90, "years": 8, "icon": "dotnetcore" },
+        { "name": "Singleton", "level": 90, "years": 8, "icon": "dotnetcore" },
+        { "name": "Repository", "level": 90, "years": 8, "icon": "dotnetcore" },
+        { "name": "Observer", "level": 85, "years": 6, "icon": "dotnetcore" }
+      ]
+    },
+    "soft": {
+      "title": "Soft Skills",
+      "description": "Professional competencies",
+      "skills": [
+        { "name": "Communication", "level": 90, "years": 10, "icon": "communication" },
+        { "name": "Problem-Solving", "level": 95, "years": 10, "icon": "problem" },
+        { "name": "Teamwork", "level": 90, "years": 10, "icon": "team" },
+        { "name": "Creativity", "level": 85, "years": 10, "icon": "creativity" },
+        { "name": "Adaptability", "level": 95, "years": 10, "icon": "adapt" }
       ]
     }
   },
@@ -88,26 +113,26 @@
       {
         "number": "01",
         "title": "Architecture & Planning",
-        "description": "Clean Architecture design with SOLID principles. I define bounded contexts, establish CQRS patterns, and plan for scalability from day one.",
-        "tools": ["Clean Architecture", "DDD", "CQRS"]
+        "description": "Clean Architecture design with SOLID principles. Define bounded contexts, establish CQRS patterns, and plan for scalability from day one.",
+        "tools": ["SOLID", "CQRS", "DDD"]
       },
       {
-        "number": "02", 
+        "number": "02",
         "title": "Implementation & Patterns",
-        "description": "TDD with xUnit, implementation of Command/Query patterns with MediatR, and robust validation with FluentValidation.",
-        "tools": ["xUnit", "MediatR", "FluentValidation"]
+        "description": "TDD with xUnit/NUnit, implementation of design patterns (Factory, Repository, Singleton), and robust validation with FluentValidation.",
+        "tools": ["xUnit", "Design Patterns", "TDD"]
       },
       {
         "number": "03",
         "title": "Integration & Testing",
-        "description": "API integrations, database management with DacPac, OAuth2 security implementation, and comprehensive unit testing with Moq.",
-        "tools": ["OAuth2", "DacPac", "Moq"]
+        "description": "API integrations, database management with EF Core/Dapper, OAuth2 security implementation, and comprehensive unit testing with Moq.",
+        "tools": ["OAuth2", "EF Core", "Moq"]
       },
       {
         "number": "04",
-        "title": "Deploy & Automation", 
-        "description": "Azure Functions deployment, process automation with n8n/Python, CI/CD with GitHub Actions, and performance monitoring.",
-        "tools": ["Azure Functions", "n8n", "GitHub Actions"]
+        "title": "Deploy & Automation",
+        "description": "Azure Functions deployment, CI/CD with Azure DevOps and GitHub Actions, performance monitoring, and continuous improvement.",
+        "tools": ["Azure Functions", "CI/CD", "Azure DevOps"]
       }
     ]
   },
@@ -121,7 +146,7 @@
     {
       "name": "Curso de Diseño para Developers",
       "issuer": "Platzi",
-      "date": "2023", 
+      "date": "2023",
       "credential": "https://platzi.com/verify"
     }
   ]

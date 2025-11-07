@@ -1,0 +1,12 @@
+# robots.txt for Juan Zambrano Portfolio
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://zo-portfolio.pages.dev/sitemap.xml
+
+# Disallow certain paths (if any)
+# Disallow: /api/
+# Disallow: /admin/

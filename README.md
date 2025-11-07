@@ -1,5 +1,16 @@
 # Juan German Zambrano Ortega - Portfolio
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-E53935?style=for-the-badge&logo=cloudflare&logoColor=white)](https://zo-portfolio.pages.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-95%25-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+[![Zero Cost](https://img.shields.io/badge/Cost-$0.00/month-brightgreen?style=for-the-badge)](#-zero-cost-architecture)
+[![Cloudflare Pages](https://img.shields.io/badge/Hosted-Cloudflare_Pages-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+[![Performance](https://img.shields.io/badge/Performance-A+-success?style=for-the-badge)](#-performance)
+[![Accessibility](https://img.shields.io/badge/A11y-WCAG_2.1-blue?style=for-the-badge)](#-accessibility)
+
 **Full-Stack Software Engineer | .NET Core, Node.js, React, Vue, SQL**
 
 Professional portfolio showcasing 10+ years of experience in scalable, secure application development with expertise in Clean Architecture, SOLID principles, CQRS patterns, and modern web technologies.

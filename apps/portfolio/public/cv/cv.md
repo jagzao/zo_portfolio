@@ -104,7 +104,7 @@ Disponible para **roles freelance o contractor**, con foco en **impacto y calida
 ## Proyectos destacados
 
 - **Viáticos (Grupo Cosmic, 2017–2018)**: app lectora de documentos XML con validaciones fiscales (SAT) e integración con Oracle Cloud.  
-- **ERP Webscraping (2019)**: ganador de premio interno; sistema para prospección de clientes con scraping + dashboards.  
+- **ERP Webscraping (2019)**: ganador de premio interno; sistema para prospección de clientes con scraping + dashboards, este sistema de scrapping sincronizaba la nomina en sistemas cosmic con Oracle Cloud mediante webscrapping para automatizar el proceso.  
 - **RAG Toolkit (.NET/Python, 2025)**: arquitectura local de RAG con PostgreSQL + Ollama + LlamaIndex.  
 - **Saloneo (2025)**: SaaS multi-tenant para salones con agendamiento, marketing automatizado y chatbot WhatsApp.  
 

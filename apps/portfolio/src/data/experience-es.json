@@ -126,14 +126,34 @@
     "duration": "Jul 2017 – Sep 2020 · 3 años 3 meses",
     "location": "México",
     "type": "Tiempo completo",
-    "description": "Desarrollo de apps móviles de asistencia, geolocalización, dashboards, intranet. Centralización y automatización de sistemas internos. Reconocimiento 2019 a la Innovación.",
+    "description": "Desarrollo de apps móviles de asistencia, geolocalización, dashboards, intranet. Centralización y automatización de sistemas internos. Reconocimiento a la Innovación en 2019.",
     "achievements": [
       "Desarrollo de apps móviles de asistencia, geolocalización, dashboards, intranet",
       "Centralización y automatización de sistemas internos",
-      "Reconocimiento 2019 a la Innovación (ver sección Premios)",
+      "Reconocimiento a la Innovación 2019 (ver sección Premios)",
       "Diseño de arquitectura inicial para escalabilidad y seguridad"
     ],
-    "technologies": [".NET", "Node.js", "SQL Server", "Vue", "React", "Microservicios"],
+    "technologies": [".NET", "Node.js", "SQL Server", "Vue", "React", "Microservices"],
     "projects": ["viaticos", "erp-webscraping"]
+  },
+  {
+    "id": "exp-8",
+    "company": "Varias Empresas",
+    "logo": "/images/companies/default.svg",
+    "position": "Ingeniero de Software / Consultor",
+    "startDate": "2013-01-01",
+    "endDate": "2017-06-30",
+    "duration": "2013 – 2017",
+    "location": "México",
+    "type": "Contrato/Tiempo completo",
+    "description": "Entrega de soluciones de software para RRHH, finanzas e integraciones ERP, asegurando mantenibilidad y escalabilidad.",
+    "achievements": [
+      "Quality Software Consultant (2015-2017)",
+      "Siemens (2014-2015)",
+      "OrionEarth (2013-2014)",
+      "Lennken Group (2017)"
+    ],
+    "technologies": ["Java", ".NET", "SQL", "Integraciones ERP"],
+    "projects": []
   }
 ]

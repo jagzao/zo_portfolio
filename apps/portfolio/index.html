@@ -4,20 +4,62 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/assets/logos/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/logos/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/logos/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/logos/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juan German Zambrano Ortega - Portafolio</title>
     <meta name="description" content="Portafolio de Juan German Zambrano Ortega - Desarrollador Full Stack especializado en React, TypeScript y arquitecturas escalables" />
     
-    <!-- Preload critical fonts -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://juanzambrano.dev/" />
+    <meta property="og:title" content="Juan German Zambrano Ortega - Senior Full Stack Developer" />
+    <meta property="og:description" content="Senior Full Stack Developer specializing in .NET, React, and Cloud Architecture. 10+ years of experience building scalable enterprise solutions." />
+    <meta property="og:image" content="https://juanzambrano.dev/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://juanzambrano.dev/" />
+    <meta property="twitter:title" content="Juan German Zambrano Ortega - Senior Full Stack Developer" />
+    <meta property="twitter:description" content="Senior Full Stack Developer specializing in .NET, React, and Cloud Architecture. 10+ years of experience building scalable enterprise solutions." />
+    <meta property="twitter:image" content="https://juanzambrano.dev/og-image.png" />
+
+    <!-- Preload critical fonts with font-display: swap for better performance -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" as="style" />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" />
-    
-    <!-- Load fonts -->
+
+    <!-- Load fonts with display=swap to prevent FOIT (Flash of Invisible Text) -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Preload critical images for better LCP (WebP first) -->
+    <link rel="preload" as="image" href="/assets/logos/logo.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/assets/logos/logo.png" />
+    <link rel="preload" as="image" href="/assets/logos/jag.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/assets/logos/jag.jpg" />
     
     <!-- Devicon CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Juan German Zambrano Ortega",
+        "url": "https://juanzambrano.dev",
+        "jobTitle": "Senior Full Stack Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Hexaware Technologies"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/jagzao/",
+          "https://github.com/jagzao"
+        ],
+        "knowsAbout": [".NET", "React", "Azure", "Software Architecture", "Clean Code"]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

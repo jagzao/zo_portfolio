@@ -187,15 +187,11 @@ export function Navigation({ className }: NavigationProps = {}) {
               to={item.path}
               data-menu-id={item.id}
               className={cn(
-                'corner-menu premium-menu fixed font-heading text-base font-medium transition-all duration-700 ease-out pointer-events-auto hidden sm:block',
+                'corner-menu premium-menu fixed font-heading text-base font-medium transition-all duration-700 ease-out pointer-events-auto hidden sm:block z-[9999]',
                 item.position, // Use corner positions
                 'px-4 py-3 min-h-[44px] rounded-xl border-0',
                 isActive ? 'opacity-100 text-white' : 'opacity-80 text-white hover:opacity-100'
               )}
-              style={{ 
-                fontFamily: 'Fira Code, monospace',
-                zIndex: 9999
-              }}
               onMouseEnter={(e) => createMenuHoverAnimation(e.currentTarget, true, item.position)}
               onMouseLeave={(e) => createMenuHoverAnimation(e.currentTarget, false)}
               onFocus={(e) => createMenuHoverAnimation(e.currentTarget, true, item.position)}
@@ -205,7 +201,7 @@ export function Navigation({ className }: NavigationProps = {}) {
               <div 
                 className="glow absolute inset-0 rounded-xl opacity-0 pointer-events-none"
                 style={{
-                  background: 'radial-gradient(circle, rgba(255,59,59,0.35) 0%, transparent 60%)',
+                  background: 'radial-gradient(circle, rgba(245,158,11,0.35) 0%, transparent 60%)',
                   transform: 'scale(0.8)'
                 }}
               />
@@ -214,7 +210,7 @@ export function Navigation({ className }: NavigationProps = {}) {
               <div 
                 className="border absolute inset-0 rounded-xl opacity-0 pointer-events-none"
                 style={{
-                  border: '1px solid #E53935',
+                  border: '1px solid #F59E0B',
                   transform: 'scale(0.98)'
                 }}
               />
@@ -225,12 +221,12 @@ export function Navigation({ className }: NavigationProps = {}) {
                   <div 
                     className="absolute inset-0 rounded-xl opacity-40 pointer-events-none"
                     style={{
-                      background: 'radial-gradient(circle, rgba(255,59,59,0.35) 0%, transparent 60%)'
+                      background: 'radial-gradient(circle, rgba(245,158,11,0.35) 0%, transparent 60%)'
                     }}
                   />
                   <div 
                     className="absolute inset-0 rounded-xl pointer-events-none"
-                    style={{ border: '1px solid #E53935' }}
+                    style={{ border: '1px solid #F59E0B' }}
                   />
                 </>
               )}
@@ -253,13 +249,9 @@ export function Navigation({ className }: NavigationProps = {}) {
                 to={item.path}
                 data-menu-id={item.id}
                 className={cn(
-                  'block mb-4 px-4 py-3 min-h-[44px] rounded-xl border-0 font-heading text-base font-medium transition-all duration-700 ease-out pointer-events-auto min-w-[140px]',
+                  'block mb-4 px-4 py-3 min-h-[44px] rounded-xl border-0 font-heading text-base font-medium transition-all duration-700 ease-out pointer-events-auto min-w-[140px] relative',
                   isActive ? 'opacity-100 text-white' : 'opacity-70 text-white hover:opacity-100'
                 )}
-                style={{ 
-                  fontFamily: 'Fira Code, monospace',
-                  position: 'relative'
-                }}
                 onMouseEnter={(e) => createMenuHoverAnimation(e.currentTarget, true)}
                 onMouseLeave={(e) => createMenuHoverAnimation(e.currentTarget, false)}
                 onFocus={(e) => createMenuHoverAnimation(e.currentTarget, true)}
@@ -269,7 +261,7 @@ export function Navigation({ className }: NavigationProps = {}) {
                 <div 
                   className="glow absolute inset-0 rounded-xl opacity-0 pointer-events-none"
                   style={{
-                    background: 'radial-gradient(circle, rgba(255,59,59,0.35) 0%, transparent 60%)',
+                    background: 'radial-gradient(circle, rgba(245,158,11,0.35) 0%, transparent 60%)',
                     transform: 'scale(0.8)'
                   }}
                 />
@@ -278,7 +270,7 @@ export function Navigation({ className }: NavigationProps = {}) {
                 <div 
                   className="border absolute inset-0 rounded-xl opacity-0 pointer-events-none"
                   style={{
-                    border: '1px solid #E53935',
+                    border: '1px solid #F59E0B',
                     transform: 'scale(0.98)'
                   }}
                 />
@@ -289,12 +281,12 @@ export function Navigation({ className }: NavigationProps = {}) {
                     <div 
                       className="absolute inset-0 rounded-xl opacity-40 pointer-events-none"
                       style={{
-                        background: 'radial-gradient(circle, rgba(255,59,59,0.35) 0%, transparent 60%)'
+                        background: 'radial-gradient(circle, rgba(245,158,11,0.35) 0%, transparent 60%)'
                       }}
                     />
                     <div 
                       className="absolute inset-0 rounded-xl pointer-events-none"
-                      style={{ border: '1px solid #E53935' }}
+                      style={{ border: '1px solid #F59E0B' }}
                     />
                   </>
                 )}
@@ -319,7 +311,7 @@ export function Navigation({ className }: NavigationProps = {}) {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg border border-[#E53935] text-[#E53935] bg-[#313235] backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-[#FF3B3B]/10 hover:shadow-[0_0_12px_rgba(255,59,59,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0D]"
+              className="p-2 rounded-lg border border-white/10 text-gray-400 bg-[#050505] backdrop-blur-sm transition-all duration-300 hover:border-amber-500 hover:text-amber-400 hover:bg-amber-500/10 hover:shadow-[0_0_12px_rgba(245,158,11,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0D]"
               onMouseEnter={(e) => createMenuHoverAnimation(e.currentTarget, true)}
               onMouseLeave={(e) => createMenuHoverAnimation(e.currentTarget, false)}
               aria-label={t(social.key)}

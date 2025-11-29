@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState, memo } from 'react'
 import { gsap } from 'gsap'
 import { initializeRayRenderer, cleanupRayRenderer, getRayRenderer } from '@/lib/three'
 import { getReducedMotionPreference } from '@/lib/utils'
@@ -8,7 +8,7 @@ interface AnimatedLogoProps {
   showPhoto?: boolean
 }
 
-export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps) {
+export const AnimatedLogo = memo(function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const flipCardRef = useRef<HTMLDivElement>(null)
   const circuitBranchesRef = useRef<SVGSVGElement>(null)
@@ -137,91 +137,44 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
       />
       
       {/* Logo Container */}
-      <div className="relative z-20 w-full h-full">
+      <div className="relative z-20 w-full h-full flex items-center justify-center">
         
+        {/* Reactor Ring Effect - Removed per user request */}
+
         {/* Circuit Branches */}
         <svg
           ref={circuitBranchesRef}
-          className="circuit-branches absolute opacity-0 scale-90 w-full h-full"
+          className="circuit-branches absolute opacity-0 scale-90 w-full h-full pointer-events-none"
           viewBox="0 0 240 240"
           style={{ 
             left: '50%', 
             top: '50%', 
-            transform: 'translate(-50%, -50%)' 
+            transform: 'translate(-50%, -50%)',
+            zIndex: 10
           }}
         >
           {/* Animated circuit branches that extend outward */}
           <path
-            className="circuit-line"
+            className="circuit-line stroke-secondary/50"
             d="M 120 120 L 210 80"
             strokeDasharray="4,4"
           />
           <path
-            className="circuit-line"
+            className="circuit-line stroke-secondary/50"
             d="M 120 120 L 30 160"
             strokeDasharray="4,4"
           />
           <path
-            className="circuit-line"
+            className="circuit-line stroke-secondary/50"
             d="M 120 120 L 160 210"
             strokeDasharray="4,4"
           />
           <path
-            className="circuit-line"
+            className="circuit-line stroke-secondary/50"
             d="M 120 120 L 80 30"
             strokeDasharray="4,4"
           />
         </svg>
-        
-        {/* Decorative Circuit Ring - Behind Logo */}
-        <svg
-          className="absolute inset-0 opacity-40 w-full h-full"
-          viewBox="0 0 120 120"
-          style={{ zIndex: 1 }}
-        >
-            <defs>
-              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#E53935" stopOpacity="0.9" />
-                <stop offset="50%" stopColor="#FF3B3B" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#E53935" stopOpacity="0.9" />
-              </linearGradient>
-              <linearGradient id="accentRedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#7A1D1D" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#7A1D1D" stopOpacity="0.1" />
-              </linearGradient>
-            </defs>
-            
-            {/* Decorative Circuit Ring */}
-            <circle 
-              cx="60" 
-              cy="60" 
-              r="45" 
-              fill="none" 
-              stroke="url(#logoGradient)" 
-              strokeWidth="1"
-              className="animate-spin"
-              style={{ animationDuration: '8s' }}
-            />
-            <circle 
-              cx="60" 
-              cy="60" 
-              r="35" 
-              fill="none" 
-              stroke="#7A1D1D" 
-              strokeWidth="0.5"
-              opacity="0.4"
-            />
-            {/* Accent red rim (≤30% opacity) */}
-            <circle 
-              cx="60" 
-              cy="60" 
-              r="48" 
-              fill="none" 
-              stroke="url(#accentRedGradient)" 
-              strokeWidth="1" 
-              opacity="0.25"
-            />
-          </svg>
         
         {/* Flip Card Logo - Above all decorative elements */}
         <div 
@@ -241,64 +194,69 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
           >
             {/* Front Side - Logo */}
             <div
-              className="absolute inset-0 w-full h-full rounded-full overflow-hidden"
+              className="absolute inset-0 w-full h-full rounded-full overflow-hidden bg-black shadow-[0_0_40px_rgba(251,191,36,0.5)] animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]"
               style={{
                 backfaceVisibility: 'hidden',
                 WebkitBackfaceVisibility: 'hidden'
               }}
             >
-              <img 
-                src="/assets/logos/logo.png" 
-                alt="Juan German Zambrano Ortega Logo"
-                className="w-full h-full object-contain"
-                style={{ 
-                  filter: 'drop-shadow(0 0 20px rgba(255, 59, 59, 0.8)) drop-shadow(0 0 40px rgba(255, 59, 59, 0.4))',
-                  opacity: 1,
-                  display: 'block'
-                }}
-                onLoad={() => {
-                  // Logo loaded successfully
-                }}
-                onError={() => {
-                  // Logo failed to load
-                }}
-              />
+              {/* Golden Glow Behind Container */}
+              <div className="absolute inset-0 bg-primary/10 animate-pulse" />
+
+              {/* WebP with PNG fallback for better performance */}
+              <picture className="w-full h-full relative z-10">
+                <source
+                  srcSet="/assets/logos/logo.webp 1x, /assets/logos/logo@2x.webp 2x"
+                  type="image/webp"
+                />
+                <img
+                  src="/assets/logos/logo.png"
+                  alt="Juan German Zambrano Ortega Logo"
+                  className="w-full h-full object-contain"
+                  style={{
+                    filter: 'drop-shadow(0 0 10px rgba(255, 179, 0, 0.3))',
+                    opacity: 1,
+                    display: 'block',
+                    backgroundColor: '#000', // Hide checkerboard
+                    borderRadius: '50%'
+                  }}
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </picture>
             </div>
             
             {/* Back Side - Photo */}
             {showPhoto && (
               <div
-                className="absolute inset-0 w-full h-full rounded-full overflow-hidden flex items-center justify-center"
+                className="absolute inset-0 w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-black shadow-[0_0_30px_rgba(255,179,0,0.3)]"
                 style={{
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
-                  transform: 'rotateY(180deg)',
-                  background: 'linear-gradient(135deg, #E5393520, #11121520)',
-                  border: '2px solid rgba(229, 57, 53, 0.6)'
+                  transform: 'rotateY(180deg)'
                 }}
               >
-                {/* Personal photo - will show if available */}
-                <img 
-                  src="/assets/logos/jag.jpg" 
-                  alt="Juan German Zambrano Ortega"
-                  className="w-full h-full object-cover hidden"
-                  style={{ 
-                    filter: 'drop-shadow(0 0 20px rgba(255, 59, 59, 0.6))',
-                    opacity: 1
-                  }}
-                  onLoad={(e) => {
-                    // Show image and hide fallback when loaded
-                    e.currentTarget.classList.remove('hidden');
-                    const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                    if (fallback) fallback.style.display = 'none';
-                  }}
-                  onError={() => {
-                    // Personal photo not found, showing initials fallback
-                  }}
-                />
+                {/* Personal photo - WebP with JPG fallback */}
+                <picture className="w-full h-full relative z-10">
+                  <source srcSet="/assets/logos/jag.webp" type="image/webp" />
+                  <img
+                    src="/assets/logos/jag.jpg"
+                    alt="Juan German Zambrano Ortega"
+                    className="w-full h-full object-cover hidden"
+                    style={{
+                      opacity: 1
+                    }}
+                    onLoad={(e) => {
+                      // Show image and hide fallback when loaded
+                      e.currentTarget.classList.remove('hidden');
+                      const fallback = e.currentTarget.closest('picture')?.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'none';
+                    }}
+                  />
+                </picture>
                 {/* Fallback initials */}
-                <div className="flex items-center justify-center">
-                  <span className="text-4xl font-bold text-primary">JGZ</span>
+                <div className="flex items-center justify-center relative z-10">
+                  <span className="text-4xl font-bold text-emerald-500">JGZ</span>
                 </div>
               </div>
             )}
@@ -307,4 +265,4 @@ export function AnimatedLogo({ size = 120, showPhoto = true }: AnimatedLogoProps
       </div>
     </div>
   )
-}
+})

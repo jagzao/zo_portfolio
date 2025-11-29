@@ -77,14 +77,14 @@ export function PageTransition({ children, className = '' }: PageTransitionProps
     // Entry animation based on transition type
     if (isDirectNavigation || currentIndex === -1 || previousIndex === -1) {
       // Ultra smooth pop effect for direct navigation
-      tl.fromTo(container, 
-        { 
+      tl.fromTo(container,
+        {
           opacity: 0,
           scale: 0.94,
           y: 15,
-          filter: "blur(6px)"
+          filter: "blur(2px)" // Reduced from 6px for better performance
         },
-        { 
+        {
           opacity: 1,
           scale: 1,
           y: 0,
@@ -105,13 +105,13 @@ export function PageTransition({ children, className = '' }: PageTransitionProps
       // Ultra smooth slide effect for sequential navigation
       const slideDistance = window.innerWidth * 0.06 // Even more reduced slide distance
       const slideX = slideDirection === 'left' ? slideDistance : -slideDistance
-      
+
       tl.fromTo(container,
         {
           opacity: 0,
           x: slideX,
           scale: 0.97,
-          filter: "blur(4px)"
+          filter: "blur(2px)" // Reduced from 4px for better performance
         },
         {
           opacity: 1,

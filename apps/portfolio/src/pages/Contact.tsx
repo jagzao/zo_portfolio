@@ -197,14 +197,13 @@ export function Contact() {
           {/* Header */}
           <div ref={headerRef} className="mb-16 text-center">
             <h1 
-              className="text-white font-bold mb-4"
+              className="text-white font-bold mb-4 font-sans tracking-tight"
               style={{ 
-                fontFamily: 'Fira Code, monospace',
                 fontSize: 'clamp(28px, 3vw, 40px)',
                 lineHeight: 1.2
               }}
             >
-              {t('contact.workTogether').split(' ').slice(0, -1).join(' ')} <span className="text-[#E53935]">{t('contact.workTogether').split(' ').slice(-1)}</span>
+              {t('contact.workTogether').split(' ').slice(0, -1).join(' ')} <span className="text-amber-400">{t('contact.workTogether').split(' ').slice(-1)}</span>
             </h1>
             <p 
               className="text-[#B0B0B5] max-w-3xl mx-auto"
@@ -222,13 +221,12 @@ export function Contact() {
             {/* Contact Form */}
             <div ref={formRef}>
               <article 
-                className="bg-[#1A1717] border border-[#2A2222] rounded-[14px] p-8 transition-all duration-300 hover:border-[rgba(255,59,59,0.40)] hover:shadow-[0_0_12px_rgba(255,59,59,0.15)]"
+                className="bg-[#050505] border border-white/10 rounded-[14px] p-8 transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_12px_rgba(245,158,11,0.15)]"
                 style={{ backdropFilter: 'blur(2px)' }}
               >
                 <h2 
-                  className="text-white font-bold mb-6"
+                  className="text-white font-bold mb-6 font-sans tracking-tight"
                   style={{ 
-                    fontFamily: 'Fira Code, monospace',
                     fontSize: 'clamp(20px, 2.2vw, 24px)'
                   }}
                 >
@@ -253,8 +251,8 @@ export function Contact() {
                       onChange={(e) => handleChange('name', e.target.value)}
                       className={`w-full px-4 py-3 rounded-md bg-[#0B0B0D] border text-white placeholder-[#8B8B90] transition-all duration-300 min-h-[48px] ${
                         errors.name
-                          ? 'border-red-500 focus:border-red-500'
-                          : 'border-[#2A2222] focus:border-[#FF3B3B] focus:ring-2 focus:ring-[#FF3B3B] focus:ring-opacity-25'
+                          ? 'border-orange-500 focus:border-orange-500'
+                          : 'border-white/10 focus:border-amber-500 focus:ring-2 focus:ring-amber-500 focus:ring-opacity-25'
                       }`}
                       style={{
                         fontFamily: 'Inter, sans-serif',
@@ -264,7 +262,7 @@ export function Contact() {
                       aria-describedby={errors.name ? 'name-error' : undefined}
                     />
                     {errors.name && (
-                      <p id="name-error" className="text-red-400 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}>
+                      <p id="name-error" className="text-orange-400 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}>
                         {errors.name}
                       </p>
                     )}
@@ -287,8 +285,8 @@ export function Contact() {
                       onChange={(e) => handleChange('email', e.target.value)}
                       className={`w-full px-4 py-3 rounded-md bg-[#0B0B0D] border text-white placeholder-[#8B8B90] transition-all duration-300 min-h-[48px] ${
                         errors.email
-                          ? 'border-red-500 focus:border-red-500'
-                          : 'border-[#2A2222] focus:border-[#FF3B3B] focus:ring-2 focus:ring-[#FF3B3B] focus:ring-opacity-25'
+                          ? 'border-orange-500 focus:border-orange-500'
+                          : 'border-white/10 focus:border-amber-500 focus:ring-2 focus:ring-amber-500 focus:ring-opacity-25'
                       }`}
                       style={{
                         fontFamily: 'Inter, sans-serif',
@@ -298,7 +296,7 @@ export function Contact() {
                       aria-describedby={errors.email ? 'email-error' : undefined}
                     />
                     {errors.email && (
-                      <p id="email-error" className="text-red-400 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}>
+                      <p id="email-error" className="text-orange-400 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}>
                         {errors.email}
                       </p>
                     )}
@@ -321,8 +319,8 @@ export function Contact() {
                       onChange={(e) => handleChange('message', e.target.value)}
                       className={`w-full px-4 py-3 rounded-md bg-[#0B0B0D] border text-white placeholder-[#8B8B90] transition-all duration-300 resize-none ${
                         errors.message
-                          ? 'border-red-500 focus:border-red-500'
-                          : 'border-[#2A2222] focus:border-[#FF3B3B] focus:ring-2 focus:ring-[#FF3B3B] focus:ring-opacity-25'
+                          ? 'border-orange-500 focus:border-orange-500'
+                          : 'border-white/10 focus:border-amber-500 focus:ring-2 focus:ring-amber-500 focus:ring-opacity-25'
                       }`}
                       style={{
                         fontFamily: 'Inter, sans-serif',
@@ -332,7 +330,7 @@ export function Contact() {
                       aria-describedby={errors.message ? 'message-error' : undefined}
                     />
                     {errors.message && (
-                      <p id="message-error" className="text-red-400 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}>
+                      <p id="message-error" className="text-orange-400 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px' }}>
                         {errors.message}
                       </p>
                     )}
@@ -342,7 +340,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full md:w-auto bg-[#E53935] hover:bg-[#FF3B3B] disabled:bg-[#666] text-white px-6 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 disabled:hover:scale-100 flex items-center justify-center gap-3 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-[#FF3B3B] focus:ring-offset-2 focus:ring-offset-[#1A1717]"
+                    className="w-full md:w-auto bg-gradient-to-r from-amber-500 to-orange-600 hover:opacity-90 disabled:bg-[#666] text-white px-6 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105 disabled:hover:scale-100 flex items-center justify-center gap-3 min-h-[48px] focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-[#1A1717] shadow-[0_0_15px_rgba(245,158,11,0.4)]"
                     style={{
                       fontFamily: 'Inter, sans-serif',
                       fontSize: '16px'
@@ -368,13 +366,12 @@ export function Contact() {
             <div ref={infoRef} className="space-y-8">
               {/* Contact Methods */}
               <article 
-                className="bg-[#1A1717] border border-[#2A2222] rounded-[14px] p-8 transition-all duration-300 hover:border-[rgba(255,59,59,0.40)] hover:shadow-[0_0_12px_rgba(255,59,59,0.15)]"
+                className="bg-[#050505] border border-white/10 rounded-[14px] p-8 transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_12px_rgba(245,158,11,0.15)]"
                 style={{ backdropFilter: 'blur(2px)' }}
               >
                 <h2 
-                  className="text-white font-bold mb-6"
+                  className="text-white font-bold mb-6 font-sans tracking-tight"
                   style={{ 
-                    fontFamily: 'Fira Code, monospace',
                     fontSize: 'clamp(20px, 2.2vw, 24px)'
                   }}
                 >
@@ -385,11 +382,11 @@ export function Contact() {
                   {contactInfo.map((info) => {
                     const Icon = info.icon
                     const content = (
-                      <div className="flex items-center gap-4 p-4 rounded-lg border border-[#2A2222] hover:border-[rgba(255,59,59,0.40)] transition-all duration-300 group">
+                      <div className="flex items-center gap-4 p-4 rounded-lg border border-white/10 hover:border-amber-500/50 transition-all duration-300 group">
                         <div className={`p-3 rounded-lg transition-all duration-300 ${
                           info.primary 
-                            ? 'bg-[#E53935] text-white' 
-                            : 'bg-[rgba(229,57,53,0.10)] border border-[rgba(229,57,53,0.25)] text-white group-hover:bg-[#E53935]'
+                            ? 'bg-amber-500 text-black' 
+                            : 'bg-amber-500/10 border border-amber-500/30 text-white group-hover:bg-amber-500 group-hover:text-black'
                         }`}>
                           <Icon className="w-5 h-5" />
                         </div>
@@ -397,7 +394,7 @@ export function Contact() {
                           <p className="text-white font-medium" style={{ fontFamily: 'Fira Code, monospace' }}>
                             {info.label}
                           </p>
-                          <p className="text-[#B0B0B5] group-hover:text-[#E53935] transition-colors duration-300" style={{ fontFamily: 'Inter, sans-serif' }}>
+                          <p className="text-[#B0B0B5] group-hover:text-amber-400 transition-colors duration-300" style={{ fontFamily: 'Inter, sans-serif' }}>
                             {info.value}
                           </p>
                         </div>
@@ -425,13 +422,12 @@ export function Contact() {
               
               {/* Social Links */}
               <article 
-                className="bg-[#1A1717] border border-[#2A2222] rounded-[14px] p-8 transition-all duration-300 hover:border-[rgba(255,59,59,0.40)] hover:shadow-[0_0_12px_rgba(255,59,59,0.15)]"
+                className="bg-[#050505] border border-white/10 rounded-[14px] p-8 transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_12px_rgba(245,158,11,0.15)]"
                 style={{ backdropFilter: 'blur(2px)' }}
               >
                 <h2 
-                  className="text-white font-bold mb-6"
+                  className="text-white font-bold mb-6 font-sans tracking-tight"
                   style={{ 
-                    fontFamily: 'Fira Code, monospace',
                     fontSize: 'clamp(20px, 2.2vw, 24px)'
                   }}
                 >
@@ -447,16 +443,16 @@ export function Contact() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-4 p-4 rounded-lg border border-[#2A2222] hover:border-[rgba(255,59,59,0.40)] transition-all duration-300 group"
+                        className="flex items-center gap-4 p-4 rounded-lg border border-white/10 hover:border-amber-500/50 transition-all duration-300 group"
                       >
-                        <div className="p-3 rounded-lg bg-[rgba(229,57,53,0.10)] border border-[rgba(229,57,53,0.25)] text-white group-hover:bg-[#E53935] transition-all duration-300">
+                        <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 text-white group-hover:bg-amber-500 group-hover:text-black transition-all duration-300">
                           <Icon className="w-5 h-5" />
                         </div>
                         <div>
                           <p className="text-white font-medium" style={{ fontFamily: 'Fira Code, monospace' }}>
                             {social.label}
                           </p>
-                          <p className="text-[#B0B0B5] group-hover:text-[#E53935] transition-colors duration-300" style={{ fontFamily: 'Inter, sans-serif' }}>
+                          <p className="text-[#B0B0B5] group-hover:text-amber-400 transition-colors duration-300" style={{ fontFamily: 'Inter, sans-serif' }}>
                             {social.username}
                           </p>
                         </div>
@@ -468,13 +464,12 @@ export function Contact() {
               
               {/* Quick Actions */}
               <article 
-                className="bg-[rgba(229,57,53,0.08)] border border-[rgba(229,57,53,0.25)] rounded-[14px] p-8"
+                className="bg-amber-500/5 border border-amber-500/20 rounded-[14px] p-8"
                 style={{ backdropFilter: 'blur(2px)' }}
               >
                 <h3 
-                  className="text-white font-bold mb-4"
+                  className="text-white font-bold mb-4 font-sans tracking-tight"
                   style={{ 
-                    fontFamily: 'Fira Code, monospace',
                     fontSize: 'clamp(16px, 1.8vw, 18px)'
                   }}
                 >
@@ -489,7 +484,7 @@ export function Contact() {
                     href="https://wa.me/525549264189"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-[#E53935] hover:bg-[#FF3B3B] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:opacity-90 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(245,158,11,0.4)]"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
                     <Phone className="w-4 h-4" />
@@ -498,7 +493,7 @@ export function Contact() {
                   
                   <a
                     href="mailto:jagzao@gmail.com"
-                    className="w-full border border-[rgba(229,57,53,0.25)] text-[#E53935] hover:bg-[rgba(255,59,59,0.08)] hover:border-[#E53935] px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full border border-white/10 text-gray-300 hover:bg-white/5 hover:border-white/30 hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
                     <Mail className="w-4 h-4" />
@@ -512,13 +507,12 @@ export function Contact() {
           {/* FAQ Section */}
           <div ref={faqRef} className="mt-16">
             <article 
-              className="bg-[#1A1717] border border-[#2A2222] rounded-[14px] p-8 transition-all duration-300 hover:border-[rgba(255,59,59,0.40)] hover:shadow-[0_0_12px_rgba(255,59,59,0.15)]"
+              className="bg-[#050505] border border-white/10 rounded-[14px] p-8 transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_12px_rgba(245,158,11,0.15)]"
               style={{ backdropFilter: 'blur(2px)' }}
             >
               <h2 
-                className="text-white font-bold mb-8 text-center"
+                className="text-white font-bold mb-8 text-center font-sans tracking-tight"
                 style={{ 
-                  fontFamily: 'Fira Code, monospace',
                   fontSize: 'clamp(20px, 2.2vw, 24px)'
                 }}
               >

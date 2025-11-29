@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef, memo } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
@@ -9,7 +9,7 @@ interface NeuroNoiseProps {
   speed?: number
 }
 
-function NeuroNoiseShader({ opacity = 0.3, speed = 0.5 }: NeuroNoiseProps) {
+const NeuroNoiseShader = memo(function NeuroNoiseShader({ opacity = 0.3, speed = 0.5 }: NeuroNoiseProps) {
   const meshRef = useRef<THREE.Mesh>(null)
   const timeRef = useRef(0)
   
@@ -72,18 +72,18 @@ function NeuroNoiseShader({ opacity = 0.3, speed = 0.5 }: NeuroNoiseProps) {
       // Create neural noise pattern
       float pattern = neuroPattern(uv, u_time);
       
-      // Dark red/black color scheme
-      vec3 color1 = vec3(0.04, 0.04, 0.05); // Very dark background
-      vec3 color2 = vec3(0.12, 0.02, 0.02); // Dark red
-      vec3 color3 = vec3(0.25, 0.05, 0.05); // Medium dark red
+      // Quetzalcóatl color scheme (Deep Black / Jade / Teal)
+      vec3 color1 = vec3(0.06, 0.07, 0.06); // Deep organic black
+      vec3 color2 = vec3(0.02, 0.37, 0.26); // Jade hint
+      vec3 color3 = vec3(0.05, 0.58, 0.53); // Teal hint
       
       // Mix colors based on pattern
       vec3 finalColor = mix(color1, color2, pattern);
       finalColor = mix(finalColor, color3, pattern * 0.5);
       
-      // Add subtle red highlights
+      // Add subtle highlights
       float highlight = smoothstep(0.7, 1.0, pattern);
-      finalColor += vec3(0.15, 0.02, 0.02) * highlight;
+      finalColor += vec3(0.02, 0.1, 0.08) * highlight;
       
       gl_FragColor = vec4(finalColor, u_opacity);
     }
@@ -126,9 +126,9 @@ function NeuroNoiseShader({ opacity = 0.3, speed = 0.5 }: NeuroNoiseProps) {
       />
     </mesh>
   )
-}
+})
 
-export function NeuroNoise({ opacity = 0.3, speed = 0.5 }: NeuroNoiseProps) {
+export const NeuroNoise = memo(function NeuroNoise({ opacity = 0.3, speed = 0.5 }: NeuroNoiseProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   
   // Fallback for reduced motion - static dark background
@@ -169,4 +169,4 @@ export function NeuroNoise({ opacity = 0.3, speed = 0.5 }: NeuroNoiseProps) {
       </Canvas>
     </div>
   )
-}
+})

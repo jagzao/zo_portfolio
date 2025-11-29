@@ -1,5 +1,6 @@
 import { useTranslation } from '@/hooks/useI18n'
 import { BG } from '@/components/BG'
+import { FadeIn } from '@/components/FadeIn'
 import { gsap } from 'gsap'
 import { getReducedMotionPreference } from '@/lib/utils'
 import { useEffect, useRef } from 'react'
@@ -122,15 +123,14 @@ export function Skills() {
       <BG opacity={0.25} speed={0.4} />
       
       {/* Main Content */}
-      <div className="relative z-10 pt-[calc(80px+env(safe-area-inset-top))] pb-20 px-4 sm:px-6 lg:px-8">
+      <FadeIn className="relative z-10 pt-[calc(80px+env(safe-area-inset-top))] pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
           
           {/* Header */}
           <div ref={headerRef} className="mb-16 text-center">
             <h1 
-              className="text-white font-bold mb-4"
+              className="text-white font-bold mb-4 font-sans tracking-tight"
               style={{ 
-                fontFamily: 'Fira Code, monospace',
                 fontSize: 'clamp(28px, 3vw, 40px)',
                 lineHeight: 1.2
               }}
@@ -153,89 +153,38 @@ export function Skills() {
           <div ref={categoriesRef} className="space-y-12 mb-16">
             {Object.entries(skillsData.categories).map(([categoryKey, category]) => (
               <section key={categoryKey} className="category-section">
-                <div className="mb-8">
+                <div className="mb-6 border-b border-emerald-900/30 pb-2">
                   <h2 
-                    className="text-white font-bold mb-3"
+                    className="text-heading font-bold mb-1"
                     style={{ 
-                      fontFamily: 'Fira Code, monospace',
-                      fontSize: 'clamp(22px, 2.5vw, 28px)'
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: 'clamp(20px, 2.5vw, 24px)'
                     }}
                   >
                     {category.title}
                   </h2>
                   <p 
-                    className="text-[#B0B0B5]"
+                    className="text-body text-sm"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
                     {category.description}
                   </p>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill) => (
-                    <article
+                    <div
                       key={skill.name}
-                      className="skill-card group bg-[#1A1717] border border-[#2A2222] rounded-[14px] p-6 h-full flex flex-col transition-all duration-300 hover:border-[rgba(255,59,59,0.40)] hover:-translate-y-1 hover:shadow-[0_0_12px_rgba(255,59,59,0.15)]"
-                      style={{ backdropFilter: 'blur(2px)' }}
+                      className="group relative bg-white/5 border border-white/10 rounded-full px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:border-amber-500/50 hover:text-amber-400 hover:bg-amber-500/10 hover:shadow-[0_0_15px_rgba(245,158,11,0.3)] hover:-translate-y-0.5"
                     >
-                      {/* Skill Header */}
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 bg-[rgba(229,57,53,0.10)] border border-[rgba(229,57,53,0.25)] rounded-lg flex items-center justify-center flex-shrink-0">
-                          <i 
-                            className={`${getIconClass(skill.icon)} text-white text-2xl group-hover:text-[#FF3B3B] transition-colors duration-300`}
-                            style={{ filter: 'drop-shadow(0 0 6px transparent)' }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.filter = 'drop-shadow(0 0 6px #ff3b3b)'
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.filter = 'drop-shadow(0 0 6px transparent)'
-                            }}
-                          />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="text-white font-semibold mb-1" style={{ fontFamily: 'Fira Code, monospace' }}>
-                            {skill.name} — {skill.level}% ({skill.years} years)
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Progress Bar */}
-                      <div className="space-y-2">
-                        <div 
-                          className="w-full bg-[#2A2525] rounded-full h-2 overflow-hidden"
-                          role="progressbar"
-                          aria-valuenow={skill.level}
-                          aria-valuemin={0}
-                          aria-valuemax={100}
-                          aria-label={`${skill.name} skill level: ${skill.level}%`}
-                          tabIndex={0}
-                          style={{ 
-                            outline: 'none'
-                          }}
-                          onFocus={(e) => {
-                            e.currentTarget.style.outline = '2px solid #FF3B3B'
-                            e.currentTarget.style.outlineOffset = '2px'
-                          }}
-                          onBlur={(e) => {
-                            e.currentTarget.style.outline = 'none'
-                          }}
-                        >
-                          <div 
-                            className="bg-[#FF3B3B] h-full rounded-full transition-all duration-500 hover:animate-pulse"
-                            style={{ 
-                              width: `${skill.level}%`,
-                              animation: 'none'
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.animation = 'pulse 2s infinite'
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.animation = 'none'
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </article>
+                      <i 
+                        className={`${getIconClass(skill.icon)} text-gray-400 text-lg group-hover:text-amber-400 transition-colors duration-300`}
+                        aria-hidden="true"
+                      />
+                      <span className="text-gray-300 text-sm font-medium font-mono group-hover:text-white transition-colors">
+                        {skill.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </section>
@@ -246,10 +195,9 @@ export function Skills() {
           <section ref={workflowRef} className="mb-16">
             <div className="text-center mb-12">
               <h2 
-                className="text-white font-bold mb-4"
+                className="text-white font-bold mb-4 font-sans tracking-tight"
                 style={{ 
-                  fontFamily: 'Fira Code, monospace',
-                  fontSize: 'clamp(24px, 2.8vw, 32px)'
+                  fontSize: 'clamp(24px, 2.5vw, 32px)'
                 }}
               >
                 {skillsData.workflow.title}
@@ -269,11 +217,11 @@ export function Skills() {
               {skillsData.workflow.steps.map((step) => (
                 <article 
                   key={step.number} 
-                  className="workflow-card group bg-[#1A1717] border border-[#2A2222] rounded-[14px] p-6 transition-all duration-300 hover:border-[rgba(255,59,59,0.40)] hover:-translate-y-0.5 hover:shadow-[0_0_12px_rgba(255,59,59,0.2)]"
+                  className="workflow-card group bg-[#050505] border border-white/10 rounded-[14px] p-6 transition-all duration-300 hover:border-amber-500/40 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(251,191,36,0.15)]"
                   style={{ backdropFilter: 'blur(2px)' }}
                 >
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-[#E53935] text-white rounded-lg flex items-center justify-center font-bold text-lg flex-shrink-0" style={{ fontFamily: 'Fira Code, monospace' }}>
+                    <div className="w-12 h-12 bg-amber-500 text-black rounded-lg flex items-center justify-center font-bold text-lg flex-shrink-0" style={{ fontFamily: 'Fira Code, monospace' }}>
                       {step.number}
                     </div>
                     <div className="flex-1 min-w-0">
@@ -291,7 +239,7 @@ export function Skills() {
                     {step.tools.map((tool) => (
                       <span
                         key={tool}
-                        className="px-2 py-1 rounded text-xs bg-[rgba(229,57,53,0.08)] border border-[rgba(229,57,53,0.25)] text-[#D6D6D6] hover:bg-[rgba(255,59,59,0.12)] transition-colors duration-200"
+                        className="px-2 py-1 rounded text-xs bg-white/5 border border-white/10 text-[#D6D6D6] hover:bg-white/10 transition-colors duration-200"
                         style={{ fontFamily: 'Fira Code, monospace' }}
                       >
                         {tool}
@@ -320,7 +268,7 @@ export function Skills() {
                 {skillsData.certifications.map((cert) => (
                   <article 
                     key={cert.name} 
-                    className="group bg-[#1A1717] border border-[#2A2222] rounded-[14px] p-6 transition-all duration-300 hover:border-[rgba(255,59,59,0.40)] hover:-translate-y-0.5 hover:shadow-[0_0_12px_rgba(255,59,59,0.2)]"
+                    className="group bg-[#050505] border border-white/10 rounded-[14px] p-6 transition-all duration-300 hover:border-amber-500/40 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(251,191,36,0.15)]"
                     style={{ backdropFilter: 'blur(2px)' }}
                   >
                     <div className="flex items-start justify-between mb-3">
@@ -336,7 +284,7 @@ export function Skills() {
                         className="px-3 py-1 rounded-full text-white border border-[rgba(229,57,53,0.25)] text-xs"
                         style={{ 
                           fontFamily: 'Fira Code, monospace',
-                          backgroundColor: 'rgba(229,57,53,0.08)'
+                          backgroundColor: 'rgba(245,158,11,0.08)'
                         }}
                       >
                         {cert.date}
@@ -348,7 +296,7 @@ export function Skills() {
                         href={cert.credential}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#E53935] hover:text-[#FF3B3B] inline-flex items-center gap-1 transition-colors duration-300"
+                        className="text-amber-400 hover:text-amber-300 inline-flex items-center gap-1 transition-colors duration-300"
                         style={{ fontFamily: 'Inter, sans-serif' }}
                       >
                         {t('skills.viewCredential')}
@@ -366,7 +314,7 @@ export function Skills() {
           {/* Call to Action */}
           <div ref={ctaRef} className="mt-16 text-center">
             <div 
-              className="bg-[rgba(255,255,255,0.02)] border border-[rgba(229,57,53,0.20)] rounded-[14px] p-8 max-w-2xl mx-auto"
+              className="bg-[rgba(255,255,255,0.02)] border border-amber-500/30 rounded-[14px] p-8 max-w-2xl mx-auto"
               style={{ backdropFilter: 'blur(2px)' }}
             >
               <h3 
@@ -390,14 +338,14 @@ export function Skills() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/contact"
-                  className="bg-[#E53935] hover:bg-[#FF3B3B] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                  className="bg-gradient-to-r from-amber-500 to-orange-600 hover:opacity-90 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(245,158,11,0.4)]"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   {t('skills.workflow.cta.contact')}
                 </a>
                 <a
                   href="/projects"
-                  className="border border-[rgba(229,57,53,0.25)] text-[#E53935] hover:bg-[rgba(255,59,59,0.08)] hover:border-[#E53935] px-6 py-3 rounded-lg font-medium transition-all duration-300"
+                  className="border border-white/10 text-gray-300 hover:bg-white/5 hover:border-white/30 hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-300"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
                   {t('skills.workflow.cta.projects')}
@@ -406,7 +354,7 @@ export function Skills() {
             </div>
           </div>
         </div>
-      </div>
+      </FadeIn>
     </div>
   )
 }

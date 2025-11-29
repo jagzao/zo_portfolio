@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -21,33 +21,29 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "#050505", // Pure Void Black
-        base: "#050505", // Pure Void Black
-        foreground: "#FFFFFF", // Pure White
+        background: "#0F1110", // Deep Black (Canvas)
+        foreground: "#9CA3AF", // Text Body (Gray-400)
         primary: {
-          DEFAULT: "#FFB300", // Cyber Gold
-          foreground: "#000000",
-          200: "#FFE57F",
-          500: "#FFB300",
-        },
-        secondary: {
-          DEFAULT: "#00E5FF", // Neon Cyan/Jade
-          foreground: "#000000",
-        },
-        accent: {
-          DEFAULT: "#D500F9", // Electric Purple
+          DEFAULT: "#059669", // Emerald 600 (Branding)
           foreground: "#FFFFFF",
         },
-        heading: "#FFFFFF", // Pure White
-        main: "#FFFFFF", // Pure White
-        body: "#94A3B8", // Slate 400
-        muted: {
-          DEFAULT: "#94A3B8", // Slate 400
-          foreground: "hsl(var(--muted-foreground))",
+        secondary: {
+          DEFAULT: "#0D9488", // Teal 600 (Tech/Detail)
+          foreground: "#FFFFFF",
         },
+        accent: {
+          DEFAULT: "#EA580C", // Orange 600 (CTA)
+          foreground: "#FFFFFF",
+        },
+        heading: "#F3F4F6", // Text Title (Gray-100)
+        body: "#9CA3AF", // Text Body (Gray-400)
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -57,6 +53,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      fontFamily: {
+        'sans': ['Inter', 'Roboto', 'system-ui', 'sans-serif'],
+        'mono': ['Fira Code', 'JetBrains Mono', 'monospace'],
+        'heading': ['Inter', 'sans-serif'],
+        'body': ['Inter', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -71,16 +73,6 @@ export default {
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
-        },
-        "spin-slow": {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
-        },
-        "morph": {
-          "0%, 100%": { borderRadius: "50%" },
-          "25%": { borderRadius: "58% 42% 56% 44% / 58% 44% 56% 42%" },
-          "50%": { borderRadius: "50% 60% 40% 60% / 48% 58% 42% 52%" },
-          "75%": { borderRadius: "46% 54% 50% 50% / 55% 45% 55% 45%" },
         },
         glow: {
           '0%, 100%': { 
@@ -104,12 +96,10 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "spin-slow": "spin-slow 20s linear infinite",
-        "morph": "morph 8s ease-in-out infinite",
         glow: "glow 2s ease-in-out infinite",
         circuit: "circuit 0.8s ease-in-out",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }

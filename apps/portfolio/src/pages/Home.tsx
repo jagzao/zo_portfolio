@@ -1,9 +1,10 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Download, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AnimatedLogo } from '@/components/AnimatedLogo'
-import { BG } from '@/components/BG'
+import BackgroundGrid from '@/components/BackgroundGrid'
+import { FadeIn } from '@/components/FadeIn'
 import { initializeGSAP, createIntroTimeline, createLogoHoverTimeline, playIntro, createScrollTriggers } from '@/lib/gsap'
 import { gsap } from 'gsap'
 import { useTranslation } from '@/hooks/useI18n'
@@ -38,20 +39,34 @@ export function Home() {
   const handleDownloadCV = () => {
     const link = document.createElement('a')
     link.href = '/cv/JuanZambrano_ATS_Final.pdf'
-    link.download = 'Juan_Zambrano_CV.pdf'
+    link.download = 'JuanZambrano_ATS_Final.pdf'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
   }
+
+  // Interactive Gradient Logic
+  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Calculate percentage position
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setMousePos({ x, y });
+  };
   
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div 
+      className="min-h-screen relative overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
       {/* BG - FIRST CHILD */}
-      <BG opacity={0.3} speed={0.5} />
+      <BackgroundGrid />
       
       
       {/* Hero Content - Single centered column, moved slightly down */}
-      <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10 pt-[calc(24px+env(safe-area-inset-top))]" style={{ paddingTop: '10vh' }}>
+      <FadeIn className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10 pt-[calc(24px+env(safe-area-inset-top)+10vh)] pb-16">
         <div className="max-w-4xl w-full text-center space-y-8">
 
           {/* Logo - Top center */}
@@ -61,57 +76,60 @@ export function Home() {
             </div>
           </div>
 
-          {/* H1 - Mobile optimized */}
-          <h1 className="text-3xl leading-9 sm:text-5xl sm:leading-none font-bold text-white tracking-normal" style={{ fontFamily: 'Fira Code, monospace' }}>
+          {/* H1 - Premium Brand (Sans, Extrabold, White) */}
+          <h1 className="text-3xl sm:text-4xl md:text-7xl leading-tight font-sans font-extrabold tracking-tight text-white text-center text-balance">
             {t('hero.title')}
           </h1>
 
-          {/* H2 - Mobile optimized */}
-          <h2 className="text-lg sm:text-2xl font-semibold text-[#E53935] leading-tight tracking-normal" style={{ fontFamily: 'Fira Code, monospace' }}>
+          {/* H2 - Visual Impact Title (Larger, Brighter, Glowing) */}
+          <h2 className="text-2xl sm:text-3xl font-mono font-extrabold tracking-widest uppercase text-amber-400 drop-shadow-[0_0_10px_rgba(252,211,77,0.6)]">
             {t('hero.subtitle')}
           </h2>
 
           {/* Paragraph - Mobile optimized */}
-          <p className="text-base leading-7 text-[#B0B0B5] max-w-2xl mx-auto" style={{ fontFamily: 'Inter, sans-serif', maxWidth: '720px' }}>
-            {t('hero.description')}
-          </p>
-          
-          {/* Technology Icons */}
-          <div className="flex gap-6 justify-center mt-6 text-4xl tech-icons">
-            <i className="devicon-dotnetcore-plain colored tech-icon" title=".NET" aria-hidden="true"></i>
-            <i className="devicon-react-original colored tech-icon" title="React" aria-hidden="true"></i>
-            <i className="devicon-vuejs-plain colored tech-icon" title="Vue" aria-hidden="true"></i>
-            <i className="devicon-postgresql-plain colored tech-icon" title="PostgreSQL" aria-hidden="true"></i>
+          <div className="relative z-10 p-4 rounded-xl backdrop-blur-[2px] bg-black/10 shadow-[0_0_40px_rgba(0,0,0,0.3)] max-w-2xl mx-auto">
+            <p className="text-base leading-7 text-gray-400 font-body">
+              {t('hero.description')}
+            </p>
           </div>
           
-          {/* Screen reader text */}
-          <span className="sr-only">.NET, React, Vue, PostgreSQL</span>
-          
           {/* CTAs - Mobile full-width, desktop in row */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
-            <Link to="/contact" className="w-full sm:w-auto">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-8 w-full md:w-auto items-center justify-center pt-8 mb-16">
+            <Link to="/projects" className="w-full md:w-auto">
               <Button
-                className="w-full sm:w-auto bg-[#E53935] hover:bg-[#FF3B3B] text-white px-8 py-4 text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0D]"
-                style={{ fontFamily: 'Inter, sans-serif' }}
+                className="w-full md:w-auto bg-gradient-to-r from-amber-500 to-orange-600 hover:opacity-90 text-white px-8 py-4 text-lg font-bold transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.4)] hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background font-body border-none"
+                aria-label="View My Work"
               >
-                <Mail className="w-5 h-5 mr-2" />
-                {t('cta.contact')}
+                View My Work
               </Button>
             </Link>
 
             <Button
               onClick={handleDownloadCV}
               variant="outline"
-              className="w-full sm:w-14 sm:h-14 sm:p-0 border-2 border-[#E53935] text-[#E53935] hover:bg-[#FF3B3B]/10 py-4 px-8 sm:px-0 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0B0D]"
+              className="w-full md:w-auto border-2 border-secondary text-secondary hover:bg-secondary/10 py-4 px-8 transition-all duration-300 hover:shadow-[0_0_15px_#00E5FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background font-body"
               title={t('cta.download')}
+              aria-label={t('cta.download')}
             >
-              <Download className="w-6 h-6 text-[#FF3B3B] sm:mr-0 mr-2" />
-              <span className="sm:hidden">{t('cta.download')}</span>
+              <Download className="w-5 h-5 mr-2" aria-hidden="true" />
+              <span>{t('cta.download')}</span>
             </Button>
           </div>
+
+          {/* Technology Icons - Awakening */}
+          <div className="flex gap-4 justify-center mb-12 flex-wrap">
+            {['dotnetcore', 'react', 'vuejs', 'postgresql', 'azure', 'docker'].map((tech) => (
+              <div key={tech} className="bg-white/5 border border-white/10 hover:border-amber-500/50 backdrop-blur-sm rounded-full p-3 hover:bg-white/10 transition-all duration-300 group">
+                 <i className={`devicon-${tech}-plain text-3xl text-gray-400 group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300`} title={tech} aria-hidden="true"></i>
+              </div>
+            ))}
+          </div>
+          
+          {/* Screen reader text */}
+          <span className="sr-only">.NET, React, Vue, PostgreSQL, Azure, Docker</span>
           
         </div>
-      </div>
+      </FadeIn>
       
     </div>
   )

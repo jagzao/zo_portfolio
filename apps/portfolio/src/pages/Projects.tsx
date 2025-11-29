@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useTranslation } from '@/hooks/useI18n'
 import { BG } from '@/components/BG'
+import { FadeIn } from '@/components/FadeIn'
 import { gsap } from 'gsap'
 import { getReducedMotionPreference } from '@/lib/utils'
 import projectsDataEn from '@/data/projects-en.json'
@@ -100,15 +101,14 @@ export function Projects() {
       <BG opacity={0.25} speed={0.4} />
       
       {/* Main Content */}
-      <div className="relative z-10 pt-[calc(80px+env(safe-area-inset-top))] pb-20 px-4 sm:px-6 lg:px-8">
+      <FadeIn className="relative z-10 pt-[calc(80px+env(safe-area-inset-top))] pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-[1280px] mx-auto">
           
           {/* Header */}
           <div ref={headerRef} className="mb-16 text-center">
             <h1 
-              className="text-white font-bold mb-4"
+              className="text-white font-bold mb-4 font-sans tracking-tight"
               style={{ 
-                fontFamily: 'Fira Code, monospace',
                 fontSize: 'clamp(28px, 3vw, 40px)',
                 lineHeight: 1.2
               }}
@@ -133,14 +133,13 @@ export function Projects() {
               
               {/* Search */}
               <div className="relative w-full lg:w-96">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#B0B0B5] w-4 h-4" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-body w-4 h-4" />
                 <input
                   type="text"
                   placeholder={t('projects.search')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 rounded-lg bg-transparent border border-[rgba(229,57,53,0.25)] text-white placeholder-[#B0B0B5] focus:border-[#E53935] focus:outline-none focus:shadow-[0_0_10px_rgba(255,59,59,0.25)] transition-all duration-300"
-                  style={{ fontFamily: 'Inter, sans-serif' }}
+                  className="w-full pl-10 pr-4 py-3 rounded-lg bg-transparent border border-white/10 text-heading placeholder-body focus:border-amber-500 focus:outline-none focus:shadow-[0_0_10px_rgba(245,158,11,0.25)] transition-all duration-300 font-sans"
                 />
               </div>
               
@@ -150,13 +149,12 @@ export function Projects() {
                   <button
                     key={category.key}
                     onClick={() => setSelectedCategory(category.key)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 border whitespace-nowrap snap-start ${
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 border whitespace-nowrap snap-start font-mono ${
                       selectedCategory === category.key
-                        ? 'bg-[rgba(255,59,59,0.12)] border-[#E53935] text-white shadow-[0_2px_8px_rgba(229,57,53,0.3)]'
-                        : 'bg-transparent border-[rgba(229,57,53,0.25)] text-[#D6D6D6] hover:bg-[rgba(255,59,59,0.08)] hover:border-[#E53935]'
+                        ? 'bg-amber-900/20 border-amber-500 text-white shadow-[0_2px_8px_rgba(245,158,11,0.3)]'
+                        : 'bg-transparent border-white/10 text-body hover:bg-amber-900/10 hover:border-amber-500/50'
                     }`}
                     style={{ 
-                      fontFamily: 'Fira Code, monospace',
                       transform: selectedCategory === category.key ? 'scale(1)' : 'scale(0.98)'
                     }}
                   >
@@ -175,14 +173,12 @@ export function Projects() {
             {filteredProjects.map((project) => (
               <article 
                 key={project.id} 
-                className="project-card group h-full bg-[rgba(255,255,255,0.02)] border border-[rgba(229,57,53,0.20)] rounded-[14px] overflow-hidden transition-all duration-300 hover:border-[rgba(229,57,53,0.40)] hover:-translate-y-1.5 hover:shadow-[0_12px_28px_rgba(229,57,53,0.15)]"
-                style={{ backdropFilter: 'blur(2px)' }}
+                className="project-card group h-full bg-[#050505] border border-white/10 rounded-[14px] overflow-hidden transition-all duration-300 hover:border-amber-500/40 hover:-translate-y-1.5 hover:shadow-[0_0_20px_rgba(251,191,36,0.15)]"
               >
                 {/* Header with Image/Placeholder */}
-                <div className="relative h-60 bg-gradient-to-b from-transparent to-[rgba(0,0,0,0.3)] flex items-center justify-center overflow-hidden">
+                <div className="relative h-60 bg-gradient-to-b from-transparent to-[rgba(0,0,0,0.5)] flex items-center justify-center overflow-hidden border-b border-emerald-900/10">
                   <div 
-                    className="text-6xl font-bold text-[#E53935] opacity-30"
-                    style={{ fontFamily: 'Fira Code, monospace' }}
+                    className="text-6xl font-bold text-white/5 group-hover:text-white/10 transition-colors duration-500 font-mono"
                   >
                     {project.title.charAt(0)}
                   </div>
@@ -190,11 +186,7 @@ export function Projects() {
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
                     <span 
-                      className="px-3 py-1 rounded-full text-white border border-[rgba(229,57,53,0.25)] text-xs"
-                      style={{ 
-                        fontFamily: 'Fira Code, monospace',
-                        backgroundColor: 'rgba(229,57,53,0.08)'
-                      }}
+                      className="px-3 py-1 rounded-full text-cyan-400 border border-cyan-500/30 bg-cyan-950/20 text-xs font-mono backdrop-blur-sm"
                     >
                       {project.category}
                     </span>
@@ -202,33 +194,25 @@ export function Projects() {
                   
                   {/* Year */}
                   <div className="absolute top-4 right-4">
-                    <span className="text-[#B0B0B5] text-xs">{project.year}</span>
+                    <span className="text-body text-xs font-mono">{project.year}</span>
                   </div>
                   
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-15 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-amber-900/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 
                 {/* Content */}
                 <div className="p-6">
                   {/* Title */}
                   <h3 
-                    className="text-white font-bold mb-3 line-clamp-2"
-                    style={{ 
-                      fontFamily: 'Fira Code, monospace',
-                      fontSize: 'clamp(18px, 2vw, 20px)'
-                    }}
+                    className="text-heading font-bold mb-3 line-clamp-2 font-heading text-xl group-hover:text-amber-400 transition-colors"
                   >
                     {project.title}
                   </h3>
                   
                   {/* Description */}
                   <p 
-                    className="text-[#D1D1D6] mb-4 line-clamp-3"
-                    style={{ 
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: 'clamp(14px, 1.5vw, 15px)'
-                    }}
+                    className="text-body mb-4 line-clamp-3 font-sans text-sm leading-relaxed"
                   >
                     {project.description}
                   </p>
@@ -236,8 +220,8 @@ export function Projects() {
                   {/* KPIs */}
                   <div className="grid grid-cols-3 gap-2 mb-4">
                     {Object.entries(project.kpis).slice(0, 3).map(([key, value]) => (
-                      <div key={key} className="text-center p-2 bg-[rgba(255,59,59,0.10)] border border-[rgba(255,59,59,0.25)] rounded text-[#FF3B3B] text-xs">
-                        <div style={{ fontFamily: 'Fira Code, monospace' }}>{value}</div>
+                      <div key={key} className="text-center p-2 bg-cyan-950/20 border border-cyan-500/30 rounded text-cyan-400 text-xs font-mono">
+                        <div>{value}</div>
                       </div>
                     ))}
                   </div>
@@ -247,16 +231,14 @@ export function Projects() {
                     {project.technologies.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 rounded text-xs bg-[rgba(229,57,53,0.08)] border border-[rgba(229,57,53,0.25)] text-[#D6D6D6] hover:bg-[rgba(255,59,59,0.12)] transition-colors duration-200"
-                        style={{ fontFamily: 'Fira Code, monospace' }}
+                        className="px-2 py-1 rounded text-xs bg-white/5 border border-white/10 text-gray-400 font-mono"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 4 && (
                       <span
-                        className="px-2 py-1 rounded text-xs bg-[rgba(229,57,53,0.08)] border border-[rgba(229,57,53,0.25)] text-[#D6D6D6]"
-                        style={{ fontFamily: 'Fira Code, monospace' }}
+                        className="px-2 py-1 rounded text-xs bg-white/5 border border-white/10 text-gray-400 font-mono"
                       >
                         +{project.technologies.length - 4}
                       </span>
@@ -267,8 +249,7 @@ export function Projects() {
                   <div className="flex gap-3">
                     <Link
                       to={`/projects/${project.slug}`}
-                      className="flex-1 bg-[#E53935] hover:bg-[#FF3B3B] text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 text-center flex items-center justify-center gap-2 h-11"
-                      style={{ fontFamily: 'Inter, sans-serif' }}
+                      className="flex-1 bg-gradient-to-r from-amber-500 to-orange-600 hover:opacity-90 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 text-center flex items-center justify-center gap-2 h-11 font-sans shadow-[0_0_15px_rgba(245,158,11,0.4)]"
                     >
                       {t('project.viewProject')}
                       <ArrowRight className="w-4 h-4" />
@@ -278,7 +259,7 @@ export function Projects() {
                         href={project.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 border border-[rgba(229,57,53,0.25)] text-[#E53935] hover:bg-[rgba(255,59,59,0.08)] hover:border-[#E53935] rounded-lg transition-all duration-300 flex items-center justify-center"
+                        className="p-3 border border-white/10 text-gray-400 hover:bg-white/5 hover:border-white/30 hover:text-white rounded-lg transition-all duration-300 flex items-center justify-center"
                         title="View source code"
                       >
                         <Github className="w-4 h-4" />
@@ -295,17 +276,12 @@ export function Projects() {
             <div className="text-center py-16">
               <div className="text-6xl mb-6">🔍</div>
               <h3 
-                className="text-white font-bold mb-4"
-                style={{ 
-                  fontFamily: 'Fira Code, monospace',
-                  fontSize: 'clamp(20px, 2.5vw, 24px)'
-                }}
+                className="text-heading font-bold mb-4 font-heading text-2xl"
               >
                 {t('projects.noResults')}
               </h3>
               <p 
-                className="text-[#B0B0B5] mb-6"
-                style={{ fontFamily: 'Inter, sans-serif' }}
+                className="text-body mb-6 font-sans"
               >
                 {t('projects.noResultsDesc')}
               </p>
@@ -314,15 +290,14 @@ export function Projects() {
                   setSearchTerm('')
                   setSelectedCategory('all')
                 }}
-                className="bg-[#E53935] hover:bg-[#FF3B3B] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300"
-                style={{ fontFamily: 'Inter, sans-serif' }}
+                className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 font-sans"
               >
                 Clear filters
               </button>
             </div>
           )}
         </div>
-      </div>
+      </FadeIn>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { Suspense, useLayoutEffect, useRef, lazy } from 'react'
+import { Suspense, useLayoutEffect, useRef, lazy, memo } from 'react'
 import { getReducedMotionPreference } from '@/lib/utils'
 import { animateCircuitTraces } from '@/lib/gsap'
 import { useCircuitSvg } from '@/hooks/useCircuitSvg'
@@ -12,7 +12,7 @@ interface BGProps {
   speed?: number
 }
 
-export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
+export const BG = memo(function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
   const circuitRef = useRef<HTMLDivElement>(null)
   const svgRef = useRef<SVGSVGElement>(null)
   const reducedMotion = getReducedMotionPreference()
@@ -46,8 +46,8 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
       ref={circuitRef}
       className="fixed inset-0 pointer-events-none overflow-hidden"
       style={{
-        background: '#202124',
-        zIndex: 1,
+        // background: '#0F1110', // Removed to allow X-Ray effect
+        zIndex: 0, // Lower z-index to sit behind content but above X-Ray
         width: '100vw',
         height: '100vh'
       }}
@@ -58,7 +58,7 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
           <div 
             className="absolute inset-0"
             style={{
-              background: 'radial-gradient(circle at 50% 50%, rgba(32, 33, 36, 0.3) 0%, rgba(32, 33, 36, 0.9) 100%)'
+              background: 'radial-gradient(circle at 50% 50%, rgba(15, 17, 16, 0.3) 0%, rgba(15, 17, 16, 0.9) 100%)'
             }}
           />
         }>
@@ -68,7 +68,7 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
         <div 
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(circle at 50% 50%, rgba(32, 33, 36, 0.2) 0%, rgba(32, 33, 36, 0.8) 100%)'
+            background: 'radial-gradient(circle at 50% 50%, rgba(15, 17, 16, 0.2) 0%, rgba(15, 17, 16, 0.8) 100%)'
           }}
         />
       )}
@@ -77,7 +77,7 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
       <div 
         className="absolute inset-0 w-full h-full"
         style={{
-          opacity: 0.85,
+          opacity: 0.05, // Reduced opacity per PRD
           minHeight: '100vh',
           minWidth: '100vw',
           mixBlendMode: 'screen'
@@ -89,7 +89,7 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
           viewBox="0 0 1472 704"
           preserveAspectRatio="none"
           style={{
-            filter: reducedMotion ? 'none' : 'drop-shadow(0 0 5px rgba(255, 59, 59, 0.6))',
+            filter: reducedMotion ? 'none' : 'drop-shadow(0 0 5px rgba(13, 148, 136, 0.6))', // Teal glow
             width: '100%',
             height: '100%',
             position: 'absolute',
@@ -101,7 +101,7 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
           <g 
             className="circuit-traces"
             style={{
-              stroke: '#7A1D1D',
+              stroke: '#0D9488', // Teal 600
               strokeWidth: 0.8,
               fill: 'none',
               opacity: 1,
@@ -113,13 +113,13 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
         </svg>
       </div>
       
-      {/* Subtle accent spots */}
+      {/* Subtle accent spots - Teal/Jade */}
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
           background: `
-            radial-gradient(circle at 20% 30%, rgba(122, 29, 29, 0.03) 0%, transparent 40%),
-            radial-gradient(circle at 80% 70%, rgba(122, 29, 29, 0.02) 0%, transparent 30%)
+            radial-gradient(circle at 20% 30%, rgba(13, 148, 136, 0.03) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(5, 150, 105, 0.02) 0%, transparent 30%)
           `
         }}
       />
@@ -129,11 +129,11 @@ export function BG({ opacity = 0.3, speed = 0.5 }: BGProps) {
         className="absolute inset-0 pointer-events-none"
         style={{
           background: `
-            radial-gradient(ellipse at center, transparent 30%, rgba(32, 33, 36, 0.1) 70%, rgba(32, 33, 36, 0.3) 100%)
+            radial-gradient(ellipse at center, transparent 30%, rgba(15, 17, 16, 0.1) 70%, rgba(15, 17, 16, 0.3) 100%)
           `
         }}
       />
     </div>
   )
-}
+})
 

@@ -137,6 +137,11 @@ apps/portfolio/
 - **RBAC & Banorte Webhook** (ITPS, 2025) - Enterprise banking integration
 - **PTCH Portal** (Pemex, 2024) - HR management system
 
+### Other Roles
+**Software Engineer / Consultant (2013-2017)**
+- **Quality Software Consultant**, **Siemens**, **OrionEarth**, **Lennken Group**
+- Delivered software solutions for HR, finance, and ERP integrations, ensuring maintainability and scalability.
+
 ## 🏆 Achievements
 
 - **Innovation Award 2019** - Grupo Cosmic for ERP Webscraping system

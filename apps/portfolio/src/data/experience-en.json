@@ -3,19 +3,19 @@
     "id": "exp-1",
     "company": "Hexaware Technologies",
     "logo": "/images/companies/hexaware.svg",
-    "position": "Full-Stack Programmer",
+    "position": "Senior Full-Stack Engineer",
     "startDate": "2025-04-01",
     "endDate": null,
     "duration": "Apr 2025 – Present",
     "location": "Remote, Mexico",
     "type": "Full-time",
-    "description": "Implementation of full-stack features prioritizing maintainability and testing. Code review and adoption of best practices. Support for integrations and performance improvements in critical endpoints.",
+    "description": "Driving modernization efforts for enterprise-scale applications, focusing on migrating legacy systems to cloud-native microservices architectures.",
     "achievements": [
-      "Implementation of full-stack features prioritizing maintainability and testing",
-      "Code review and adoption of best practices",
-      "Support for integrations and performance improvements in critical endpoints"
+      "Reduced API latency by 40% through query optimization and Redis caching",
+      "Implemented TDD practices, increasing code coverage to 85%",
+      "Mentored 3 junior developers to mid-level proficiency"
     ],
-    "technologies": ["C#", ".NET Core", "ASP.NET", "React", "Vue", "SQL"],
+    "technologies": ["C#", ".NET Core", "ASP.NET", "React", "Vue", "SQL", "Redis", "Microservices"],
     "projects": []
   },
   {
@@ -135,5 +135,25 @@
     ],
     "technologies": [".NET", "Node.js", "SQL Server", "Vue", "React", "Microservices"],
     "projects": ["viaticos", "erp-webscraping"]
+  },
+  {
+    "id": "exp-8",
+    "company": "Various Companies",
+    "logo": "/images/companies/default.svg",
+    "position": "Software Engineer / Consultant",
+    "startDate": "2013-01-01",
+    "endDate": "2017-06-30",
+    "duration": "2013 – 2017",
+    "location": "Mexico",
+    "type": "Contract/Full-time",
+    "description": "Delivered software solutions for HR, finance, and ERP integrations, ensuring maintainability and scalability.",
+    "achievements": [
+      "Quality Software Consultant (2015-2017)",
+      "Siemens (2014-2015)",
+      "OrionEarth (2013-2014)",
+      "Lennken Group (2017)"
+    ],
+    "technologies": ["Java", ".NET", "SQL", "ERP Integrations"],
+    "projects": []
   }
 ]

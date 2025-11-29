@@ -184,7 +184,7 @@ export function MobileNav() {
 
               {/* Header */}
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-xl font-bold text-white" style={{ fontFamily: 'Fira Code, monospace' }}>
+                <h2 className="text-xl font-bold text-white font-heading">
                   Menu
                 </h2>
                 <button
@@ -207,17 +207,11 @@ export function MobileNav() {
                           ref={index === 0 ? firstLinkRef : undefined}
                           to={item.path}
                           onClick={handleLinkClick}
-                          className={`block py-3 px-4 rounded-lg text-lg font-medium transition-all duration-300 border-b border-transparent hover:border-[#E53935]/40 hover:shadow-[0_0_8px_rgba(255,59,59,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] ${
+                          className={`block py-3 px-4 rounded-lg text-lg font-medium transition-all duration-300 border-b border-transparent hover:border-[#E53935]/40 hover:shadow-[0_0_8px_rgba(255,59,59,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] font-heading min-h-[44px] flex items-center ${
                             isActive
                               ? 'text-[#FF3B3B] bg-[rgba(255,59,59,0.08)] border-[#E53935]/40'
                               : 'text-white hover:text-[#FF3B3B]'
                           }`}
-                          style={{
-                            fontFamily: 'Fira Code, monospace',
-                            minHeight: '44px',
-                            display: 'flex',
-                            alignItems: 'center'
-                          }}
                           role="menuitem"
                         >
                           {t(item.key)}
@@ -230,7 +224,7 @@ export function MobileNav() {
 
               {/* Social Links */}
               <div className="mt-8 pt-6 border-t border-[#2A2222]">
-                <h3 className="text-sm font-medium text-[#B0B0B5] mb-4" style={{ fontFamily: 'Fira Code, monospace' }}>
+                <h3 className="text-sm font-medium text-[#B0B0B5] mb-4 font-heading">
                   {t('contact.followMe')}
                 </h3>
                 <div className="flex gap-3">
@@ -242,8 +236,7 @@ export function MobileNav() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 bg-[#313235] border border-[#E53935]/25 rounded-lg text-[#E53935] hover:bg-[#FF3B3B]/10 hover:border-[#E53935] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B]"
-                        style={{ minHeight: '44px', minWidth: '44px' }}
+                        className="p-3 bg-[#313235] border border-[#E53935]/25 rounded-lg text-[#E53935] hover:bg-[#FF3B3B]/10 hover:border-[#E53935] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] min-h-[44px] min-w-[44px]"
                         aria-label={t(social.key)}
                       >
                         <Icon className="w-5 h-5" />
@@ -256,11 +249,8 @@ export function MobileNav() {
               {/* Language Toggle */}
               <div className="mt-6 pt-4 border-t border-[#2A2222]">
                 <button
-                  className="w-full py-3 px-4 bg-[rgba(255,59,59,0.08)] border border-[#E53935]/25 rounded-lg text-[#E53935] hover:bg-[rgba(255,59,59,0.12)] hover:border-[#E53935] transition-all duration-300 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B]"
-                  style={{
-                    fontFamily: 'Fira Code, monospace',
-                    minHeight: '44px'
-                  }}
+                  className="w-full py-3 px-4 bg-[rgba(255,59,59,0.08)] border border-[#E53935]/25 rounded-lg text-[#E53935] hover:bg-[rgba(255,59,59,0.12)] hover:border-[#E53935] transition-all duration-300 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF3B3B] font-heading min-h-[44px]"
+                  aria-label="Toggle language"
                 >
                   🌐 ES / EN
                 </button>
@@ -268,7 +258,7 @@ export function MobileNav() {
 
               {/* Footer */}
               <div className="mt-6 text-center">
-                <p className="text-xs text-[#B0B0B5]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                <p className="text-xs text-[#B0B0B5] font-body">
                   © 2025 jagzao
                 </p>
               </div>

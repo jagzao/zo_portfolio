@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420">
+<rect width="720" height="420" rx="24" fill="#0B0B0D" stroke="#D4AF37" stroke-opacity=".45"/>
+<g font-family="Inter,Arial"><text x="30" y="44" fill="#D4AF37" font-size="14">ARCHITECTURE LAB</text><text x="30" y="75" fill="#F7F7F5" font-size="22" font-weight="700">Problem → professional architecture</text></g>
+<g stroke="#D4AF37" stroke-width="2" fill="#111114" font-family="Inter,Arial" font-size="12">
+<rect x="45" y="150" width="105" height="54" rx="10"/><rect x="210" y="150" width="105" height="54" rx="10"/><rect x="375" y="150" width="105" height="54" rx="10"/><rect x="540" y="150" width="105" height="54" rx="10"/>
+<rect x="210" y="285" width="105" height="54" rx="10"/><rect x="375" y="285" width="105" height="54" rx="10"/>
+<path d="M150 177h60M315 177h60M480 177h60M262 204v81M428 204v81" fill="none"/>
+<text x="70" y="182" fill="#F7F7F5">Client</text><text x="231" y="182" fill="#F7F7F5">Gateway</text><text x="397" y="182" fill="#F7F7F5">Services</text><text x="564" y="182" fill="#F7F7F5">Events</text><text x="238" y="317" fill="#F7F7F5">Data</text><text x="397" y="317" fill="#F7F7F5">AI/RAG</text>
+</g>
+<circle cx="655" cy="345" r="8" fill="#D01920"/><circle cx="655" cy="345" r="18" fill="#D01920" opacity=".12"/>
+</svg>

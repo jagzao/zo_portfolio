@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+ <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#050505"/><stop offset="1" stop-color="#0b0708"/></linearGradient>
+ <linearGradient id="gold" x1="0" x2="1"><stop stop-color="#9c7420"/><stop offset=".5" stop-color="#f2c94c"/><stop offset="1" stop-color="#8a6418"/></linearGradient>
+ <filter id="g"><feGaussianBlur stdDeviation="9"/></filter>
+ <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#d4af37" stroke-opacity=".035"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#grid)"/>
+<circle cx="1240" cy="145" r="180" fill="#d4af37" opacity=".05" filter="url(#g)"/><circle cx="1450" cy="700" r="220" fill="#d01920" opacity=".055" filter="url(#g)"/>
+<g font-family="Inter,Arial" fill="#f7f7f5">
+ <text x="70" y="58" font-size="18" font-weight="700" fill="#d4af37">JZ</text>
+ <text x="110" y="58" font-size="14">Juan Zambrano</text>
+ <text x="835" y="58" font-size="12" fill="#b9b9b4">Home   Case Studies   Experience   Technical Arsenal   Architecture Lab   Contact</text>
+
+ <text x="70" y="150" font-size="15" fill="#d01920">BUILD • SOLVE • SCALE • IMPROVE</text>
+ <text x="70" y="215" font-size="50" font-weight="800">Senior Software Engineer</text>
+ <text x="70" y="260" font-size="26" fill="#f2c94c">.NET, Node.js, Distributed Systems &amp; Applied AI</text>
+ <text x="70" y="305" font-size="18" fill="#b9b9b4">Secure, scalable enterprise software and modern products —</text>
+ <text x="70" y="332" font-size="18" fill="#b9b9b4">from distributed platforms to AI-powered experiences.</text>
+ <rect x="70" y="370" width="165" height="46" rx="10" fill="url(#gold)"/><text x="95" y="399" font-size="14" fill="#050505" font-weight="700">View Case Studies →</text>
+ <rect x="250" y="370" width="145" height="46" rx="10" fill="#0b0b0d" stroke="#d4af37" stroke-opacity=".6"/><text x="278" y="399" font-size="14">Download CV</text>
+
+ <rect x="1040" y="112" width="470" height="300" rx="22" fill="#0b0b0d" stroke="#d4af37" stroke-opacity=".55"/>
+ <text x="1070" y="150" font-size="13" fill="#d4af37">ARCHITECTURE LAB</text>
+ <text x="1070" y="182" font-size="21" font-weight="700">Describe a problem → generate architecture</text>
+ <g stroke="#d4af37" stroke-width="2" fill="#111114">
+  <rect x="1080" y="235" width="86" height="44" rx="8"/><rect x="1205" y="235" width="86" height="44" rx="8"/><rect x="1330" y="235" width="86" height="44" rx="8"/>
+  <rect x="1142" y="322" width="86" height="44" rx="8"/><rect x="1268" y="322" width="86" height="44" rx="8"/>
+  <path d="M1166 257h39M1291 257h39M1123 279l62 43M1373 279l-62 43" fill="none"/>
+ </g>
+ <text x="1098" y="262" font-size="11">Client</text><text x="1226" y="262" font-size="11">Gateway</text><text x="1351" y="262" font-size="11">API</text>
+ <text x="1160" y="349" font-size="11">Services</text><text x="1290" y="349" font-size="11">Data/AI</text>
+
+ <text x="70" y="485" font-size="13" fill="#d4af37">TRUSTED EXPERIENCE</text>
+ <text x="70" y="520" font-size="24" font-weight="700">Enterprise delivery + products I built</text>
+ <g>
+  <rect x="70" y="555" width="330" height="120" rx="16" fill="#0b0b0d" stroke="#292925"/><text x="95" y="590" font-size="14" fill="#d4af37">ENTERPRISE SECURITY</text><text x="95" y="623" font-size="20" font-weight="700">Distributed authorization</text><text x="95" y="650" font-size="13" fill="#b9b9b4">.NET • React • Azure • RBAC</text>
+  <rect x="420" y="555" width="330" height="120" rx="16" fill="#0b0b0d" stroke="#292925"/><text x="445" y="590" font-size="14" fill="#d4af37">MULTI-TENANT SAAS</text><text x="445" y="623" font-size="20" font-weight="700">Wondernails</text><text x="445" y="650" font-size="13" fill="#b9b9b4">RAG • agents • reminders • quoting</text>
+  <rect x="770" y="555" width="330" height="120" rx="16" fill="#0b0b0d" stroke="#292925"/><text x="795" y="590" font-size="14" fill="#d01920">MEDIA INTELLIGENCE</text><text x="795" y="623" font-size="20" font-weight="700">Zo Media Intelligence</text><text x="795" y="650" font-size="13" fill="#b9b9b4">local-first • multimodal • evidence grounded</text>
+  <rect x="1120" y="555" width="390" height="120" rx="16" fill="#0b0b0d" stroke="#d4af37" stroke-opacity=".4"/><text x="1145" y="590" font-size="14" fill="#d4af37">TECHNICAL ARSENAL</text><text x="1145" y="623" font-size="20" font-weight="700">Interactive evidence graph</text><text x="1145" y="650" font-size="13" fill="#b9b9b4">technology → related stack → public projects</text>
+ </g>
+ <text x="70" y="755" font-size="13" fill="#d4af37">RECRUITER-FIRST</text>
+ <text x="70" y="790" font-size="27" font-weight="700">Clarity first. Evidence second. Technical depth on demand.</text>
+ <text x="70" y="825" font-size="15" fill="#b9b9b4">Black + gold + red • premium engineering lab • fast scanning • deep exploration</text>
+</g>
+</svg>

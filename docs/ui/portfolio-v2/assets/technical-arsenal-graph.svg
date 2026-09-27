@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+<rect width="900" height="520" rx="24" fill="#050505"/>
+<g stroke="#D4AF37" stroke-opacity=".55" fill="none"><path d="M450 260L225 135M450 260L675 135M450 260L225 390M450 260L675 390"/></g>
+<g font-family="Inter,Arial" text-anchor="middle">
+<circle cx="450" cy="260" r="78" fill="#111114" stroke="#D4AF37" stroke-width="2"/><text x="450" y="255" fill="#F7F7F5" font-size="18" font-weight="700">Engineering</text><text x="450" y="280" fill="#D4AF37" font-size="15">Impact</text>
+<circle cx="225" cy="135" r="72" fill="#0B0B0D" stroke="#D4AF37"/><text x="225" y="130" fill="#F7F7F5" font-size="16">Backend</text><text x="225" y="153" fill="#B9B9B4" font-size="12">.NET + Node.js</text>
+<circle cx="675" cy="135" r="72" fill="#0B0B0D" stroke="#D01920"/><text x="675" y="130" fill="#F7F7F5" font-size="16">Frontend</text><text x="675" y="153" fill="#B9B9B4" font-size="12">React + Vue</text>
+<circle cx="225" cy="390" r="72" fill="#0B0B0D" stroke="#D4AF37"/><text x="225" y="385" fill="#F7F7F5" font-size="16">Cloud &amp; Data</text><text x="225" y="408" fill="#B9B9B4" font-size="12">Azure + SQL</text>
+<circle cx="675" cy="390" r="72" fill="#0B0B0D" stroke="#D01920"/><text x="675" y="385" fill="#F7F7F5" font-size="16">Applied AI</text><text x="675" y="408" fill="#B9B9B4" font-size="12">RAG + Agents</text>
+</g>
+</svg>

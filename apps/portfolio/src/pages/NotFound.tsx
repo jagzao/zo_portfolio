@@ -1,96 +1,16 @@
 import { Link } from 'react-router-dom'
-import { Home, ArrowLeft, Search } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { useTranslation } from '@/hooks/useI18n'
 
 export function NotFound() {
-  const { t } = useTranslation()
-  const handleGoBack = () => {
-    window.history.back()
-  }
-  
-  return (
-    <div className="min-h-screen flex items-center justify-center px-8">
-      <Card className="max-w-2xl w-full text-center">
-        <CardContent className="p-12">
-          {/* 404 Visual */}
-          <div className="mb-8">
-            <div className="text-8xl font-heading font-bold text-primary mb-4">
-              404
-            </div>
-            <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
-          </div>
-          
-          {/* Error Message */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-heading font-bold mb-4">
-              {t('notfound.title')}
-            </h1>
-            <p className="text-lg text-muted-foreground mb-2">
-              {t('notfound.description')}
-            </p>
-          </div>
-          
-          {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button asChild size="lg">
-              <Link to="/" className="flex items-center gap-2">
-                <Home className="w-5 h-5" />
-                {t('notfound.home')}
-              </Link>
-            </Button>
-          </div>
-          
-          {/* Quick Links */}
-          <div className="border-t border-border/30 pt-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/projects">{t('nav.projects')}</Link>
-              </Button>
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/experience">{t('nav.experience')}</Link>
-              </Button>
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/skills">{t('nav.skills')}</Link>
-              </Button>
-              <Button variant="ghost" size="sm" asChild>
-                <Link to="/contact">{t('nav.contact')}</Link>
-              </Button>
-            </div>
-          </div>
-          
-          {/* Easter Egg */}
-          <div className="mt-8 pt-8 border-t border-border/30">
-            <div className="text-xs text-muted-foreground/50 font-mono">
-              Error 404: Reality.exe has stopped working
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-      
-      {/* Background Circuit Effect */}
-      <div className="fixed inset-0 pointer-events-none opacity-10 z-[-1]">
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 400 400"
-          className="w-full h-full"
-        >
-          <defs>
-            <pattern id="circuit-404" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path
-                d="M0 20h40M20 0v40M10 10h20v20h-20z"
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-                opacity="0.3"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#circuit-404)" />
-        </svg>
+  return <div className="section-shell flex min-h-screen items-center justify-center pt-32">
+    <div className="premium-panel max-w-2xl p-10 text-center">
+      <p className="font-mono text-sm tracking-[.3em] text-[#D01920]">404</p>
+      <h1 className="mt-4 text-4xl font-extrabold text-white">Page not found</h1>
+      <p className="mt-4 text-[#B9B9B4]">The requested route is not part of the current portfolio.</p>
+      <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <Link to="/" className="btn-gold">Back home</Link>
+        <Link to="/case-studies" className="btn-dark">Case Studies</Link>
+        <Link to="/architecture-lab" className="btn-dark">Architecture Lab</Link>
       </div>
     </div>
-  )
+  </div>
 }

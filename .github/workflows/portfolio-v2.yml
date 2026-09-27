@@ -1,0 +1,66 @@
+name: Portfolio V2 deterministic gates
+
+on:
+  push:
+    branches:
+      - feat/portfolio-v2-completion
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/portfolio
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: apps/portfolio/package-lock.json
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Optional private denylist gate
+        working-directory: .
+        env:
+          PRIVATE_DENYLIST: ${{ secrets.PORTFOLIO_PRIVATE_DENYLIST }}
+        run: |
+          if [ -z "$PRIVATE_DENYLIST" ]; then
+            echo "Private denylist secret is not configured; public case-study allowlist tests remain active."
+            exit 0
+          fi
+          IFS=',' read -ra TERMS <<< "$PRIVATE_DENYLIST"
+          for term in "${TERMS[@]}"; do
+            term="$(echo "$term" | xargs)"
+            [ -z "$term" ] && continue
+            if grep -RniF --exclude-dir=node_modules "$term" apps/portfolio/src apps/portfolio/public; then
+              echo "Blocked private identifier found in public application."
+              exit 1
+            fi
+          done
+
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Unit tests
+        run: npm run test
+      - name: Build
+        run: npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Chromium E2E
+        run: npm run e2e -- --project=chromium
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: apps/portfolio/playwright-report
+          retention-days: 7

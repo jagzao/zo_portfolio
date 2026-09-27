@@ -16,7 +16,8 @@
     "e2e:ui": "playwright test --ui",
     "e2e:debug": "playwright test --debug",
     "typecheck": "tsc --noEmit",
-    "self-heal": "node ../scripts/self-healing.js"
+    "self-heal": "node ../scripts/self-healing.js",
+    "validate": "npm run typecheck && npm run lint && npm run test && npm run build"
   },
   "dependencies": {
     "@fontsource/fira-code": "^5.2.6",

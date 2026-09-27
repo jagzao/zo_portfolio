@@ -1,0 +1,5 @@
+.contact-row{display:flex;align-items:center;gap:1rem;border:1px solid rgba(255,255,255,.07);background:rgba(0,0,0,.35);border-radius:.9rem;padding:1rem;transition:.2s}
+.contact-row:hover{border-color:rgba(212,175,55,.35)}
+.contact-row span{display:flex;flex-direction:column;gap:.2rem}
+.contact-row strong{font-size:.9rem;color:#f7f7f5}
+.contact-row small{font-size:.75rem;color:#7e7e78}

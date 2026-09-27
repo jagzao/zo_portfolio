@@ -1,123 +1,34 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { useTranslation } from '@/hooks/useI18n'
-import { Menu, X, FileText } from 'lucide-react'
+import { FileText, Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+
+const navLinks = [
+  ['Case Studies','/case-studies'],
+  ['Experience','/experience'],
+  ['Technical Arsenal','/technical-arsenal'],
+  ['Architecture Lab','/architecture-lab'],
+  ['Contact','/contact']
+] as const
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { t } = useTranslation()
+  const [scrolled,setScrolled] = useState(false)
+  const [open,setOpen] = useState(false)
   const location = useLocation()
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const handleDownloadCV = () => {
-    window.open('/cv/JuanZambrano_ATS_Final.pdf', '_blank');
-  };
-
-  const navLinks = [
-    { name: 'Projects', href: '/projects' },
-    { name: 'Skills', href: '/skills' },
-    { name: 'Experience', href: '/experience' },
-    { name: 'Contact', href: '/contact' },
-  ]
-
-  return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/5 bg-black/30 backdrop-blur-md',
-        isScrolled ? 'py-4' : 'py-6'
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <picture>
-              <source srcSet="/assets/logos/android-chrome-192x192.webp" type="image/webp" />
-              <img
-                src="/assets/logos/android-chrome-192x192.png"
-                alt="JGZO Logo"
-                className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110"
-              />
-            </picture>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors font-heading uppercase tracking-wider",
-                  location.pathname === link.href 
-                    ? "text-primary" 
-                    : "text-muted hover:text-primary"
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Button 
-              variant="outline" 
-              className="hidden md:flex border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-black transition-all duration-300 font-mono text-xs tracking-widest uppercase"
-              onClick={handleDownloadCV}
-            >
-              <FileText className="w-4 h-4 mr-2" />
-              Resume
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-300 hover:text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+  useEffect(()=>{ const fn=()=>setScrolled(window.scrollY>24); window.addEventListener('scroll',fn); return()=>window.removeEventListener('scroll',fn)},[])
+  useEffect(()=>setOpen(false),[location.pathname])
+  return <nav aria-label="Primary navigation" className={cn('fixed inset-x-0 top-0 z-50 border-b transition-all',scrolled?'border-white/10 bg-[#050505]/92 py-3 backdrop-blur-xl':'border-transparent bg-gradient-to-b from-black/80 to-transparent py-5')}>
+    <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <Link to="/" className="flex items-center gap-3" aria-label="Juan Zambrano home">
+        <span className="grid h-10 w-10 place-items-center rounded-xl border border-[#D4AF37]/50 bg-black text-sm font-extrabold text-[#F2C94C] shadow-[0_0_22px_rgba(212,175,55,.12)]">JZ</span>
+        <span className="hidden text-sm font-semibold text-white sm:block">Juan Zambrano</span>
+      </Link>
+      <div className="hidden items-center gap-6 lg:flex">
+        {navLinks.map(([name,href])=><Link key={href} to={href} className={cn('text-sm transition-colors',location.pathname.startsWith(href)?'text-[#F2C94C]':'text-[#B9B9B4] hover:text-white')}>{name}</Link>)}
+        <a href="/cv/JuanZambrano_ATS_Final.pdf" className="btn-dark px-4 py-2 text-xs"><FileText className="h-4 w-4"/> Resume</a>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[#0F1110] border-b border-emerald-900/30 p-4 animate-in slide-in-from-top-5">
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={cn(
-                  "text-base font-medium py-2 block font-heading",
-                  location.pathname === link.href 
-                    ? "text-primary" 
-                    : "text-gray-300 hover:text-primary"
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Button 
-              variant="outline" 
-              className="w-full border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-black transition-all duration-300 font-mono text-xs tracking-widest uppercase"
-              onClick={handleDownloadCV}
-            >
-              <FileText className="w-4 h-4 mr-2" />
-              Resume
-            </Button>
-          </div>
-        </div>
-      )}
-    </nav>
-  )
+      <button className="rounded-lg border border-white/10 p-2 text-white lg:hidden" onClick={()=>setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation">{open?<X/>:<Menu/>}</button>
+    </div>
+    {open&&<div className="mx-4 mt-3 rounded-2xl border border-[#D4AF37]/20 bg-[#0B0B0D] p-4 lg:hidden">{navLinks.map(([name,href])=><Link key={href} to={href} className="block rounded-lg px-3 py-3 text-[#B9B9B4] hover:bg-white/5 hover:text-white">{name}</Link>)}<a href="/cv/JuanZambrano_ATS_Final.pdf" className="mt-2 block rounded-lg px-3 py-3 text-[#F2C94C]">Download CV</a></div>}
+  </nav>
 }

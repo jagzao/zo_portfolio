@@ -1,167 +1,119 @@
-# Juan German Zambrano Ortega - Portfolio
+# Juan Zambrano — Portfolio V2
 
-**Full-Stack Software Engineer | .NET Core, Node.js, React, Vue, SQL**
+**Senior Software Engineer — .NET, Node.js, Distributed Systems & Applied AI**
 
-Professional portfolio showcasing 10+ years of experience in scalable, secure application development with expertise in Clean Architecture, SOLID principles, CQRS patterns, and modern web technologies.
+Recruiter-first professional portfolio focused on evidence, real systems and technical depth on demand.
 
-## 🌐 Live Demo
-[Visit Portfolio](https://zo-portfolio.pages.dev/)
+**Live:** https://zo-portfolio.pages.dev/
 
-## 🛠 Tech Stack
+## Portfolio V2
 
-### Frontend
-- **React** with TypeScript
-- **Vite** for build tooling
-- **Tailwind CSS** for styling
-- **GSAP** for animations
-- **Three.js** for 3D effects
-- **Lucide React** for icons
-- **Devicon** for technology icons
+The V2 information architecture is intentionally simple to scan:
 
-### UI & Components
-- **shadcn/ui** - Component library
-- **Radix UI** - Accessible primitives
-- **Sonner** - Toast notifications
-- **Zod** - Type validation
+- **Home** — positioning, credibility, measurable impact and clear CTAs
+- **Case Studies** — enterprise work and products I built
+- **Experience** — direct recruiter-readable chronology and impact
+- **Technical Arsenal** — interactive technology/evidence graph
+- **Architecture Lab** — deterministic architecture generator
+- **Contact** — direct professional channels
 
-### Development Tools
-- **Visual Studio / VS Code**
-- **Git** - Version control
-- **GitHub Actions** - CI/CD
-- **xUnit + Moq** - Testing framework
+### Public products
 
-## 🎯 Features
+**Wondernails** — multi-tenant SaaS with tenant-aware automation, RAG and controlled agent workflows.
 
-- **Responsive Design** - Optimized for all devices
-- **Dark Theme** - Professional red/black color scheme
-- **Smooth Animations** - GSAP-powered transitions
-- **Interactive Elements** - Circuit background with Three.js
-- **Multilingual** - English/Spanish support
-- **Accessibility** - ARIA compliant, keyboard navigation
-- **Performance Optimized** - Fast loading, optimized assets
+**Zo Media Intelligence** — local-first multimodal media intelligence that turns screen recordings into evidence-grounded documentation and AI-ready knowledge.
 
-## 📱 Pages
+## Architecture Lab
 
-- **Home** - Hero section with animated logo and tech stack
-- **Projects** - Featured projects with real case studies
-- **Skills** - Technical expertise with Devicon visualization
-- **Experience** - Professional timeline with achievements
-- **Contact** - Contact form and professional information
+The Architecture Lab does **not** require an LLM.
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/jagzao/zo_portfolio.git
-cd zo_portfolio
+```text
+Problem description / guided constraints
+        ↓
+deterministic requirement normalization
+        ↓
+rules
+        ↓
+architecture model
+        ↓
+SVG graph + rationale + trade-offs + risks
 ```
 
-2. Navigate to the portfolio app:
+The same normalized requirements and rule version produce the same deterministic hash.
+
+An optional LLM normalizer can be added later for richer natural-language parsing, but the LLM must never be the architecture decision engine.
+
+## Technical stack
+
+- React 18 + TypeScript + Vite
+- Tailwind CSS
+- Zod
+- Playwright
+- Vitest
+- GSAP / Three.js retained for selected visual effects
+- Cloudflare Pages / PWA support
+
+## Design
+
+V2 visual direction:
+
+- deep black canvas
+- gold primary accent
+- controlled red emphasis
+- premium engineering-lab aesthetic
+- recruiter readability before decoration
+- reduced-motion support
+- keyboard-accessible interactive graphs
+
+The approved visual source is:
+
+`docs/ui/portfolio-v2/approved/00_APPROVED_MASTER_BOARD.svg`
+
+## Run locally
+
 ```bash
+git fetch origin
+git switch feat/portfolio-v2-completion
+
 cd apps/portfolio
-```
-
-3. Install dependencies:
-```bash
 npm install
-```
-
-4. Start development server:
-```bash
+npm run typecheck
+npm run lint
+npm run test
 npm run dev
 ```
 
-5. Open your browser and navigate to `http://localhost:5173`
+Open:
 
-### Build for Production
+`http://localhost:3000`
+
+### Browser E2E
 
 ```bash
-npm run build
-npm run preview
+npx playwright install chromium
+npm run e2e -- --project=chromium
 ```
 
-## 📦 Project Structure
+## Deterministic release gates
 
-```
-apps/portfolio/
-├── public/
-│   ├── cv/                 # CV and resume files
-│   └── circuit.svg         # Background circuit pattern
-├── src/
-│   ├── components/         # Reusable UI components
-│   ├── data/              # JSON data files (projects, skills, experience)
-│   ├── hooks/             # Custom React hooks (i18n)
-│   ├── lib/               # Utility functions and GSAP animations
-│   ├── pages/             # Main page components
-│   └── styles/            # Global styles and Tailwind config
-└── README.md
-```
+The repo defines gates for:
 
-## 🎨 Design System
+- TypeScript
+- ESLint
+- Vitest
+- production build
+- Playwright Chromium
+- public private-name scan
 
-### Colors
-- **Primary Red**: `#E53935`, `#FF3B3B`
-- **Dark Red**: `#7A1D1D`
-- **Background**: `#0B0B0D`, `#1A1717`
-- **Borders**: `#2A2222`
-- **Text**: `#FFFFFF`, `#B0B0B5`, `#D1D1D6`
+See:
 
-### Typography
-- **Headings**: Fira Code (monospace)
-- **Body**: Inter (sans-serif)
-- **Responsive**: clamp() for fluid scaling
+- `docs/PORTFOLIO_V2_COMPLETION_AUDIT.md`
+- `docs/ui/portfolio-v2/README_FIRST.md`
 
-### Animations
-- **GSAP Timeline** - Smooth page transitions
-- **Stagger Effects** - Progressive element reveals
-- **Hover States** - Interactive feedback
-- **Reduced Motion** - Accessibility support
+## Branch policy
 
-## 💼 Professional Experience
+The final implementation is developed on:
 
-### Current Role
-**Hexaware Technologies** - Full-Stack Programmer (Apr 2025 – Present)
-- Implementation of full-stack features prioritizing maintainability
-- Code review and adoption of best practices
-- Performance improvements in critical endpoints
+`feat/portfolio-v2-completion`
 
-### Recent Projects
-- **RAG Toolkit** (.NET/Python, 2025) - AI document processing system
-- **Saloneo** (2025) - Multi-tenant SaaS for beauty salons
-- **RBAC & Banorte Webhook** (ITPS, 2025) - Enterprise banking integration
-- **PTCH Portal** (Pemex, 2024) - HR management system
-
-### Other Roles
-**Software Engineer / Consultant (2013-2017)**
-- **Quality Software Consultant**, **Siemens**, **OrionEarth**, **Lennken Group**
-- Delivered software solutions for HR, finance, and ERP integrations, ensuring maintainability and scalability.
-
-## 🏆 Achievements
-
-- **Innovation Award 2019** - Grupo Cosmic for ERP Webscraping system
-- **10+ Years Experience** - Full-stack development
-- **Enterprise Solutions** - Banking, government, corporate clients
-- **Clean Architecture Advocate** - SOLID, DDD, CQRS patterns
-
-## 📧 Contact
-
-- **Email**: [jagzao@gmail.com](mailto:jagzao@gmail.com)
-- **LinkedIn**: [linkedin.com/in/jagzao](https://linkedin.com/in/jagzao)
-- **GitHub**: [github.com/jagzao](https://github.com/jagzao)
-- **Location**: Texcoco, México
-- **WhatsApp**: [+52 55 4926 4189](https://wa.me/525549264189)
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**Available for freelance projects and full-time opportunities**  
-*Focused on impact and quality delivery*
+Do not merge to `master` until owner visual/local validation.

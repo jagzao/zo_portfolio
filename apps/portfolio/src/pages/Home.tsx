@@ -1,136 +1,80 @@
-import { useLayoutEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Download, Mail } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { AnimatedLogo } from '@/components/AnimatedLogo'
-import BackgroundGrid from '@/components/BackgroundGrid'
-import { FadeIn } from '@/components/FadeIn'
-import { initializeGSAP, createIntroTimeline, createLogoHoverTimeline, playIntro, createScrollTriggers } from '@/lib/gsap'
-import { gsap } from 'gsap'
-import { useTranslation } from '@/hooks/useI18n'
+import { ArrowRight, Download, Linkedin, ShieldCheck, Network, Cloud, BrainCircuit } from 'lucide-react'
+import { capabilityCards, caseStudies, experience } from '@/data/portfolio'
+import { generateArchitecture, defaultArchitectureRequirements } from '@/lib/architectureLab'
+import { ArchitectureGraph } from '@/components/ArchitectureGraph'
+
+const icons = [ShieldCheck, Network, Cloud, BrainCircuit]
 
 export function Home() {
-  const initialized = useRef(false)
-  const { t } = useTranslation()
-  
-  useLayoutEffect(() => {
-    if (initialized.current) return
-    initialized.current = true
-    
-    const ctx = gsap.context(() => {
-      // Initialize GSAP and animations
-      initializeGSAP()
-      createIntroTimeline()
-      createLogoHoverTimeline()
-      createScrollTriggers()
-    })
-    
-    // Play intro animation
-    const timer = setTimeout(() => {
-      playIntro()
-    }, 300)
-    
-    return () => {
-      clearTimeout(timer)
-      ctx.revert()
-    }
-  }, [])
-  
-  const handleDownloadCV = () => {
-    const link = document.createElement('a')
-    link.href = '/cv/JuanZambrano_ATS_Final.pdf'
-    link.download = 'JuanZambrano_ATS_Final.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
+  const teaser = generateArchitecture(defaultArchitectureRequirements)
+  const teaserNodes = teaser.nodes.slice(0, 8)
+  const teaserIds = new Set(teaserNodes.map(n => n.id))
+  const teaserEdges = teaser.edges.filter(e => teaserIds.has(e.from) && teaserIds.has(e.to))
 
-  // Interactive Gradient Logic
-  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Calculate percentage position
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
-    setMousePos({ x, y });
-  };
-  
   return (
-    <div 
-      className="min-h-screen relative overflow-hidden"
-      onMouseMove={handleMouseMove}
-    >
-      {/* BG - FIRST CHILD */}
-      <BackgroundGrid />
-      
-      
-      {/* Hero Content - Single centered column, moved slightly down */}
-      <FadeIn className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10 pt-[calc(24px+env(safe-area-inset-top)+10vh)] pb-16">
-        <div className="max-w-4xl w-full text-center space-y-8">
-
-          {/* Logo - Top center */}
-          <div className="mb-8">
-            <div className="w-28 h-28 sm:w-40 sm:h-40 mx-auto">
-              <AnimatedLogo size={176} />
+    <div className="min-h-screen">
+      <section className="relative overflow-hidden px-4 pb-20 pt-32 sm:px-6 lg:px-8">
+        <div className="premium-grid absolute inset-0 opacity-70" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
+          <div>
+            <p className="mb-5 font-mono text-xs uppercase tracking-[.34em] text-[#D01920]">Build · Solve · Scale · Improve</p>
+            <h1 className="max-w-4xl text-left text-5xl font-extrabold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl">Senior Software Engineer</h1>
+            <p className="mt-5 text-xl font-semibold text-[#F2C94C] sm:text-2xl">.NET, Node.js, Distributed Systems & Applied AI</p>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#B9B9B4]">I build and modernize secure, scalable enterprise software and product systems — from distributed backends and cloud platforms to AI-powered experiences.</p>
+            <div className="mt-8 flex flex-wrap gap-3 text-sm text-[#B9B9B4]">
+              <span className="premium-chip">14+ years</span><span className="premium-chip">Mexico · Remote US/LATAM</span><span className="premium-chip">English B2</span>
+            </div>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link to="/case-studies" className="btn-gold">View Case Studies <ArrowRight className="h-4 w-4"/></Link>
+              <a href="/cv/JuanZambrano_ATS_Final.pdf" download className="btn-dark"><Download className="h-4 w-4"/> Download CV</a>
+              <a href="https://www.linkedin.com/in/jagzao/" target="_blank" rel="noreferrer" className="btn-dark"><Linkedin className="h-4 w-4"/> LinkedIn</a>
             </div>
           </div>
-
-          {/* H1 - Premium Brand (Sans, Extrabold, White) */}
-          <h1 className="text-3xl sm:text-4xl md:text-7xl leading-tight font-sans font-extrabold tracking-tight text-white text-center text-balance">
-            {t('hero.title')}
-          </h1>
-
-          {/* H2 - Visual Impact Title (Larger, Brighter, Glowing) */}
-          <h2 className="text-2xl sm:text-3xl font-mono font-extrabold tracking-widest uppercase text-amber-400 drop-shadow-[0_0_10px_rgba(252,211,77,0.6)]">
-            {t('hero.subtitle')}
-          </h2>
-
-          {/* Paragraph - Mobile optimized */}
-          <div className="relative z-10 p-4 rounded-xl backdrop-blur-[2px] bg-black/10 shadow-[0_0_40px_rgba(0,0,0,0.3)] max-w-2xl mx-auto">
-            <p className="text-base leading-7 text-gray-400 font-body">
-              {t('hero.description')}
-            </p>
+          <div className="premium-panel p-5">
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <div><p className="font-mono text-xs uppercase tracking-[.25em] text-[#D4AF37]">Architecture Lab</p><h2 className="mt-2 text-left text-xl font-bold text-white">Describe constraints → generate architecture</h2></div>
+              <Link to="/architecture-lab" className="text-sm font-semibold text-[#F2C94C] hover:text-white">Try it →</Link>
+            </div>
+            <ArchitectureGraph nodes={teaserNodes} edges={teaserEdges}/>
           </div>
-          
-          {/* CTAs - Mobile full-width, desktop in row */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-8 w-full md:w-auto items-center justify-center pt-8 mb-16">
-            <Link to="/projects" className="w-full md:w-auto">
-              <Button
-                className="w-full md:w-auto bg-gradient-to-r from-amber-500 to-orange-600 hover:opacity-90 text-white px-8 py-4 text-lg font-bold transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.4)] hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background font-body border-none"
-                aria-label="View My Work"
-              >
-                View My Work
-              </Button>
-            </Link>
-
-            <Button
-              onClick={handleDownloadCV}
-              variant="outline"
-              className="w-full md:w-auto border-2 border-secondary text-secondary hover:bg-secondary/10 py-4 px-8 transition-all duration-300 hover:shadow-[0_0_15px_#00E5FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-background font-body"
-              title={t('cta.download')}
-              aria-label={t('cta.download')}
-            >
-              <Download className="w-5 h-5 mr-2" aria-hidden="true" />
-              <span>{t('cta.download')}</span>
-            </Button>
-          </div>
-
-          {/* Technology Icons - Awakening */}
-          <div className="flex gap-4 justify-center mb-12 flex-wrap">
-            {['dotnetcore', 'react', 'vuejs', 'postgresql', 'azure', 'docker'].map((tech) => (
-              <div key={tech} className="bg-white/5 border border-white/10 hover:border-amber-500/50 backdrop-blur-sm rounded-full p-3 hover:bg-white/10 transition-all duration-300 group">
-                 <i className={`devicon-${tech}-plain text-3xl text-gray-400 group-hover:text-amber-400 group-hover:scale-110 transition-all duration-300`} title={tech} aria-hidden="true"></i>
-              </div>
-            ))}
-          </div>
-          
-          {/* Screen reader text */}
-          <span className="sr-only">.NET, React, Vue, PostgreSQL, Azure, Docker</span>
-          
         </div>
-      </FadeIn>
-      
+      </section>
+
+      <section className="border-y border-white/5 bg-black/30 px-4 py-7 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-10 gap-y-3">
+          <span className="font-mono text-xs uppercase tracking-[.22em] text-[#D4AF37]">Trusted experience</span>
+          {['EY','Chevron','Grupo Cosmic','Enterprise SaaS','Financial Systems'].map(item => <span key={item} className="text-base font-semibold text-white/80">{item}</span>)}
+        </div>
+      </section>
+
+      <section className="section-shell">
+        <p className="section-kicker">What I focus on</p><h2 className="section-title">Engineering with measurable impact</h2>
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {capabilityCards.map((card,index) => { const Icon = icons[index]; return <article key={card.title} className="premium-card"><Icon className="h-6 w-6 text-[#F2C94C]"/><h3 className="mt-5 text-left text-xl font-bold text-white">{card.title}</h3><p className="mt-3 text-sm leading-6 text-[#B9B9B4]">{card.description}</p></article> })}
+        </div>
+      </section>
+
+      <section className="section-shell pt-0">
+        <div className="flex items-end justify-between gap-4"><div><p className="section-kicker">Evidence</p><h2 className="section-title">Featured case studies</h2></div><Link to="/case-studies" className="hidden text-sm font-semibold text-[#F2C94C] sm:block">View all case studies →</Link></div>
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {caseStudies.filter(c=>c.featured).slice(0,3).map(item => <Link key={item.slug} to={'/case-studies/'+item.slug} className="premium-card group"><p className="font-mono text-[11px] uppercase tracking-[.2em] text-[#D01920]">{item.group}</p><h3 className="mt-4 text-left text-2xl font-bold text-white group-hover:text-[#F2C94C]">{item.title}</h3><p className="mt-4 text-sm leading-6 text-[#B9B9B4]">{item.summary}</p><div className="mt-5 flex flex-wrap gap-2">{item.technologies.slice(0,4).map(t=><span key={t} className="tech-pill">{t}</span>)}</div></Link>)}
+        </div>
+      </section>
+
+      <section className="section-shell pt-0">
+        <div className="premium-panel grid gap-8 p-8 lg:grid-cols-[1fr_1.1fr]">
+          <div><p className="section-kicker">Technical depth</p><h2 className="text-left text-3xl font-bold text-white">Explore the Technical Arsenal</h2><p className="mt-4 max-w-xl text-[#B9B9B4]">Explore technologies as connected evidence: related stack, patterns and public projects.</p><Link to="/technical-arsenal" className="btn-gold mt-7 inline-flex">Open Technical Arsenal <ArrowRight className="h-4 w-4"/></Link></div>
+          <div className="grid grid-cols-2 gap-3 text-sm">{['.NET / C#','Node.js / NestJS','React / TypeScript','Azure / SQL','RAG / Agents','Messaging / Redis'].map(x=><div key={x} className="rounded-2xl border border-[#D4AF37]/20 bg-black/50 p-4 text-white">{x}</div>)}</div>
+        </div>
+      </section>
+
+      <section className="section-shell pt-0">
+        <div className="flex items-end justify-between"><div><p className="section-kicker">Professional journey</p><h2 className="section-title">Selected experience</h2></div><Link to="/experience" className="text-sm font-semibold text-[#F2C94C]">Full experience →</Link></div>
+        <div className="mt-8 divide-y divide-white/5 rounded-3xl border border-white/5 bg-black/30">
+          {experience.slice(0,3).map(item => <div key={item.company} className="grid gap-2 p-6 md:grid-cols-[220px_1fr]"><div><h3 className="text-left text-lg font-bold text-white">{item.company}</h3><p className="text-sm text-[#D4AF37]">{item.role}</p></div><div><p className="text-sm text-[#7E7E78]">{item.period} · {item.mode}</p><p className="mt-2 text-[#B9B9B4]">{item.impact}</p></div></div>)}
+        </div>
+      </section>
     </div>
   )
 }

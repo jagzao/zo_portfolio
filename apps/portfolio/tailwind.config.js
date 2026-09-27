@@ -1,115 +1,36 @@
+import animate from 'tailwindcss-animate'
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ["class"],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
-  prefix: "",
+  darkMode: ['class'],
+  content: ['./index.html','./src/**/*.{ts,tsx}'],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
+    container: { center:true, padding:'2rem', screens:{ '2xl':'1400px' } },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "#050505", // Pure Void Black
-        base: "#050505", // Pure Void Black
-        foreground: "#FFFFFF", // Pure White
-        primary: {
-          DEFAULT: "#FFB300", // Cyber Gold
-          foreground: "#000000",
-          200: "#FFE57F",
-          500: "#FFB300",
-        },
-        secondary: {
-          DEFAULT: "#00E5FF", // Neon Cyan/Jade
-          foreground: "#000000",
-        },
-        accent: {
-          DEFAULT: "#D500F9", // Electric Purple
-          foreground: "#FFFFFF",
-        },
-        heading: "#FFFFFF", // Pure White
-        main: "#FFFFFF", // Pure White
-        body: "#94A3B8", // Slate 400
-        muted: {
-          DEFAULT: "#94A3B8", // Slate 400
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        border: '#292925',
+        input: '#292925',
+        ring: '#F2C94C',
+        background: '#050505',
+        foreground: '#F7F7F5',
+        primary: { DEFAULT:'#D4AF37', foreground:'#050505' },
+        secondary: { DEFAULT:'#D01920', foreground:'#FFFFFF' },
+        accent: { DEFAULT:'#F2C94C', foreground:'#050505' },
+        heading: '#F7F7F5',
+        body: '#B9B9B4',
+        muted: { DEFAULT:'#111114', foreground:'#7E7E78' },
+        destructive: { DEFAULT:'#D01920', foreground:'#FFFFFF' },
+        popover: { DEFAULT:'#0B0B0D', foreground:'#F7F7F5' },
+        card: { DEFAULT:'#0B0B0D', foreground:'#F7F7F5' }
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      fontFamily: {
+        sans:['Inter','system-ui','sans-serif'],
+        mono:['Fira Code','monospace'],
+        heading:['Inter','system-ui','sans-serif'],
+        body:['Inter','system-ui','sans-serif']
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-        "spin-slow": {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
-        },
-        "morph": {
-          "0%, 100%": { borderRadius: "50%" },
-          "25%": { borderRadius: "58% 42% 56% 44% / 58% 44% 56% 42%" },
-          "50%": { borderRadius: "50% 60% 40% 60% / 48% 58% 42% 52%" },
-          "75%": { borderRadius: "46% 54% 50% 50% / 55% 45% 55% 45%" },
-        },
-        glow: {
-          '0%, 100%': { 
-            boxShadow: '0 0 20px rgba(255, 59, 59, 0.3)' 
-          },
-          '50%': { 
-            boxShadow: '0 0 40px rgba(255, 59, 59, 0.8)' 
-          },
-        },
-        circuit: {
-          '0%': { 
-            strokeDasharray: '1000',
-            strokeDashoffset: '1000' 
-          },
-          '100%': { 
-            strokeDasharray: '1000',
-            strokeDashoffset: '0' 
-          },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "spin-slow": "spin-slow 20s linear infinite",
-        "morph": "morph 8s ease-in-out infinite",
-        glow: "glow 2s ease-in-out infinite",
-        circuit: "circuit 0.8s ease-in-out",
-      },
-    },
+      borderRadius: { lg:'18px', md:'12px', sm:'8px' }
+    }
   },
-  plugins: [],
+  plugins:[animate]
 }

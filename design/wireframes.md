@@ -1,56 +1,99 @@
-# Wireframes — Portfolio Layout
+# Portfolio V2 — Wireframes
 
-## Home Layout
-```
-[TL: Projects]                    [TR: Skills]
-            [HERO - Logo Hexagonal]
-            [Subtitle + CTAs]
-[ML: Social]                      [MR: Empty]
-                     
-[BL: Experience]                  [BR: Contact]
-```
+## Home
+```text
+[Nav: Home | Case Studies | Experience | Technical Arsenal | Architecture Lab | Contact]
 
-## Navigation Corners
-- **TL (Top Left)**: Projects
-- **TR (Top Right)**: Skills  
-- **ML (Middle Left)**: GitHub + LinkedIn
-- **BL (Bottom Left)**: Experience
-- **BR (Bottom Right)**: Contact
-
-## Grid Layouts
-### Projects Grid (Desktop)
-```
-[Card] [Card] [Card]
-[Card] [Card] [Card]
-```
-
-### Projects Grid (Mobile)
-```
-[Card]
-[Card] 
-[Card]
+┌────────────────────────────────────────────────────────────┐
+│ Senior Software Engineer               [Architecture Lab]  │
+│ .NET, Node.js, Distributed Systems     [animated teaser]   │
+│ & Applied AI                                               │
+│ value statement                                            │
+│ [View Case Studies] [Download CV] [LinkedIn]              │
+├────────────────────────────────────────────────────────────┤
+│ Trusted experience / credibility strip                     │
+├────────────────────────────────────────────────────────────┤
+│ Engineering with measurable impact — 4 capability cards    │
+├────────────────────────────────────────────────────────────┤
+│ Featured Case Studies — 3/4 strong cards                   │
+├────────────────────────────────────────────────────────────┤
+│ Core Expertise — concise groups, not 60 badges             │
+├────────────────────────────────────────────────────────────┤
+│ Architecture Lab teaser — problem → graph → rationale      │
+├────────────────────────────────────────────────────────────┤
+│ Selected Experience                                        │
+├────────────────────────────────────────────────────────────┤
+│ Final CTA                                                   │
+└────────────────────────────────────────────────────────────┘
 ```
 
-## Project Detail Structure
-```
-[Breadcrumbs]
-[Title + KPIs]
-[Context Section]
-[Solution Section]
-[Results Section]
-[Role Section]  
-[Tech Stack]
-[Gallery]
-[Next Projects]
+## Case Studies index
+```text
+[Title + short proof statement]
+[Search] [All][Enterprise][SaaS][AI][Backend][Frontend][Mobile]
+
+Enterprise Work
+[Case] [Case]
+[Case] [Case]
+
+Products I Built
+[Wondernails] [Zo Media Intelligence] [...]
 ```
 
-## Timeline (Experience)
+## Case Study detail
+```text
+[Breadcrumb]
+[Title / one-line outcome] [visual]
+[Overview tabs: Overview | Challenge | Solution | Architecture | Results | Stack]
+
+[Key results]
+[Architecture snapshot]
+[Challenge] [Solution] [My Role]
+[Tech stack]
 ```
-Company Logo | Title
-             | Duration
-             | Achievements
-             |
-Company Logo | Title
-             | Duration
-             | Achievements
+
+## Experience
+```text
+[Professional Experience]
+[Company logo] Company / role / dates
+               impact bullet
+               impact bullet
+               stack
+
+[Company logo] ...
+[Earlier Experience ▾]
+```
+
+## Technical Arsenal
+```text
+[Search technologies]
+[Domain tabs]
+
+        [.NET]────[ASP.NET Core]
+          │            │
+[Messaging]──[Backend & Distributed]──[Node/NestJS]
+          │            │
+     [PostgreSQL]    [Redis]
+
+[Selected technology context]
+[Related public projects]
+[Evidence / experience]
+```
+
+## Architecture Lab
+```text
+[Describe your problem............................][Generate]
+
+[Guided constraints]
+Use case | backend | scale | tenancy | auth | async | realtime | audit | AI | data
+
+┌──────────── architecture graph ─────────────┐
+│ Client → Gateway → Services → Data / Events │
+└─────────────────────────────────────────────┘
+
+[Recommended components]
+[Why this architecture]
+[Trade-offs]
+[Risks]
+[Simpler] [Enterprise]
 ```
